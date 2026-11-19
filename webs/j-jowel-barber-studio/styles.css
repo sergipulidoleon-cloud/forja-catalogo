@@ -1,0 +1,399 @@
+/* J Jowel Barber Studio: barbería urbana. Hormigón, spray naranja, cobalto. Nervioso y rápido. */
+:root {
+  --hormigon: #8a8d8f;
+  --hormigon-2: #7b7e80;
+  --spray: #ff5a1f;
+  --cobalto: #2340ff;
+  --blanco: #ffffff;
+  --asfalto: #1c1d1f;
+  --fg: var(--asfalto);
+  --bg: var(--hormigon);
+  --accent: var(--asfalto);
+  --accent-fg: #fff;
+  --muted: #2b2d30;
+  --line: rgb(28 29 31 / 0.25);
+  --focus: var(--cobalto);
+  --radius: 4px;
+  --font-body: 'Archivo Variable', Archivo, system-ui, sans-serif;
+  --font-display: 'Permanent Marker', 'Comic Sans MS', cursive;
+  --cursor-color: var(--spray);
+  --cursor-label: var(--asfalto);
+  --wrap: min(1200px, 100% - 2 * var(--gutter));
+}
+body {
+  font-stretch: 112%;
+  font-size: 1.04rem;
+  background:
+    radial-gradient(circle at 20% 30%, rgb(255 255 255 / 0.06) 0 1px, transparent 2px) 0 0 / 9px 9px,
+    radial-gradient(circle at 70% 60%, rgb(0 0 0 / 0.08) 0 1px, transparent 2px) 0 0 / 13px 13px,
+    var(--hormigon);
+}
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+h3 {
+  font-stretch: 125%;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+}
+.spray {
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  line-height: 1;
+  color: var(--asfalto);
+  rotate: -2deg;
+}
+.note {
+  margin-top: 16px;
+  font-size: 0.86rem;
+  color: var(--asfalto);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 54px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 4px;
+  font-stretch: 125%;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.btn--spray {
+  background: var(--spray);
+  color: var(--asfalto);
+}
+.btn--cobalt {
+  background: var(--cobalto);
+  color: #fff;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px var(--gutter);
+  background: var(--asfalto);
+  color: #fff;
+  --accent: var(--spray);
+  --accent-fg: var(--asfalto);
+  --line: rgb(255 255 255 / 0.35);
+  --focus: var(--spray);
+}
+.head__brand {
+  margin-right: auto;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  text-decoration: none;
+  color: var(--spray);
+}
+.head__nav {
+  display: none;
+  gap: 22px;
+  font-stretch: 125%;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+.head__nav a {
+  text-decoration: none;
+}
+
+/* ------------------------------------------------ hero */
+.hero {
+  width: var(--wrap);
+  margin-inline: auto;
+  display: grid;
+  padding-top: clamp(20px, 4vw, 50px);
+}
+.hero h1 {
+  font-size: clamp(5rem, 20vw, 13rem);
+  line-height: 0.85;
+  color: var(--spray);
+  text-shadow:
+    3px 3px 0 var(--asfalto),
+    0 18px 0 rgb(28 29 31 / 0.08);
+  rotate: -4deg;
+}
+.hero__tag {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 6px 12px;
+  background: var(--cobalto);
+  color: #fff;
+  font-stretch: 125%;
+  font-weight: 800;
+  text-transform: uppercase;
+  rotate: 1.5deg;
+}
+.hero__lead {
+  margin-top: 18px;
+  max-width: 38ch;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.hero__scene {
+  height: clamp(320px, 50vh, 560px);
+}
+
+/* ------------------------------------------------ stickers */
+.cuts {
+  width: var(--wrap);
+  margin: clamp(60px, 8vw, 110px) auto 0;
+}
+.stickers {
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: 18px;
+}
+.sticker {
+  padding: 20px;
+  border-radius: 14px;
+  border: 3px solid var(--asfalto);
+  background: #fff;
+  box-shadow: 0 10px 18px -12px rgb(0 0 0 / 0.5);
+  display: grid;
+  gap: 6px;
+}
+.sticker--0 {
+  background: var(--spray);
+}
+.sticker--2 {
+  background: var(--cobalto);
+  color: #fff;
+}
+.sticker--3 {
+  border-radius: 50px;
+}
+.sticker--4 {
+  background: var(--asfalto);
+  color: #fff;
+}
+.sticker__price {
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+/* ------------------------------------------------ board */
+.board {
+  width: var(--wrap);
+  margin: clamp(70px, 9vw, 120px) auto 0;
+}
+.board > p {
+  margin-top: 10px;
+  max-width: 46ch;
+  font-weight: 600;
+}
+.board__grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.polaroid {
+  --radius: 2px;
+  padding: 10px 10px 0;
+  background: #fff;
+  box-shadow: 0 14px 24px -14px rgb(0 0 0 / 0.6);
+  height: 260px;
+}
+.polaroid figcaption {
+  position: relative;
+  background: #fff;
+  margin: 0 -10px;
+  padding: 10px;
+}
+.polaroid::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 70px;
+  height: 22px;
+  margin-left: -35px;
+  background: rgb(255 255 255 / 0.55);
+  rotate: -4deg;
+  z-index: 2;
+}
+.pol-art {
+  display: block;
+  height: 100%;
+  background:
+    radial-gradient(ellipse 34% 30% at 50% 36%, #241812 0 70%, transparent 72%),
+    radial-gradient(ellipse 30% 40% at 50% 60%, #8a5a3c 0 70%, transparent 72%),
+    linear-gradient(180deg, #2340ff, #1a2fb8);
+}
+.polaroid--1 .pol-art {
+  background:
+    radial-gradient(ellipse 30% 22% at 50% 70%, #241812 0 70%, transparent 72%),
+    radial-gradient(ellipse 30% 40% at 50% 50%, #c08a62 0 70%, transparent 72%),
+    #ff5a1f;
+}
+.polaroid--2 .pol-art {
+  background:
+    repeating-linear-gradient(180deg, #2a1a12 0 6px, #3a2619 6px 9px) 50% 30% / 60% 30% no-repeat,
+    radial-gradient(ellipse 30% 40% at 50% 60%, #8a5a3c 0 70%, transparent 72%),
+    #1c1d1f;
+}
+.polaroid--3 .pol-art {
+  background:
+    linear-gradient(120deg, transparent 45%, #f5f5f5 45% 47%, transparent 47%),
+    radial-gradient(ellipse 50% 50% at 50% 50%, #3b2a1e 0 70%, transparent 72%),
+    #8a8d8f;
+}
+
+/* ------------------------------------------------ notes */
+.notes {
+  width: var(--wrap);
+  margin: clamp(70px, 9vw, 120px) auto 0;
+}
+.notes__list {
+  margin-top: 30px;
+  display: grid;
+  gap: 22px;
+}
+.paper {
+  padding: 22px;
+  background: #fffef5;
+  clip-path: polygon(0 4%, 6% 0, 14% 3%, 26% 0, 40% 2%, 55% 0, 70% 3%, 84% 0, 100% 2%, 100% 100%, 0 100%);
+  display: grid;
+  gap: 8px;
+}
+.paper__badge {
+  justify-self: start;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  background: var(--spray);
+}
+.paper blockquote {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.paper figcaption {
+  font-size: 0.9rem;
+}
+
+/* ------------------------------------------------ spot */
+.spot {
+  width: var(--wrap);
+  margin: clamp(70px, 9vw, 120px) auto 0;
+  display: grid;
+  gap: 20px;
+}
+.spot__card {
+  padding: clamp(22px, 4vw, 40px);
+  background: var(--asfalto);
+  color: #fff;
+  --line: rgb(255 255 255 / 0.25);
+  --focus: var(--spray);
+}
+.spot__card h2 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  color: var(--spray);
+}
+.spot__addr {
+  margin-top: 8px;
+  font-weight: 800;
+}
+.spot dl {
+  margin: 16px 0 20px;
+}
+.spot dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.spot dt {
+  font-weight: 800;
+  color: var(--spray);
+}
+.spot__map {
+  min-height: 320px;
+  background: var(--cobalto);
+  color: #fff;
+}
+
+/* ------------------------------------------------ chair */
+.chair {
+  width: var(--wrap);
+  margin: clamp(70px, 9vw, 120px) auto 0;
+  padding: clamp(24px, 4vw, 48px);
+  background: #fff;
+  border: 3px solid var(--asfalto);
+  --field-bg: #fff;
+}
+.chair h2 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+.chair > p {
+  margin: 8px 0 22px;
+}
+.foot {
+  margin-top: clamp(64px, 9vw, 110px);
+  padding: 34px var(--gutter) 90px;
+  display: grid;
+  gap: 10px;
+  background: var(--asfalto);
+  color: #d8d9da;
+}
+.foot__name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--spray);
+}
+.kit-demo-tag {
+  --tag-bg: var(--spray);
+  --tag-fg: var(--asfalto);
+}
+
+@media (min-width: 900px) {
+  .head__nav {
+    display: flex;
+  }
+  .hero {
+    grid-template-columns: 6fr 5fr;
+    align-items: center;
+    min-height: calc(100dvh - 80px);
+  }
+  .hero__scene {
+    height: min(74vh, 660px);
+  }
+  .board__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .polaroid {
+    height: 320px;
+  }
+  .polaroid--1 {
+    margin-top: 40px;
+  }
+  .polaroid--3 {
+    margin-top: 20px;
+  }
+  .notes__list {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+  .spot {
+    grid-template-columns: 5fr 6fr;
+  }
+}

@@ -51,7 +51,8 @@ for (const slug of slugs) {
       ['escritorio', { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 }],
       ['movil', { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true }],
     ]) {
-      const ctx = await browser.newContext({ ...opts, reducedMotion: 'no-preference' });
+      // Full-page captures use reduced motion: scroll scenes show their settled state and the 3D renders still.
+      const ctx = await browser.newContext({ ...opts, reducedMotion: 'reduce' });
       const page = await ctx.newPage();
       await page.goto(url, { waitUntil: 'networkidle' });
       try {

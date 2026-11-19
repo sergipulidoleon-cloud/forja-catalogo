@@ -1,0 +1,389 @@
+/* FISAL: fisioterapia deportiva y clínica. Azul fisio, coral músculo, niebla. Fluido y elástico. */
+:root {
+  --azul: #1f5fad;
+  --azul-deep: #164884;
+  --coral: #ff7b6b;
+  --grafito: #2c3440;
+  --niebla: #eef2f7;
+  --fg: var(--grafito);
+  --bg: #ffffff;
+  --accent: var(--azul);
+  --accent-fg: #fff;
+  --muted: #4a5564;
+  --line: rgb(44 52 64 / 0.14);
+  --focus: var(--azul);
+  --radius: 14px;
+  --font-body: 'Barlow', system-ui, sans-serif;
+  --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --cursor-color: var(--coral);
+  --cursor-label: var(--grafito);
+  --wrap: min(1200px, 100% - 2 * var(--gutter));
+}
+body {
+  font-size: 1.08rem;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+h2 {
+  font-size: clamp(2.4rem, 5.4vw, 4rem);
+  line-height: 0.98;
+}
+.note {
+  margin-top: 14px;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 10px;
+  border: 0;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn--blue {
+  background: var(--azul);
+  color: #fff;
+}
+.btn--coral {
+  background: var(--coral);
+  color: var(--grafito);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px var(--gutter);
+  border-bottom: 1px solid var(--line);
+}
+.head__brand {
+  margin-right: auto;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.9rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--azul);
+}
+.head__nav {
+  display: none;
+  gap: 24px;
+  font-weight: 500;
+}
+.head__nav a {
+  text-decoration: none;
+}
+
+/* ------------------------------------------------ hero */
+.hero {
+  width: var(--wrap);
+  margin-inline: auto;
+  display: grid;
+  padding-top: clamp(16px, 4vw, 48px);
+}
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 6.4rem);
+  line-height: 0.92;
+  max-width: 10ch;
+  color: var(--azul-deep);
+}
+.hero__text > p {
+  margin-top: 18px;
+  max-width: 46ch;
+  color: var(--muted);
+}
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+.hero__scene {
+  height: clamp(360px, 60vh, 640px);
+  background: radial-gradient(ellipse 40% 50% at 50% 50%, var(--niebla), transparent 70%);
+}
+
+/* ------------------------------------------------ zones */
+.zones {
+  margin-top: clamp(56px, 8vw, 110px);
+  padding: clamp(48px, 7vw, 96px) var(--gutter);
+  background: var(--niebla);
+}
+.zones__head,
+.zones__body {
+  width: min(1200px, 100%);
+  margin-inline: auto;
+}
+.zones__head p {
+  margin-top: 8px;
+  color: var(--muted);
+}
+.zones__body {
+  margin-top: 30px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 110px 1fr;
+  align-items: start;
+}
+.body {
+  width: 100%;
+}
+.body__shape {
+  fill: #dbe3ee;
+}
+.body__spine {
+  stroke: var(--azul);
+  stroke-width: 3;
+  stroke-dasharray: 3 3;
+}
+.body__dot {
+  fill: #fff;
+  stroke: var(--azul);
+  stroke-width: 2;
+  transition: fill 200ms ease, r 240ms var(--ease-out);
+}
+.body__dot[data-on] {
+  fill: var(--coral);
+  stroke: var(--coral);
+  r: 9;
+}
+.zones__pick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.zones__pick button {
+  min-height: 46px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1.5px solid var(--azul);
+  background: #fff;
+  color: var(--azul-deep);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  transition: background-color 180ms ease, color 180ms ease, transform 160ms var(--ease-out);
+}
+.zones__pick button:active {
+  transform: scale(0.97);
+}
+.zones__pick button[aria-pressed='true'] {
+  background: var(--azul);
+  color: #fff;
+}
+.zones__detail {
+  margin-top: 22px;
+  min-height: 120px;
+}
+.zones__detail h3 {
+  font-size: 2rem;
+  color: var(--azul-deep);
+}
+.zones__detail p {
+  margin-top: 6px;
+  max-width: 40ch;
+}
+
+/* ------------------------------------------------ team */
+.team {
+  width: var(--wrap);
+  margin: clamp(64px, 9vw, 120px) auto 0;
+  display: grid;
+  gap: 28px;
+}
+.team__text > p:first-of-type {
+  margin-top: 12px;
+  max-width: 46ch;
+  color: var(--muted);
+}
+.areas {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.areas li {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--niebla);
+  font-weight: 600;
+}
+.team__photos {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 12px;
+}
+.team__photo {
+  height: 260px;
+}
+.team__photo figcaption {
+  margin: 10px;
+  justify-self: start;
+  border-radius: 10px;
+  background: #fff;
+}
+.f-art {
+  display: block;
+  height: 100%;
+  background:
+    linear-gradient(0deg, #c9d4e3 0 22%, transparent 22%),
+    linear-gradient(90deg, transparent 20%, #fff 20% 70%, transparent 70%) 0 60% / 100% 12% no-repeat,
+    var(--niebla);
+}
+.team__photo--1 .f-art {
+  background:
+    radial-gradient(circle at 30% 70%, var(--coral) 0 10%, transparent 11%),
+    radial-gradient(circle at 60% 72%, var(--azul) 0 12%, transparent 13%),
+    linear-gradient(0deg, #2c3440 0 12%, #dfe7f1 12%);
+}
+
+/* ------------------------------------------------ patients */
+.patients {
+  width: var(--wrap);
+  margin: clamp(64px, 9vw, 120px) auto 0;
+}
+.patients__list {
+  margin-top: 24px;
+  display: grid;
+  gap: 24px;
+}
+.patients blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.15;
+}
+.patients figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+}
+.patients figcaption span {
+  margin-left: 6px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--coral);
+  color: var(--grafito);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ------------------------------------------------ center */
+.center {
+  width: var(--wrap);
+  margin: clamp(64px, 9vw, 120px) auto 0;
+  display: grid;
+  gap: 24px;
+}
+.center__addr {
+  margin-top: 10px;
+  font-weight: 600;
+}
+.center dl {
+  margin-top: 16px;
+}
+.center dl > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.center dt {
+  font-weight: 600;
+  color: var(--azul-deep);
+}
+.center__map {
+  min-height: 320px;
+  background: var(--azul);
+  color: #fff;
+}
+
+/* ------------------------------------------------ book */
+.book {
+  width: var(--wrap);
+  margin: clamp(64px, 9vw, 120px) auto 0;
+  padding: clamp(28px, 5vw, 56px);
+  background: var(--azul-deep);
+  color: #fff;
+  border-radius: 20px;
+  --line: rgb(255 255 255 / 0.35);
+  --accent: var(--coral);
+  --accent-fg: var(--grafito);
+  --focus: #fff;
+  --field-bg: rgb(255 255 255 / 0.08);
+  --error: #ffd0c9;
+}
+.book > p {
+  margin: 8px 0 22px;
+}
+.book select option {
+  color: var(--grafito);
+}
+.foot {
+  margin-top: clamp(64px, 9vw, 110px);
+  padding: 34px var(--gutter) 90px;
+  display: grid;
+  gap: 10px;
+  background: var(--grafito);
+  color: #cfd6e0;
+}
+.foot__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #fff;
+}
+.kit-demo-tag {
+  --tag-bg: var(--azul);
+  --tag-fg: #fff;
+}
+
+@media (min-width: 900px) {
+  .head__nav {
+    display: flex;
+  }
+  .hero {
+    grid-template-columns: 6fr 5fr;
+    align-items: center;
+    min-height: calc(100dvh - 80px);
+  }
+  .hero__scene {
+    height: min(80vh, 720px);
+  }
+  .zones__body {
+    grid-template-columns: 200px 1fr;
+    gap: 56px;
+  }
+  .team {
+    grid-template-columns: 5fr 6fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .team__photo {
+    height: 340px;
+  }
+  .team__photo--1 {
+    margin-top: 60px;
+  }
+  .patients__list {
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+  .center {
+    grid-template-columns: 5fr 6fr;
+    gap: 56px;
+  }
+}

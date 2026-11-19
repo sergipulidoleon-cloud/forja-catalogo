@@ -1,0 +1,380 @@
+/* Mar Azul: cevichería del Pacífico en Collblanc. Azul profundo, leche de tigre, ají y cebolla morada. */
+:root {
+  --pacifico: #0b2e59;
+  --pacifico-2: #082343;
+  --leche: #f4f7f2;
+  --aji: #f2a900;
+  --cebolla: #8e3b8f;
+  --lima: #9cc54a;
+  --fg: var(--pacifico);
+  --bg: var(--leche);
+  --accent: var(--pacifico);
+  --accent-fg: #fff;
+  --muted: #3b5576;
+  --line: rgb(11 46 89 / 0.16);
+  --focus: var(--cebolla);
+  --radius: 20px;
+  --font-body: 'Rubik Variable', Rubik, system-ui, sans-serif;
+  --font-display: 'Paytone One', 'Arial Rounded MT Bold', sans-serif;
+  --cursor-color: var(--aji);
+  --cursor-label: var(--pacifico);
+  --wrap: min(1180px, 100% - 2 * var(--gutter));
+}
+body {
+  font-size: 1.05rem;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+h2 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1;
+}
+.note {
+  margin-top: 12px;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 999px;
+  border: 0;
+  font-weight: 700;
+  text-decoration: none;
+}
+.btn--aji {
+  background: var(--aji);
+  color: var(--pacifico);
+}
+.btn--leche {
+  background: var(--leche);
+  color: var(--pacifico);
+}
+
+.wave {
+  height: clamp(40px, 6vw, 80px);
+  overflow: hidden;
+  margin-top: -1px;
+}
+.wave svg {
+  width: 200%;
+  height: 100%;
+  margin-left: -50%;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px var(--gutter);
+  background: var(--pacifico);
+  color: var(--leche);
+  --accent: var(--aji);
+  --accent-fg: var(--pacifico);
+  --line: rgb(244 247 242 / 0.35);
+  --focus: var(--aji);
+}
+.head__brand {
+  margin-right: auto;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--aji);
+}
+.head__nav {
+  display: none;
+  gap: 22px;
+}
+.head__nav a {
+  text-decoration: none;
+}
+
+/* ------------------------------------------------ hero */
+.hero {
+  background: var(--pacifico);
+  color: var(--leche);
+  display: grid;
+  padding: clamp(12px, 3vw, 36px) var(--gutter) 0;
+  --focus: var(--aji);
+}
+.hero__sub {
+  font-weight: 700;
+  color: var(--aji);
+}
+.hero h1 {
+  font-size: clamp(4rem, 14vw, 10rem);
+  line-height: 0.86;
+  margin-top: 6px;
+}
+.hero__lead {
+  margin-top: 16px;
+  max-width: 40ch;
+  font-size: 1.15rem;
+  color: #d9e4f2;
+}
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.hero__scene {
+  height: clamp(300px, 46vh, 560px);
+}
+
+/* ------------------------------------------------ carta */
+.carta {
+  width: var(--wrap);
+  margin: clamp(30px, 5vw, 60px) auto clamp(40px, 6vw, 70px);
+}
+.carta__intro {
+  margin-top: 10px;
+  color: var(--muted);
+  max-width: 50ch;
+}
+.carta__groups {
+  margin-top: 32px;
+  display: grid;
+  gap: 18px;
+}
+.carta__group {
+  padding: 24px;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 16px 32px -24px rgb(11 46 89 / 0.6);
+}
+.carta__group--0 {
+  background: var(--pacifico);
+  color: var(--leche);
+  --line: rgb(244 247 242 / 0.2);
+}
+.carta__group--0 .carta__price {
+  color: var(--aji);
+}
+.carta__group h3 {
+  font-size: 1.8rem;
+}
+.carta__group ul {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+.carta__group li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+.carta__price {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--cebolla);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------ local */
+.local {
+  background: var(--cebolla);
+  color: #fff;
+  padding: clamp(30px, 5vw, 60px) var(--gutter);
+  --focus: var(--aji);
+}
+.local > * {
+  width: min(1180px, 100%);
+  margin-inline: auto;
+}
+.local > p {
+  margin-top: 10px;
+  max-width: 48ch;
+}
+.local__photos {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.local__photo {
+  height: 200px;
+  --radius: 999px;
+}
+.local__photo--0 {
+  grid-column: 1 / -1;
+  height: 240px;
+  --radius: 28px;
+}
+.local__photo figcaption {
+  justify-self: center;
+  text-align: center;
+  margin-bottom: 18px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--leche);
+  color: var(--pacifico);
+}
+.lp-art {
+  display: block;
+  height: 100%;
+  background:
+    radial-gradient(circle at 40% 55%, #f6f1ea 0 7%, transparent 8%),
+    radial-gradient(circle at 55% 45%, #f6f1ea 0 7%, transparent 8%),
+    radial-gradient(circle at 62% 62%, #8e3b8f 0 5%, transparent 6%),
+    radial-gradient(circle, #e9ecd8 0 30%, #fff 31% 40%, transparent 41%),
+    #0e4a8a;
+}
+.local__photo--1 .lp-art {
+  background: repeating-linear-gradient(90deg, #6b2a6c 0 40px, #7a327b 40px 80px);
+}
+.local__photo--2 .lp-art {
+  background:
+    radial-gradient(ellipse 22% 32% at 50% 55%, #f3edc9 0 70%, transparent 72%),
+    radial-gradient(ellipse 22% 8% at 50% 26%, #fff 0 70%, transparent 72%),
+    #9cc54a;
+}
+
+/* ------------------------------------------------ reviews */
+.dicen {
+  width: var(--wrap);
+  margin: clamp(30px, 5vw, 60px) auto 0;
+}
+.dicen__list {
+  margin-top: 24px;
+  display: grid;
+  gap: 18px;
+}
+.dicen__list figure {
+  display: grid;
+  gap: 8px;
+}
+.dicen__badge {
+  justify-self: start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--lima);
+  color: var(--pacifico);
+}
+.dicen blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  line-height: 1.25;
+}
+.dicen figcaption {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* ------------------------------------------------ visit */
+.visita {
+  width: var(--wrap);
+  margin: clamp(56px, 8vw, 100px) auto clamp(40px, 6vw, 70px);
+  display: grid;
+  gap: 24px;
+}
+.visita__addr {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+.visita dl {
+  margin-top: 16px;
+}
+.visita dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.visita dt {
+  font-weight: 700;
+  color: var(--cebolla);
+}
+.visita__map {
+  --radius: 28px;
+  min-height: 320px;
+  background: var(--pacifico);
+  color: var(--aji);
+}
+
+/* ------------------------------------------------ reserve */
+.reserva {
+  background: var(--pacifico);
+  color: var(--leche);
+  padding: clamp(30px, 5vw, 60px) var(--gutter) clamp(60px, 8vw, 100px);
+  --line: rgb(244 247 242 / 0.35);
+  --accent: var(--aji);
+  --accent-fg: var(--pacifico);
+  --focus: var(--aji);
+  --field-bg: rgb(244 247 242 / 0.06);
+  --error: #ffd3a1;
+}
+.reserva > * {
+  width: min(1180px, 100%);
+  margin-inline: auto;
+}
+.reserva > p {
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+.foot {
+  padding: 34px var(--gutter) 90px;
+  display: grid;
+  gap: 10px;
+  background: var(--pacifico-2);
+  color: #c9d6e6;
+}
+.foot__name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--aji);
+}
+.kit-demo-tag {
+  --tag-bg: var(--aji);
+  --tag-fg: var(--pacifico);
+}
+
+@media (min-width: 900px) {
+  .head__nav {
+    display: flex;
+  }
+  .hero {
+    grid-template-columns: 5fr 6fr;
+    align-items: center;
+    padding-inline: max(var(--gutter), (100% - 1180px) / 2);
+  }
+  .hero__scene {
+    height: min(66vh, 620px);
+  }
+  .carta__groups {
+    grid-template-columns: 1.2fr 1fr 1fr;
+    align-items: start;
+  }
+  .carta__group:nth-child(2) {
+    margin-top: 40px;
+  }
+  .local__photos {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .local__photo,
+  .local__photo--0 {
+    grid-column: auto;
+    height: 300px;
+  }
+  .dicen__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .visita {
+    grid-template-columns: 5fr 6fr;
+    gap: 56px;
+  }
+}

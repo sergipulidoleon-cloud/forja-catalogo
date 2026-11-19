@@ -1,0 +1,378 @@
+/* Debut: cocina de autor en una antigua bodega. Pizarra, tiza y producto. Contenido y gastronómico. */
+:root {
+  --pizarra: #2e3236;
+  --pizarra-2: #24282b;
+  --tiza: #f2f1ec;
+  --hierba: #8da35a;
+  --remolacha: #8c1c3a;
+  --piedra: #5c6166;
+  --fg: var(--tiza);
+  --bg: var(--pizarra);
+  --accent: var(--tiza);
+  --accent-fg: var(--pizarra);
+  --muted: #c3c5c2;
+  --line: rgb(242 241 236 / 0.18);
+  --focus: var(--hierba);
+  --radius: 0px;
+  --font-body: 'Schibsted Grotesk Variable', 'Schibsted Grotesk', system-ui, sans-serif;
+  --font-display: 'Literata Variable', Literata, Georgia, serif;
+  --cursor-color: var(--tiza);
+  --wrap: min(1200px, 100% - 2 * var(--gutter));
+  color-scheme: dark;
+}
+body {
+  font-size: 1.04rem;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+h2 {
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  font-style: italic;
+  line-height: 1.05;
+}
+h3 {
+  font-style: italic;
+  font-size: 1.45rem;
+}
+.note {
+  margin-top: 12px;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 50px;
+  padding: 0 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--tiza);
+  transition: background-color 220ms ease, color 220ms ease;
+}
+.btn--chalk {
+  background: var(--tiza);
+  color: var(--pizarra);
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--tiza);
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn--ghost:hover {
+    background: rgb(242 241 236 / 0.08);
+  }
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 18px var(--gutter);
+}
+.head__brand {
+  margin-right: auto;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.head__nav {
+  display: none;
+  gap: 26px;
+}
+.head__nav a {
+  text-decoration: none;
+}
+
+/* ------------------------------------------------ hero: a plate on the pass */
+.hero {
+  width: var(--wrap);
+  margin-inline: auto;
+  display: grid;
+}
+.hero h1 {
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(5rem, 18vw, 13rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+}
+.hero__claim {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  line-height: 1.3;
+  max-width: 26ch;
+}
+.hero__lead {
+  margin-top: 16px;
+  max-width: 44ch;
+  color: var(--muted);
+}
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.hero__scene {
+  height: clamp(300px, 46vh, 560px);
+}
+
+/* ------------------------------------------------ tasting menu as a journey */
+.menu {
+  width: var(--wrap);
+  margin: clamp(70px, 10vw, 140px) auto 0;
+}
+.menu__head p {
+  margin-top: 10px;
+  color: var(--muted);
+  max-width: 50ch;
+}
+.courses {
+  position: relative;
+  margin-top: 40px;
+}
+.course__track {
+  display: none;
+}
+.courses ol {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 22px;
+  border-left: 1px solid var(--line);
+  display: grid;
+  gap: 28px;
+}
+.course p {
+  margin-top: 6px;
+  color: var(--muted);
+  max-width: 32ch;
+}
+.menu__weekday {
+  margin-top: 40px;
+  padding: 18px 0;
+  border-block: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+.menu__weekday span {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--hierba);
+}
+
+/* ------------------------------------------------ house */
+.house {
+  width: var(--wrap);
+  margin: clamp(70px, 10vw, 140px) auto 0;
+  display: grid;
+  gap: 28px;
+}
+.house__text > p:first-of-type {
+  margin-top: 14px;
+  max-width: 46ch;
+  font-size: 1.12rem;
+}
+.house__photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.house__photo {
+  height: 220px;
+}
+.house__photo--0 {
+  grid-column: 1 / -1;
+  height: 280px;
+}
+.house__photo figcaption {
+  background: linear-gradient(transparent, rgb(20 22 24 / 0.9));
+}
+.h-art {
+  display: block;
+  height: 100%;
+  background:
+    repeating-linear-gradient(90deg, rgb(0 0 0 / 0.18) 0 3px, transparent 3px 90px),
+    radial-gradient(ellipse 30% 40% at 25% 70%, #5a3a26, transparent 70%),
+    radial-gradient(ellipse 30% 40% at 60% 70%, #5a3a26, transparent 70%),
+    linear-gradient(180deg, #3d4246, #24282b);
+}
+.house__photo--1 .h-art {
+  background:
+    linear-gradient(0deg, #6b7076 0 18%, transparent 18%),
+    radial-gradient(circle at 40% 45%, #f5f4ef 0 14%, transparent 15%),
+    radial-gradient(circle at 70% 45%, #f5f4ef 0 14%, transparent 15%),
+    #2a2e31;
+}
+.house__photo--2 .h-art {
+  background:
+    radial-gradient(circle at 48% 50%, #8c1c3a 0 9%, transparent 10%),
+    radial-gradient(circle at 56% 44%, #8da35a 0 4%, transparent 5%),
+    radial-gradient(circle, #f5f4ef 0 38%, #e3e2dc 39% 44%, transparent 45%),
+    #3b4045;
+}
+
+/* ------------------------------------------------ guests */
+.guests {
+  width: var(--wrap);
+  margin: clamp(70px, 10vw, 140px) auto 0;
+}
+.guests__list {
+  margin-top: 26px;
+  display: grid;
+  gap: 30px;
+}
+.guests blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  line-height: 1.25;
+}
+.guests figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.guests em {
+  color: var(--hierba);
+  font-style: normal;
+}
+
+/* ------------------------------------------------ visit */
+.visit {
+  width: var(--wrap);
+  margin: clamp(70px, 10vw, 140px) auto 0;
+  display: grid;
+  gap: 24px;
+}
+.visit__addr {
+  margin-top: 12px;
+  font-size: 1.15rem;
+}
+.visit__metro {
+  color: var(--muted);
+}
+.visit dl {
+  margin-top: 18px;
+}
+.visit dl > div {
+  display: grid;
+  gap: 4px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.visit dt {
+  color: var(--hierba);
+  font-size: 0.9rem;
+}
+.visit__map {
+  min-height: 320px;
+  background: var(--pizarra-2);
+  color: var(--tiza);
+  border: 1px solid var(--line);
+}
+
+/* ------------------------------------------------ book */
+.book {
+  width: var(--wrap);
+  margin: clamp(70px, 10vw, 140px) auto 0;
+  padding: clamp(28px, 5vw, 56px);
+  background: var(--remolacha);
+  --line: rgb(242 241 236 / 0.4);
+  --field-bg: rgb(0 0 0 / 0.14);
+  --focus: var(--tiza);
+  --error: #ffd7df;
+}
+.book > p {
+  margin: 8px 0 24px;
+}
+.foot {
+  margin-top: clamp(64px, 9vw, 110px);
+  padding: 34px var(--gutter) 90px;
+  display: grid;
+  gap: 10px;
+  background: var(--pizarra-2);
+  color: var(--muted);
+}
+.foot__name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--tiza);
+}
+.kit-demo-tag {
+  --tag-bg: var(--tiza);
+  --tag-fg: var(--pizarra);
+}
+.kit-toast {
+  --toast-bg: var(--tiza);
+  --toast-fg: var(--pizarra);
+}
+
+@media (min-width: 900px) {
+  .head__nav {
+    display: flex;
+  }
+  .hero {
+    grid-template-columns: 5fr 6fr;
+    align-items: center;
+    min-height: calc(100dvh - 80px);
+  }
+  .hero__scene {
+    height: min(72vh, 660px);
+  }
+  .course__track {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background: var(--line);
+  }
+  .course__line {
+    display: block;
+    height: 100%;
+    background: var(--hierba);
+    transform-origin: left;
+  }
+  .courses ol {
+    grid-template-columns: repeat(5, 1fr);
+    padding: 26px 0 0;
+    border-left: 0;
+    gap: 28px;
+  }
+  .house {
+    grid-template-columns: 4fr 7fr;
+    gap: 56px;
+    align-items: end;
+  }
+  .house__photos {
+    grid-template-columns: 1.4fr 1fr;
+  }
+  .house__photo--0 {
+    grid-column: auto;
+    grid-row: span 2;
+    height: auto;
+  }
+  .guests__list {
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+  .visit {
+    grid-template-columns: 5fr 6fr;
+    gap: 56px;
+  }
+}

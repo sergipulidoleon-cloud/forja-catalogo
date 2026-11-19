@@ -1,0 +1,381 @@
+/* Hospitalet Dental: clínica premium de noche. Titanio, champán, hielo. Lento y controlado. */
+:root {
+  --pizarra: #13202e;
+  --profundo: #0a121b;
+  --champan: #d9c6a5;
+  --hielo: #e8eef2;
+  --titanio: #8f9ba6;
+  --fg: var(--hielo);
+  --bg: var(--pizarra);
+  --accent: var(--champan);
+  --accent-fg: var(--profundo);
+  --muted: #aab6c1;
+  --line: rgb(217 198 165 / 0.22);
+  --focus: var(--champan);
+  --radius: 2px;
+  --font-body: 'Hanken Grotesk Variable', 'Hanken Grotesk', system-ui, sans-serif;
+  --font-display: 'Libre Caslon Display', 'Times New Roman', serif;
+  --cursor-color: var(--champan);
+  --wrap: min(1240px, 100% - 2 * var(--gutter));
+  color-scheme: dark;
+}
+body {
+  font-size: 1.04rem;
+  font-weight: 350;
+  letter-spacing: 0.005em;
+}
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+h2 {
+  font-size: clamp(2.2rem, 4.6vw, 3.8rem);
+  line-height: 1.02;
+}
+h3 {
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+.note {
+  margin-top: 14px;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 2px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition:
+    background-color 300ms var(--ease-in-out),
+    color 300ms var(--ease-in-out);
+}
+.btn--champagne {
+  background: var(--champan);
+  color: var(--profundo);
+  border: 1px solid var(--champan);
+}
+.btn--line {
+  background: transparent;
+  color: var(--champan);
+  border: 1px solid var(--line);
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn--line:hover {
+    border-color: var(--champan);
+  }
+  .btn--champagne:hover {
+    background: #e7d7ba;
+  }
+}
+
+.head {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 16px var(--gutter);
+  background: rgb(19 32 46 / 0.96);
+  border-bottom: 1px solid var(--line);
+}
+.head__brand {
+  margin-right: auto;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: var(--champan);
+}
+.head__nav {
+  display: none;
+  gap: 26px;
+  font-size: 0.95rem;
+}
+.head__nav a {
+  text-decoration: none;
+}
+
+/* ------------------------------------------------ pinned implant story */
+.pinned {
+  width: var(--wrap);
+  margin-inline: auto;
+  display: grid;
+}
+.pinned__stage {
+  order: -1;
+}
+.pinned__scene {
+  height: clamp(320px, 52vh, 520px);
+  background: radial-gradient(circle at 50% 55%, rgb(217 198 165 / 0.14), transparent 60%);
+}
+.hero {
+  padding: 8px 0 clamp(56px, 8vw, 100px);
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 5.6vw, 4.6rem);
+  line-height: 1.02;
+  max-width: 15ch;
+}
+.hero > p {
+  margin-top: 20px;
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: 1.12rem;
+}
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+.pieces__intro {
+  margin-top: 12px;
+  color: var(--muted);
+  max-width: 44ch;
+}
+.pieces ol {
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 34px;
+}
+.piece {
+  display: grid;
+  gap: 6px;
+  max-width: 40ch;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.piece__n {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--champan);
+  line-height: 1;
+}
+
+/* ------------------------------------------------ treatments */
+.treat {
+  width: var(--wrap);
+  margin: clamp(80px, 10vw, 140px) auto 0;
+}
+.treat ul {
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 0;
+  display: grid;
+}
+.treat li {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  line-height: 1.2;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  transition: color 300ms var(--ease-in-out), padding-left 300ms var(--ease-in-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .treat li:hover {
+    color: var(--champan);
+    padding-left: 12px;
+  }
+}
+
+/* ------------------------------------------------ gallery */
+.gallery {
+  width: var(--wrap);
+  margin: clamp(80px, 10vw, 140px) auto 0;
+  display: grid;
+  gap: 12px;
+}
+.gallery__item {
+  height: 240px;
+}
+.gallery__item figcaption {
+  background: linear-gradient(transparent, rgb(10 18 27 / 0.9));
+}
+.g-art {
+  display: block;
+  height: 100%;
+  background:
+    linear-gradient(90deg, transparent 0 62%, rgb(217 198 165 / 0.35) 62% 62.4%, transparent 62.4%),
+    radial-gradient(ellipse 60% 50% at 30% 40%, rgb(232 238 242 / 0.12), transparent 70%),
+    linear-gradient(180deg, #1c2d3f, #0f1924);
+}
+.gallery__item--1 .g-art {
+  background:
+    radial-gradient(circle at 60% 35%, rgb(255 244 226 / 0.55) 0 7%, transparent 8%),
+    radial-gradient(ellipse 50% 30% at 50% 75%, #2a3d52, transparent 70%),
+    #16263a;
+}
+.gallery__item--2 .g-art {
+  background:
+    radial-gradient(ellipse 18% 28% at 35% 55%, #3a4f66, transparent 70%),
+    radial-gradient(ellipse 18% 28% at 65% 55%, #3a4f66, transparent 70%),
+    #121e2b;
+}
+
+/* ------------------------------------------------ patients */
+.patients {
+  width: var(--wrap);
+  margin: clamp(80px, 10vw, 140px) auto 0;
+}
+.patient {
+  margin-top: 34px;
+  max-width: 34ch;
+}
+.patient:nth-of-type(2) {
+  margin-left: auto;
+}
+.patient blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  line-height: 1.15;
+}
+.patient figcaption {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.patient figcaption span {
+  color: var(--champan);
+}
+
+/* ------------------------------------------------ clinic */
+.clinic {
+  width: var(--wrap);
+  margin: clamp(80px, 10vw, 140px) auto 0;
+  display: grid;
+  gap: 24px;
+}
+.clinic__addr {
+  margin-top: 12px;
+  font-size: 1.15rem;
+}
+.clinic dl {
+  margin-top: 18px;
+}
+.clinic dl > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.clinic dt {
+  color: var(--muted);
+}
+.clinic__map {
+  min-height: 340px;
+  background: var(--profundo);
+  color: var(--champan);
+  border: 1px solid var(--line);
+}
+
+/* ------------------------------------------------ book */
+.book {
+  margin-top: clamp(80px, 10vw, 140px);
+  padding: clamp(48px, 7vw, 96px) var(--gutter);
+  background: var(--profundo);
+  display: grid;
+  gap: 28px;
+  --field-bg: rgb(232 238 242 / 0.04);
+  --error: #f3b4a6;
+}
+.book > * {
+  width: min(1240px, 100%);
+  margin-inline: auto;
+}
+.book p {
+  margin-top: 10px;
+  color: var(--muted);
+}
+.foot {
+  padding: 34px var(--gutter) 90px;
+  display: grid;
+  gap: 10px;
+  background: var(--profundo);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+.foot__name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--champan);
+}
+.kit-demo-tag {
+  --tag-bg: var(--champan);
+  --tag-fg: var(--profundo);
+}
+.kit-toast {
+  --toast-bg: var(--hielo);
+  --toast-fg: var(--profundo);
+}
+
+@media (min-width: 900px) {
+  .head__nav {
+    display: flex;
+  }
+  .pinned {
+    grid-template-columns: 6fr 5fr;
+    gap: 48px;
+  }
+  .pinned__stage {
+    order: 0;
+  }
+  .pinned__scene {
+    position: sticky;
+    top: 12vh;
+    height: 78vh;
+  }
+  .hero {
+    min-height: calc(100dvh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 60px;
+  }
+  .pieces {
+    padding-bottom: 20vh;
+  }
+  .pieces ol {
+    gap: 26vh;
+    margin-top: 16vh;
+  }
+  .gallery {
+    grid-template-columns: 1.6fr 1fr 1fr;
+  }
+  .gallery__item {
+    height: 360px;
+  }
+  .gallery__item--1 {
+    margin-top: 60px;
+  }
+  .clinic {
+    grid-template-columns: 5fr 6fr;
+    gap: 64px;
+  }
+  .book {
+    grid-template-columns: 5fr 7fr;
+    padding-inline: max(var(--gutter), (100% - 1240px) / 2);
+  }
+  .book > * {
+    width: auto;
+    margin: 0;
+  }
+  .foot {
+    padding-inline: max(var(--gutter), (100% - 1240px) / 2);
+  }
+}

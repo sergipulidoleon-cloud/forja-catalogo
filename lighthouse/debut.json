@@ -1,0 +1,21 @@
+{
+  "categories": {
+    "performance": 93,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "3.2 s",
+    "tbt": "40 ms",
+    "cls": "0.004"
+  },
+  "failing": [
+    "largest-contentful-paint: 3.2 s",
+    "unused-javascript: Est savings of 76 KiB",
+    "is-crawlable: 0",
+    "robots-txt: 228 errors found",
+    "image-delivery-insight: Est savings of 13 KiB",
+    "lcp-discovery-insight: 0",
+    "network-dependency-tree-insight: 0",
+    "render-blocking-insight: Est savings of 300 ms"
+  ]
+}

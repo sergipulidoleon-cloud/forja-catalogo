@@ -30,7 +30,7 @@ export default function App() {
   useSmoothScroll();
 
   useScrollScene(root, ({ reduced }) => {
-    if (reduced) return;
+    if (reduced || !window.matchMedia('(min-width: 900px)').matches) return;
     // The ring of rices turns into place around the pan as you scroll to it.
     gsap.fromTo('.ring', { rotate: -24 }, { rotate: 0, ease: 'none', scrollTrigger: { trigger: '.ring', start: 'top 90%', end: 'center 55%', scrub: true } });
     gsap.fromTo('.ring__item', { rotate: 24 }, { rotate: 0, ease: 'none', scrollTrigger: { trigger: '.ring', start: 'top 90%', end: 'center 55%', scrub: true } });

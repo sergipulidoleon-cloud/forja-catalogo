@@ -1,11 +1,182 @@
 {
-  "clinica-dental-bellvitge": {
+  "autoescuela-sunye": {
+    "performance": 97,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.4 s",
+    "tbt": "130 ms",
+    "cls": "0.016"
+  },
+  "barber-shop-hospitalet": {
     "performance": 97,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 58,
     "lcp": "2.4 s",
     "tbt": "90 ms",
+    "cls": "0.001"
+  },
+  "ben-fi": {
+    "performance": 98,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.4 s",
+    "tbt": "60 ms",
+    "cls": "0"
+  },
+  "buda-tattoo": {
+    "performance": 96,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.7 s",
+    "tbt": "60 ms",
+    "cls": "0.003"
+  },
+  "cal-siscu": {
+    "performance": 94,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "3.0 s",
+    "tbt": "80 ms",
+    "cls": "0.003"
+  },
+  "casa-varela-1986": {
+    "performance": 97,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.6 s",
+    "tbt": "80 ms",
+    "cls": "0.006"
+  },
+  "centre-veterinari-santa-eulalia": {
+    "performance": 95,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.6 s",
+    "tbt": "90 ms",
+    "cls": "0.079"
+  },
+  "clinica-dental-bellvitge": {
+    "performance": 98,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.3 s",
+    "tbt": "90 ms",
     "cls": "0.032"
+  },
+  "clinica-dental-pp": {
+    "performance": 97,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.6 s",
+    "tbt": "80 ms",
+    "cls": "0.018"
+  },
+  "debut": {
+    "performance": 93,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "3.2 s",
+    "tbt": "40 ms",
+    "cls": "0.004"
+  },
+  "english-of-course": {
+    "performance": 97,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.6 s",
+    "tbt": "60 ms",
+    "cls": "0.001"
+  },
+  "fisal-fisioterapia": {
+    "performance": 96,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.7 s",
+    "tbt": "80 ms",
+    "cls": "0"
+  },
+  "funnyschool": {
+    "performance": 97,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.6 s",
+    "tbt": "60 ms",
+    "cls": "0.037"
+  },
+  "hospitalet-dental": {
+    "performance": 97,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.6 s",
+    "tbt": "90 ms",
+    "cls": "0.01"
+  },
+  "j-jowel-barber-studio": {
+    "performance": 96,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.7 s",
+    "tbt": "60 ms",
+    "cls": "0.005"
+  },
+  "la-cocina-de-graciela": {
+    "performance": 97,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.4 s",
+    "tbt": "110 ms",
+    "cls": "0.042"
+  },
+  "lessencia-yoga-pilates": {
+    "performance": 98,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.3 s",
+    "tbt": "70 ms",
+    "cls": "0.048"
+  },
+  "mar-azul": {
+    "performance": 97,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.6 s",
+    "tbt": "60 ms",
+    "cls": "0.002"
+  },
+  "raco-del-cargol": {
+    "performance": 97,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.6 s",
+    "tbt": "80 ms",
+    "cls": "0.011"
+  },
+  "talleres-ronda": {
+    "performance": 97,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 58,
+    "lcp": "2.6 s",
+    "tbt": "60 ms",
+    "cls": "0.05"
   }
 }

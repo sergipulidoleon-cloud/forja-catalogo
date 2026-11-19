@@ -1,3 +1,250 @@
 <!doctype html>
-<html lang="es"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Galería de demos</title><meta name="robots" content="noindex, nofollow" /></head>
-<body><p>Galería en construcción.</p></body></html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Veinte webs para L'Hospitalet · Propuestas de diseño (demos no oficiales)</title>
+    <meta name="description" content="Propuesta de diseño — demo no oficial. Catálogo de 20 conceptos de web para negocios de L'Hospitalet de Llobregat, por Sergi Pulido León." />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="theme-color" content="#16130f" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2316130f'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='15' text-anchor='middle' fill='%23f2ede4'%3E20%3C/text%3E%3C/svg%3E" />
+    <script type="module" src="./scripts/gallery-entry.ts"></script>
+    <style>
+      :root { --ink:#16130f; --paper:#f2ede4; --muted:#5b554c; --line:rgb(22 19 15 / .14); --gutter:clamp(16px,4vw,48px); }
+      *,*::before,*::after { box-sizing:border-box; }
+      html { -webkit-text-size-adjust:100%; }
+      body { margin:0; background:var(--paper); color:var(--ink); font:400 1.02rem/1.55 'Bricolage Grotesque Variable', system-ui, sans-serif; }
+      ::selection { background:var(--ink); color:var(--paper); }
+      :focus-visible { outline:2px solid var(--ink); outline-offset:3px; }
+      header { width:min(1280px,100% - 2*var(--gutter)); margin:0 auto; padding:clamp(40px,7vw,96px) 0 clamp(28px,4vw,48px); display:grid; gap:18px; }
+      h1 { margin:0; font-size:clamp(2.8rem,8vw,6.4rem); line-height:.92; letter-spacing:-.04em; font-weight:700; font-stretch:80%; max-width:12ch; }
+      header p { margin:0; max-width:56ch; color:var(--muted); font-size:1.12rem; text-wrap:pretty; }
+      .grid { list-style:none; margin:0 auto; padding:0 0 clamp(60px,8vw,110px); width:min(1280px,100% - 2*var(--gutter)); display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr)); gap:clamp(14px,2vw,22px); }
+      .card__link { display:grid; height:100%; text-decoration:none; color:inherit; border-radius:18px; overflow:hidden; background:#fff; box-shadow:0 1px 0 var(--line); transition:transform 220ms cubic-bezier(.23,1,.32,1), box-shadow 220ms ease; }
+      .card__link:active { transform:scale(.98); }
+      @media (hover:hover) and (pointer:fine) { .card__link:hover { transform:translateY(-3px); box-shadow:0 18px 30px -18px rgb(22 19 15 / .45); } }
+      .card__art { display:block; aspect-ratio:10/7; background:var(--card-bg); }
+      .card__art img { width:100%; height:100%; object-fit:contain; padding:6%; }
+      .card__meta { display:grid; grid-template-columns:auto 1fr; column-gap:12px; row-gap:2px; padding:14px 16px 16px; align-items:baseline; }
+      .card__rank { grid-row:span 2; font-weight:700; font-size:1.3rem; font-variant-numeric:tabular-nums; color:var(--muted); }
+      .card__name { font-weight:700; font-size:1.12rem; letter-spacing:-.01em; }
+      .card__info { font-size:.9rem; color:var(--muted); }
+      footer { padding:28px var(--gutter) 60px; border-top:1px solid var(--line); color:var(--muted); font-size:.88rem; }
+      footer p { margin:0 auto; width:min(1280px,100%); max-width:80ch; }
+      @media (prefers-reduced-motion:reduce) { .card__link { transition:none; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Veinte webs para L’Hospitalet</h1>
+      <p>Propuestas de diseño para negocios de Bellvitge, Collblanc, La Torrassa, Santa Eulàlia, La Florida y el Centre. Cada una tiene su propio mundo visual, una pieza 3D interactiva, versión en castellano y catalán, y está pensada primero para el móvil.</p>
+    </header>
+    <main>
+      <ol class="grid">
+      <li class="card" style="--card-bg:#E6F1F0;--card-fg:#0E3B43">
+        <a href="./webs/clinica-dental-bellvitge/" class="card__link">
+          <span class="card__art"><img src="./webs/clinica-dental-bellvitge/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">1</span>
+            <span class="card__name">Clínica Dental Bellvitge</span>
+            <span class="card__info">Clínica dental, Bellvitge</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#12302A;--card-fg:#C6A15B">
+        <a href="./webs/cal-siscu/" class="card__link">
+          <span class="card__art"><img src="./webs/cal-siscu/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">2</span>
+            <span class="card__name">Cal Síscu</span>
+            <span class="card__info">Marisquería, Collblanc</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#4A1424;--card-fg:#E3A72F">
+        <a href="./webs/raco-del-cargol/" class="card__link">
+          <span class="card__art"><img src="./webs/raco-del-cargol/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">3</span>
+            <span class="card__name">El Racó del Cargol</span>
+            <span class="card__info">Cocina catalana, Collblanc</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#D6246E;--card-fg:#FFFFFF">
+        <a href="./webs/la-cocina-de-graciela/" class="card__link">
+          <span class="card__art"><img src="./webs/la-cocina-de-graciela/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">4</span>
+            <span class="card__name">La Cocina de Graciela</span>
+            <span class="card__info">Cocina mexicana, Collblanc-La Torrassa</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#3A0E12;--card-fg:#C9A55A">
+        <a href="./webs/barber-shop-hospitalet/" class="card__link">
+          <span class="card__art"><img src="./webs/barber-shop-hospitalet/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">5</span>
+            <span class="card__name">Barber Shop Hospitalet</span>
+            <span class="card__info">Barbería, Santa Eulàlia</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#FBFBF8;--card-fg:#1D4E89">
+        <a href="./webs/casa-varela-1986/" class="card__link">
+          <span class="card__art"><img src="./webs/casa-varela-1986/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">6</span>
+            <span class="card__name">Casa Varela 1986</span>
+            <span class="card__info">Arroces y marisco, L&#x27;Hospitalet</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#E9E4F7;--card-fg:#7B2D6B">
+        <a href="./webs/clinica-dental-pp/" class="card__link">
+          <span class="card__art"><img src="./webs/clinica-dental-pp/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">7</span>
+            <span class="card__name">Clínica Dental P&amp;P</span>
+            <span class="card__info">Clínica dental familiar, Santa Eulàlia</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#8FD3F4;--card-fg:#1B2A57">
+        <a href="./webs/funnyschool/" class="card__link">
+          <span class="card__art"><img src="./webs/funnyschool/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">8</span>
+            <span class="card__name">Funnyschool</span>
+            <span class="card__info">Inglés infantil, Bellvitge</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#13202E;--card-fg:#D9C6A5">
+        <a href="./webs/hospitalet-dental/" class="card__link">
+          <span class="card__art"><img src="./webs/hospitalet-dental/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">9</span>
+            <span class="card__name">Hospitalet Dental</span>
+            <span class="card__info">Clínica dental, Centre</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#2E3236;--card-fg:#F2F1EC">
+        <a href="./webs/debut/" class="card__link">
+          <span class="card__art"><img src="./webs/debut/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">10</span>
+            <span class="card__name">Debut</span>
+            <span class="card__info">Cocina de autor, La Torrassa</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#0B2E59;--card-fg:#F2A900">
+        <a href="./webs/mar-azul/" class="card__link">
+          <span class="card__art"><img src="./webs/mar-azul/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">11</span>
+            <span class="card__name">Mar Azul</span>
+            <span class="card__info">Cocina peruana, Collblanc</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#8A8D8F;--card-fg:#1C1D1F">
+        <a href="./webs/j-jowel-barber-studio/" class="card__link">
+          <span class="card__art"><img src="./webs/j-jowel-barber-studio/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">12</span>
+            <span class="card__name">J Jowel Barber Studio</span>
+            <span class="card__info">Barbería urbana, La Florida</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#CFE8F5;--card-fg:#22603F">
+        <a href="./webs/centre-veterinari-santa-eulalia/" class="card__link">
+          <span class="card__art"><img src="./webs/centre-veterinari-santa-eulalia/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">13</span>
+            <span class="card__name">Centre Veterinari Santa Eulàlia</span>
+            <span class="card__info">Veterinaria, Santa Eulàlia</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#E9E3D3;--card-fg:#1B1E2B">
+        <a href="./webs/buda-tattoo/" class="card__link">
+          <span class="card__art"><img src="./webs/buda-tattoo/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">14</span>
+            <span class="card__name">Buda Tattoo</span>
+            <span class="card__info">Tatuaje, La Florida</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#EEF2F7;--card-fg:#164884">
+        <a href="./webs/fisal-fisioterapia/" class="card__link">
+          <span class="card__art"><img src="./webs/fisal-fisioterapia/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">15</span>
+            <span class="card__name">FISAL</span>
+            <span class="card__info">Fisioterapia, Bellvitge</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#F4F6FA;--card-fg:#13294B">
+        <a href="./webs/english-of-course/" class="card__link">
+          <span class="card__art"><img src="./webs/english-of-course/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">16</span>
+            <span class="card__name">English Of Course!</span>
+            <span class="card__info">Academia de inglés, La Florida y Collblanc</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#2B2D31;--card-fg:#FFC72C">
+        <a href="./webs/autoescuela-sunye/" class="card__link">
+          <span class="card__art"><img src="./webs/autoescuela-sunye/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">17</span>
+            <span class="card__name">Autoescuela Sunyé</span>
+            <span class="card__info">Autoescuela, Collblanc</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#1B3F73;--card-fg:#FF7A00">
+        <a href="./webs/talleres-ronda/" class="card__link">
+          <span class="card__art"><img src="./webs/talleres-ronda/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">18</span>
+            <span class="card__name">Talleres Ronda</span>
+            <span class="card__info">Taller mecánico, La Torrassa</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#F5F5F2;--card-fg:#5B5A7A">
+        <a href="./webs/lessencia-yoga-pilates/" class="card__link">
+          <span class="card__art"><img src="./webs/lessencia-yoga-pilates/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">19</span>
+            <span class="card__name">l&#x27;Essència Yoga &amp; Pilates</span>
+            <span class="card__info">Yoga y pilates, Centre</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" style="--card-bg:#F3D9D3;--card-fg:#46624F">
+        <a href="./webs/ben-fi/" class="card__link">
+          <span class="card__art"><img src="./webs/ben-fi/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__meta">
+            <span class="card__rank">20</span>
+            <span class="card__name">Ben Fi</span>
+            <span class="card__info">Estética, La Florida</span>
+          </span>
+        </a>
+      </li>
+      </ol>
+    </main>
+    <footer>
+      <p><strong>Propuesta de diseño — demo no oficial.</strong> Estas páginas son conceptos de diseño de Sergi Pulido León. No son las webs oficiales de los negocios ni están afiliadas a ellos. Fotos, reseñas y precios son de ejemplo.</p>
+    </footer>
+  </body>
+</html>

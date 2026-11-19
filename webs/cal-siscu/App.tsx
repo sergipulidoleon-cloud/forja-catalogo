@@ -4,6 +4,7 @@ import {
   BookingForm,
   Cursor,
   DemoNote,
+  ModelCredit,
   DemoTag,
   LangToggle,
   LazyScene,
@@ -20,7 +21,7 @@ import {
 } from '../_kit';
 import { useI18n } from './content';
 
-const poster = posterFrom(import.meta.glob('./poster.webp', { eager: true, query: '?url', import: 'default' }));
+const poster = posterFrom(import.meta.glob('./poster.{avif,webp}', { eager: true, query: '?url', import: 'default' }));
 const loadScene = () => import('./Scene');
 const SIGN = ['C', 'A', 'L', ' ', 'S', 'Í', 'S', 'C', 'U'];
 // Non-uniform delays: the brush slows down as it reaches the end of the board.
@@ -198,6 +199,7 @@ export default function App() {
         <footer className="foot">
           <p className="foot__name">{t.footer}</p>
           <DemoNote kit={kit} />
+          <ModelCredit kit={kit} title="Lobster" author="Ant Gregory" url="https://sketchfab.com/3d-models/3ab14e5ce84141cda62c3405d8086157" />
         </footer>
         <DemoTag kit={kit} />
         <Toaster />

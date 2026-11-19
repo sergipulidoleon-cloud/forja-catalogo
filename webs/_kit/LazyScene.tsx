@@ -59,6 +59,7 @@ export function LazyScene({ load, poster, posterAlt, kit, reduced, className, gy
     // three.js loads on the visitor's first interaction, never during the initial load.
     const force = new URLSearchParams(location.search).has('force3d');
     if (!force && softwareRenderer()) return; // keep the poster on GPU-less devices
+    if (!force && reduced) return; // reduced motion: the still render is the hero
     let done = false;
     const go = () => {
       if (done) return;
@@ -73,7 +74,7 @@ export function LazyScene({ load, poster, posterAlt, kit, reduced, className, gy
       events.forEach((e) => window.removeEventListener(e, go));
     }
     return cleanup;
-  }, [webgl]);
+  }, [webgl, reduced]);
 
   useEffect(() => {
     const el = ref.current;

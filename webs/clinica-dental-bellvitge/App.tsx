@@ -4,6 +4,7 @@ import {
   BookingForm,
   Cursor,
   DemoNote,
+  ModelCredit,
   DemoTag,
   LangToggle,
   LazyScene,
@@ -20,7 +21,7 @@ import {
 } from '../_kit';
 import { useI18n } from './content';
 
-const poster = posterFrom(import.meta.glob('./poster.webp', { eager: true, query: '?url', import: 'default' }));
+const poster = posterFrom(import.meta.glob('./poster.{avif,webp}', { eager: true, query: '?url', import: 'default' }));
 const loadScene = () => import('./Scene');
 
 /* Upper arch: 16 teeth laid on an elliptical arc; molars wider than incisors. */
@@ -257,6 +258,7 @@ export default function App() {
         <footer className="foot">
           <p className="foot__name">{t.footer.rights}</p>
           <DemoNote kit={kit} />
+          <ModelCredit kit={kit} title="Mandibular First Molar" author="University of Dundee, School of Dentistry" url="https://sketchfab.com/3d-models/e1c919d6603846eca873154eeededdd6" />
         </footer>
         <DemoTag kit={kit} />
         <Toaster />

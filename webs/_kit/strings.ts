@@ -28,6 +28,9 @@ export type KitStrings = {
   formPeople: string;
   formNote: string;
   formRequired: string;
+  credit3dModel: string;
+  credit3dBy: string;
+  credit3dLight: string;
 };
 
 export const kitStrings: Record<'es' | 'ca', KitStrings> = {
@@ -62,6 +65,9 @@ export const kitStrings: Record<'es' | 'ca', KitStrings> = {
     formPeople: 'Personas',
     formNote: 'Comentario',
     formRequired: 'Rellena este campo para continuar.',
+    credit3dModel: 'Modelo 3D',
+    credit3dBy: 'de',
+    credit3dLight: 'Iluminación: HDRI de Poly Haven (CC0).',
   },
   ca: {
     demoNotice: 'Proposta de disseny — demo no oficial',
@@ -94,5 +100,8 @@ export const kitStrings: Record<'es' | 'ca', KitStrings> = {
     formPeople: 'Persones',
     formNote: 'Comentari',
     formRequired: 'Omple aquest camp per continuar.',
+    credit3dModel: 'Model 3D',
+    credit3dBy: 'de',
+    credit3dLight: 'Il·luminació: HDRI de Poly Haven (CC0).',
   },
 };

@@ -36,12 +36,12 @@
     "cls": "0.003"
   },
   "cal-siscu": {
-    "performance": 94,
+    "performance": 96,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 58,
-    "lcp": "3.0 s",
-    "tbt": "80 ms",
+    "lcp": "2.6 s",
+    "tbt": "100 ms",
     "cls": "0.003"
   },
   "casa-varela-1986": {
@@ -63,12 +63,12 @@
     "cls": "0.079"
   },
   "clinica-dental-bellvitge": {
-    "performance": 98,
+    "performance": 95,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 58,
-    "lcp": "2.3 s",
-    "tbt": "90 ms",
+    "lcp": "2.4 s",
+    "tbt": "170 ms",
     "cls": "0.032"
   },
   "clinica-dental-pp": {
@@ -167,7 +167,7 @@
     "best-practices": 100,
     "seo": 58,
     "lcp": "2.6 s",
-    "tbt": "80 ms",
+    "tbt": "70 ms",
     "cls": "0.011"
   },
   "talleres-ronda": {

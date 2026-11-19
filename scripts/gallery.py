@@ -1,4 +1,9 @@
 import html
+import os
+
+def poster_file(slug):
+    # AVIF once the hero has been redone; WebP for the rest.
+    return 'poster.avif' if os.path.exists(f'webs/{slug}/poster.avif') else 'poster.webp'
 demos = [
  ("clinica-dental-bellvitge","Clínica Dental Bellvitge","Clínica dental","Bellvitge","#E6F1F0","#0E3B43"),
  ("cal-siscu","Cal Síscu","Marisquería","Collblanc","#12302A","#C6A15B"),
@@ -25,7 +30,7 @@ cards = []
 for i,(slug,name,sector,barrio,bg,fg) in enumerate(demos,1):
     cards.append(f'''      <li class="card" style="--card-bg:{bg};--card-fg:{fg}">
         <a href="./webs/{slug}/" class="card__link">
-          <span class="card__art"><img src="./webs/{slug}/poster.webp" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
+          <span class="card__art"><img src="./webs/{slug}/{poster_file(slug)}" alt="" loading="lazy" decoding="async" width="600" height="420" /></span>
           <span class="card__meta">
             <span class="card__rank">{i}</span>
             <span class="card__name">{html.escape(name)}</span>

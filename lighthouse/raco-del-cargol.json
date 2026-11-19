@@ -5,7 +5,7 @@
     "best-practices": 100,
     "seo": 58,
     "lcp": "2.6 s",
-    "tbt": "80 ms",
+    "tbt": "70 ms",
     "cls": "0.011"
   },
   "failing": [
@@ -13,9 +13,9 @@
     "unused-javascript: Est savings of 76 KiB",
     "is-crawlable: 0",
     "robots-txt: 228 errors found",
-    "image-delivery-insight: Est savings of 12 KiB",
+    "image-delivery-insight: Est savings of 16 KiB",
     "lcp-discovery-insight: 0",
     "network-dependency-tree-insight: 0",
-    "render-blocking-insight: Est savings of 300 ms"
+    "render-blocking-insight: Est savings of 290 ms"
   ]
 }

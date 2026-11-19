@@ -389,6 +389,17 @@ textarea {
   line-height: 1.5;
   max-width: 70ch;
 }
+.kit-credit {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  max-width: 70ch;
+  margin-top: 0.5em;
+}
+.kit-credit a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
 .kit-demo-tag {
   position: fixed;
   left: max(12px, env(safe-area-inset-left));

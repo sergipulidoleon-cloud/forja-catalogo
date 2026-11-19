@@ -1,7 +1,7 @@
 // Usage: node scripts/shoot.mjs <mode> [slug...]
 //   mode = poster | shots | all
 // Expects `vite preview` running on http://localhost:4173.
-// poster: renders the live hero scene and saves webs/<slug>/poster.webp (alpha) for the no-WebGL fallback and first paint.
+// poster: renders the live hero scene and saves webs/<slug>/poster.avif (alpha) for the no-WebGL fallback and first paint.
 // shots:  desktop (1440x900) and mobile (390x844) full-page screenshots into capturas/.
 import { createRequire } from 'node:module';
 const { chromium } = createRequire(import.meta.url)('playwright');
@@ -35,11 +35,12 @@ for (const slug of slugs) {
       await waitScene(page);
       await page.mouse.move(720, 450, { steps: 8 });
       await page.waitForTimeout(3200);
-      await page.addStyleTag({ content: '*:not(canvas){background:transparent!important;box-shadow:none!important}html,body{background:transparent!important}.kit-cursor,.kit-demo-tag,.kit-scene__motion{display:none!important}' });
+      // Only the canvas may show: page text over the hero would otherwise be baked into the poster.
+      await page.addStyleTag({ content: '*:not(canvas){background:transparent!important;box-shadow:none!important}html,body{background:transparent!important}body *{visibility:hidden!important}.kit-scene__canvas,.kit-scene__canvas *{visibility:visible!important}.kit-scene__poster,.kit-cursor,.kit-demo-tag,.kit-scene__motion{display:none!important}' });
       await page.waitForTimeout(100);
       const canvas = await page.$('.kit-scene__canvas canvas');
       const png = await canvas.screenshot({ omitBackground: true });
-      await sharp(png).webp({ quality: 82, alphaQuality: 90, effort: 5 }).toFile(resolve(ROOT, 'webs', slug, 'poster.webp'));
+      await sharp(png).avif({ quality: 62, effort: 6 }).toFile(resolve(ROOT, 'webs', slug, 'poster.avif'));
       console.log(`poster ok  ${slug}`);
     } catch (e) {
       console.log(`poster FAIL ${slug}: ${e.message.split('\n')[0]}`);

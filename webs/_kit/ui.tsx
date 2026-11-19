@@ -200,6 +200,19 @@ export function DemoNote({ kit, className }: { kit: KitStrings; className?: stri
   );
 }
 
+/** CC-BY attribution for the hero model, required by its licence; sits under the demo notice. */
+export function ModelCredit({ kit, title, author, url, className }: { kit: KitStrings; title: string; author: string; url: string; className?: string }) {
+  return (
+    <p className={`kit-credit ${className ?? ''}`}>
+      {kit.credit3dModel}{' '}
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        «{title}»
+      </a>{' '}
+      {kit.credit3dBy} {author}, <a href="https://creativecommons.org/licenses/by/4.0/deed.es" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. {kit.credit3dLight}
+    </p>
+  );
+}
+
 export function DemoTag({ kit, className }: { kit: KitStrings; className?: string }) {
   return (
     <p className={`kit-demo-tag ${className ?? ''}`} aria-hidden="true">

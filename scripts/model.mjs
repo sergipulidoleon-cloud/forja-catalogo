@@ -20,6 +20,7 @@ const opt = (k, d) => {
 };
 const TRIS = opt('--tris', 60000);
 const MOBILE_TRIS = opt('--mobile-tris', 25000);
+const TEX = opt('--tex', 2048);
 const TMP = resolve(process.env.TMPDIR ?? '/tmp', 'forja-models', basename(outDir));
 mkdirSync(TMP, { recursive: true });
 mkdirSync(outDir, { recursive: true });
@@ -106,6 +107,6 @@ async function build(variant, tris, size) {
   return { out, before, after: countTris(doc), kb: Math.round(statSync(out).size / 1024) };
 }
 
-const desk = await build('desktop', TRIS, 2048);
+const desk = await build('desktop', TRIS, TEX);
 const mob = await build('mobile', MOBILE_TRIS, 1024);
 console.log(JSON.stringify({ source, desktop: desk, mobile: mob }, null, 1));

@@ -54,12 +54,14 @@ node scripts/lh.mjs <slug>             # Lighthouse móvil a lighthouse/
 
 ## Desplegar
 
-El proyecto es un único build estático con las 20 demos en `/webs/<slug>/`.
+El proyecto es un único build estático con las 20 demos en `/webs/<slug>/`. Está publicado en **https://demos-hospitalet.vercel.app** (proyecto `demos-hospitalet` de Vercel, con la cabecera `X-Robots-Tag: noindex`). Los enlaces de cada demo están en la columna `url_demo` de `negocios.csv`.
 
 ```bash
 npm run build
-npx vercel deploy dist --yes     # o: npx netlify deploy --dir dist
+node scripts/deploy-vercel.mjs demos-hospitalet   # sube dist/ y lo publica en el mismo dominio
 ```
+
+Para medir los FPS en un equipo real, añade `?fps` a la URL de cualquier demo.
 
 ## Contenido
 

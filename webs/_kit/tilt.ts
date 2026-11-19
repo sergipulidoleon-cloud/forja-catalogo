@@ -53,7 +53,8 @@ type IOSOrientation = typeof DeviceOrientationEvent & { requestPermission?: () =
 
 /** iOS needs a user gesture before it hands out orientation data. */
 export function needsMotionPermission() {
-  return typeof DeviceOrientationEvent !== 'undefined' && typeof (DeviceOrientationEvent as IOSOrientation).requestPermission === 'function';
+  const ios = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  return ios && typeof DeviceOrientationEvent !== 'undefined' && typeof (DeviceOrientationEvent as IOSOrientation).requestPermission === 'function';
 }
 
 export async function requestMotionPermission() {

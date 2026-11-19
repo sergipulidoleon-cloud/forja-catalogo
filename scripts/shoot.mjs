@@ -35,7 +35,7 @@ for (const slug of slugs) {
       await waitScene(page);
       await page.mouse.move(720, 450, { steps: 8 });
       await page.waitForTimeout(3200);
-      await page.addStyleTag({ content: 'html,body{background:transparent!important}.kit-cursor,.kit-demo-tag,.kit-scene__motion{display:none!important}' });
+      await page.addStyleTag({ content: '*:not(canvas){background:transparent!important;box-shadow:none!important}html,body{background:transparent!important}.kit-cursor,.kit-demo-tag,.kit-scene__motion{display:none!important}' });
       await page.waitForTimeout(100);
       const canvas = await page.$('.kit-scene__canvas canvas');
       const png = await canvas.screenshot({ omitBackground: true });

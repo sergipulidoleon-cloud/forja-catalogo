@@ -1,0 +1,521 @@
+/* Clínica Dental Bellvitge: gabinete luminoso de mañana. Porcelana, esmalte y agua. */
+:root {
+  --agua: #e6f1f0;
+  --petroleo: #0e3b43;
+  --esmalte: #ffffff;
+  --encia: #d9858c;
+  --acero: #4c6c72;
+  --fg: var(--petroleo);
+  --bg: var(--agua);
+  --accent: var(--petroleo);
+  --accent-fg: #ffffff;
+  --muted: #3d5f65;
+  --line: rgb(14 59 67 / 0.16);
+  --focus: #0e3b43;
+  --radius: 22px;
+  --font-body: 'Instrument Sans Variable', 'Instrument Sans', system-ui, sans-serif;
+  --cursor-color: var(--petroleo);
+  --wrap: min(1240px, 100% - 2 * var(--gutter));
+}
+
+body {
+  font-size: 1.0625rem;
+  font-variation-settings: 'wdth' 100;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+h2 {
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  line-height: 1.05;
+}
+h3 {
+  font-size: 1.35rem;
+  letter-spacing: -0.015em;
+}
+
+.note {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------ buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: var(--petroleo);
+  color: var(--esmalte);
+  border: 1px solid var(--petroleo);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    box-shadow 240ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    box-shadow: 0 10px 24px -12px rgb(14 59 67 / 0.7);
+  }
+  .btn--ghost:hover {
+    background: rgb(14 59 67 / 0.06);
+  }
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--petroleo);
+}
+.btn--small {
+  min-height: 42px;
+  padding: 0 16px;
+  font-size: 0.92rem;
+}
+.btn--whatsapp {
+  margin-top: 8px;
+}
+
+/* ------------------------------------------------ header */
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px var(--gutter);
+  background: var(--agua);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+.brand__mark {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px 7px 11px 11px;
+  background: var(--esmalte);
+  box-shadow:
+    inset 0 -6px 0 var(--encia),
+    0 2px 6px -2px rgb(14 59 67 / 0.4);
+}
+.top__nav {
+  display: none;
+  gap: 22px;
+  font-size: 0.95rem;
+}
+.top__nav a {
+  text-decoration: none;
+}
+.top__nav a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 520px) {
+  .brand span:last-child {
+    font-size: 0.92rem;
+  }
+  .top .btn--small {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------ hero */
+.hero {
+  width: var(--wrap);
+  margin-inline: auto;
+  display: grid;
+  gap: 8px;
+  padding-top: clamp(28px, 6vw, 72px);
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 6.2vw, 5.1rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  max-width: 13ch;
+}
+.hero__lead {
+  margin-top: 20px;
+  max-width: 44ch;
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.hero__scene {
+  height: min(58vh, 520px);
+  min-height: 340px;
+}
+
+/* ------------------------------------------------ treatments / odontogram */
+.treat {
+  margin-top: clamp(48px, 8vw, 110px);
+  padding: clamp(48px, 7vw, 96px) var(--gutter);
+  background: var(--esmalte);
+}
+.treat__head,
+.treat__body,
+.treat > .note {
+  width: min(1240px, 100%);
+  margin-inline: auto;
+}
+.treat__head p {
+  margin-top: 12px;
+  color: var(--muted);
+  max-width: 52ch;
+}
+.treat__body {
+  display: grid;
+  gap: 28px;
+  margin-top: 36px;
+}
+.treat__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+.treat__item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 60px;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  text-align: left;
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--acero);
+  transition: color 180ms ease;
+}
+.treat__item::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  flex: none;
+  border-radius: 4px 4px 6px 6px;
+  border: 1.5px solid currentColor;
+  transition:
+    background-color 200ms ease,
+    transform 220ms var(--ease-out);
+}
+.treat__item[aria-pressed='true'] {
+  color: var(--petroleo);
+}
+.treat__item[aria-pressed='true']::before {
+  background: var(--encia);
+  border-color: var(--encia);
+  transform: scale(1.15);
+}
+.treat__visual {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+.arch {
+  width: 100%;
+  max-width: 520px;
+}
+.arch__gum {
+  fill: none;
+  stroke: var(--encia);
+  stroke-width: 10;
+  stroke-linecap: round;
+  opacity: 0.45;
+  stroke-dasharray: 520;
+}
+.arch__tooth {
+  fill: var(--esmalte);
+  stroke: rgb(14 59 67 / 0.45);
+  stroke-width: 1.4;
+  transition:
+    fill 260ms ease,
+    stroke 260ms ease;
+}
+.arch__tooth[data-on] {
+  fill: var(--encia);
+  stroke: #a9545c;
+}
+.treat__detail {
+  min-height: 120px;
+  max-width: 46ch;
+}
+.treat__detail p {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------ clinic */
+.clinic {
+  width: var(--wrap);
+  margin: clamp(64px, 9vw, 120px) auto 0;
+  display: grid;
+  gap: 28px;
+}
+.clinic__text p {
+  margin-top: 14px;
+  max-width: 48ch;
+  color: var(--muted);
+}
+.clinic__photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 160px;
+  gap: 12px;
+}
+.clinic__photo {
+  --radius: 18px;
+  background: var(--esmalte);
+}
+.clinic__photo--0 {
+  grid-column: 1 / -1;
+  grid-row: span 2;
+}
+.clinic__photo figcaption {
+  margin: 10px;
+  padding: 8px 12px;
+  justify-self: start;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.9);
+}
+.photo-art {
+  display: block;
+  height: 100%;
+  background:
+    linear-gradient(115deg, transparent 0 46%, rgb(255 255 255 / 0.75) 46% 58%, transparent 58%),
+    linear-gradient(180deg, #cfe3e1, #a9c9c6 70%, #8fb3b0);
+}
+.clinic__photo--1 .photo-art {
+  background:
+    radial-gradient(circle at 70% 30%, #ffffff 0 14%, transparent 15%),
+    linear-gradient(160deg, #dbe9e7, #b8d2cf);
+}
+.clinic__photo--2 .photo-art {
+  background:
+    radial-gradient(ellipse 30% 40% at 30% 70%, #f2d6d4, transparent 70%),
+    radial-gradient(ellipse 30% 40% at 70% 70%, #e8c5c3, transparent 70%),
+    linear-gradient(180deg, #e9f3f2, #c9dedc);
+}
+
+/* ------------------------------------------------ reviews */
+.reviews {
+  width: var(--wrap);
+  margin: clamp(72px, 10vw, 130px) auto 0;
+}
+.reviews__list {
+  display: grid;
+  gap: 36px;
+  margin-top: 32px;
+}
+.review {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+.review__badge {
+  justify-self: start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.review blockquote {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+.review figcaption {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* ------------------------------------------------ visit */
+.visit {
+  width: var(--wrap);
+  margin: clamp(72px, 10vw, 130px) auto 0;
+  display: grid;
+  gap: 28px;
+}
+.visit__address {
+  margin-top: 12px;
+  font-size: 1.15rem;
+}
+.hours {
+  margin-top: 28px;
+}
+.hours h3,
+.contact dt {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+.hours dl,
+.contact {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+}
+.hours dl > div,
+.contact > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.hours dd {
+  font-variant-numeric: tabular-nums;
+}
+.contact {
+  margin-top: 24px;
+}
+.contact dd a {
+  font-weight: 600;
+}
+.visit__map {
+  --radius: 22px;
+  min-height: 340px;
+  background: var(--petroleo);
+  color: var(--esmalte);
+}
+
+/* ------------------------------------------------ booking */
+.book {
+  margin-top: clamp(72px, 10vw, 130px);
+  padding: clamp(48px, 7vw, 90px) var(--gutter);
+  background: var(--petroleo);
+  color: var(--esmalte);
+  display: grid;
+  gap: 28px;
+  --line: rgb(255 255 255 / 0.25);
+  --accent: var(--esmalte);
+  --accent-fg: var(--petroleo);
+  --focus: #ffffff;
+  --field-bg: rgb(255 255 255 / 0.06);
+  --error: #ffb4b9;
+}
+.book > * {
+  width: min(1240px, 100%);
+  margin-inline: auto;
+}
+.book p {
+  margin-top: 12px;
+  color: rgb(255 255 255 / 0.82);
+  max-width: 44ch;
+}
+.book select option {
+  color: var(--petroleo);
+}
+
+/* ------------------------------------------------ footer */
+.foot {
+  padding: 40px var(--gutter) 90px;
+  display: grid;
+  gap: 10px;
+  background: var(--petroleo);
+  color: rgb(255 255 255 / 0.8);
+  border-top: 1px solid rgb(255 255 255 / 0.15);
+}
+.foot__name {
+  color: var(--esmalte);
+  font-weight: 600;
+}
+.kit-demo-tag {
+  --tag-bg: var(--petroleo);
+  --tag-fg: var(--esmalte);
+}
+.kit-toast {
+  --toast-bg: var(--petroleo);
+  --toast-fg: #fff;
+}
+
+/* ------------------------------------------------ wide screens */
+@media (min-width: 900px) {
+  .top__nav {
+    display: flex;
+  }
+  .hero {
+    grid-template-columns: 5fr 6fr;
+    align-items: center;
+    min-height: calc(100dvh - 140px);
+    padding-top: 0;
+  }
+  .hero__scene {
+    height: min(72vh, 680px);
+  }
+  .treat__body {
+    grid-template-columns: 5fr 6fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .clinic {
+    grid-template-columns: 4fr 7fr;
+    gap: 64px;
+    align-items: end;
+  }
+  .clinic__photos {
+    grid-template-columns: 1.4fr 1fr;
+    grid-auto-rows: 200px;
+  }
+  .clinic__photo--0 {
+    grid-column: 1;
+  }
+  .reviews__list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+  .review:nth-child(2) {
+    margin-top: 56px;
+  }
+  .review:nth-child(3) {
+    margin-top: 22px;
+  }
+  .visit {
+    grid-template-columns: 5fr 6fr;
+    gap: 64px;
+  }
+  .visit__map {
+    min-height: 100%;
+  }
+  .book {
+    grid-template-columns: 5fr 6fr;
+    gap: 64px;
+  }
+  .book {
+    padding-inline: max(var(--gutter), (100% - 1240px) / 2);
+  }
+  .book > * {
+    width: auto;
+    margin: 0;
+  }
+  .foot {
+    padding-inline: max(var(--gutter), (100% - 1240px) / 2);
+  }
+}

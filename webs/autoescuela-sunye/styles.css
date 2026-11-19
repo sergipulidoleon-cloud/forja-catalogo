@@ -1,0 +1,458 @@
+/* Autoescuela Sunyé: desde 1979. Asfalto, amarillo señal, azul señal. La página es una carretera. */
+:root {
+  --asfalto: #2b2d31;
+  --asfalto-2: #222428;
+  --amarillo: #ffc72c;
+  --azul: #0057b8;
+  --rojo: #d52b1e;
+  --blanco: #ffffff;
+  --fg: #f4f4f2;
+  --bg: var(--asfalto);
+  --accent: var(--amarillo);
+  --accent-fg: var(--asfalto);
+  --muted: #c4c6cb;
+  --line: rgb(255 255 255 / 0.16);
+  --focus: var(--amarillo);
+  --radius: 8px;
+  --font-body: 'Overpass Variable', Overpass, system-ui, sans-serif;
+  --font-display: var(--font-body);
+  --cursor-color: var(--amarillo);
+  --cursor-label: var(--asfalto);
+  --wrap: min(1200px, 100% - 2 * var(--gutter));
+  color-scheme: dark;
+}
+body {
+  font-size: 1.07rem;
+}
+h1,
+h2,
+h3 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+h2 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1;
+}
+.note {
+  margin-top: 14px;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+/* the dashed centre line running down the whole page */
+.lane {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: max(6px, (100% - 1200px) / 2 - 40px);
+  width: 6px;
+  z-index: 0;
+  background: repeating-linear-gradient(180deg, var(--amarillo) 0 40px, transparent 40px 80px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+main,
+.head,
+.foot {
+  position: relative;
+  z-index: 1;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 6px;
+  border: 0;
+  font-weight: 800;
+  text-decoration: none;
+}
+.btn--yellow {
+  background: var(--amarillo);
+  color: var(--asfalto);
+}
+.btn--blue {
+  background: var(--azul);
+  color: #fff;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px var(--gutter);
+  background: var(--asfalto-2);
+}
+.head__brand {
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-decoration: none;
+}
+.head__l {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: var(--azul);
+  font-weight: 900;
+}
+.head__nav {
+  display: none;
+  gap: 22px;
+  font-weight: 700;
+}
+.head__nav a {
+  text-decoration: none;
+}
+
+/* ------------------------------------------------ hero */
+.hero {
+  width: var(--wrap);
+  margin-inline: auto;
+  display: grid;
+  padding-top: clamp(16px, 4vw, 48px);
+}
+.hero__since {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 3px solid var(--amarillo);
+  border-radius: 6px;
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: var(--amarillo);
+  font-variant-numeric: tabular-nums;
+}
+.hero h1 {
+  margin-top: 16px;
+  font-size: clamp(2.3rem, 5.6vw, 4.4rem);
+  line-height: 1;
+  max-width: 17ch;
+}
+.hero__lead {
+  margin-top: 16px;
+  max-width: 44ch;
+  color: var(--muted);
+}
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.hero__scene {
+  height: clamp(300px, 46vh, 560px);
+}
+
+/* ------------------------------------------------ permits as road signs */
+.permits {
+  width: var(--wrap);
+  margin: clamp(56px, 8vw, 110px) auto 0;
+}
+.permits__intro {
+  margin-top: 8px;
+  color: var(--muted);
+}
+.signs {
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 26px;
+}
+.sign {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+.sign__plate {
+  display: grid;
+  place-items: center;
+  width: 110px;
+  height: 110px;
+  font-weight: 900;
+  font-size: 2.2rem;
+}
+.sign__plate--circle {
+  border-radius: 50%;
+  background: #fff;
+  border: 12px solid var(--rojo);
+  color: var(--asfalto);
+}
+.sign__plate--triangle {
+  background: var(--rojo);
+  clip-path: polygon(50% 4%, 98% 92%, 2% 92%);
+  color: var(--asfalto);
+  position: relative;
+}
+.sign__plate--triangle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  clip-path: polygon(50% 22%, 85% 84%, 15% 84%);
+}
+.sign__plate--triangle span {
+  position: relative;
+  margin-top: 26px;
+  font-size: 1.6rem;
+}
+.sign__plate--square {
+  border-radius: 10px;
+  background: var(--azul);
+  color: #fff;
+  box-shadow: inset 0 0 0 5px #fff;
+}
+.sign h3 {
+  font-size: 1.3rem;
+}
+.sign p {
+  color: var(--muted);
+}
+
+/* ------------------------------------------------ route (a real sequence) */
+.route {
+  margin-top: clamp(64px, 9vw, 120px);
+  padding: clamp(48px, 7vw, 90px) var(--gutter);
+  background: var(--amarillo);
+  color: var(--asfalto);
+  --muted: #3b3d42;
+  --focus: var(--asfalto);
+}
+.route > * {
+  width: min(1200px, 100%);
+  margin-inline: auto;
+}
+.route__map {
+  position: relative;
+  margin-top: 30px;
+}
+.route__rail {
+  display: none;
+}
+.route ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 26px;
+}
+.route__km {
+  display: inline-grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 6px;
+  background: #fff;
+  border: 3px solid var(--asfalto);
+  font-weight: 900;
+  font-size: 1.3rem;
+  position: relative;
+  z-index: 1;
+}
+.route h3 {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+.route p {
+  color: var(--muted);
+  max-width: 30ch;
+}
+
+/* ------------------------------------------------ garage */
+.garage {
+  width: var(--wrap);
+  margin: clamp(64px, 9vw, 120px) auto 0;
+}
+.garage__grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.garage__item {
+  height: 210px;
+}
+.garage__item--1 {
+  grid-row: span 2;
+  height: auto;
+}
+.garage__item figcaption {
+  margin: 10px;
+  justify-self: start;
+  border-radius: 6px;
+  background: var(--asfalto-2);
+}
+.s-art {
+  display: block;
+  height: 100%;
+  background:
+    repeating-linear-gradient(90deg, #f4f4f2 0 2px, transparent 2px 70px) 0 30% / 100% 20% no-repeat,
+    linear-gradient(0deg, #3a3d43 0 30%, #4d5158 30%);
+}
+.garage__item--1 .s-art {
+  background:
+    radial-gradient(circle at 30% 76%, #1a1b1e 0 7%, transparent 8%),
+    radial-gradient(circle at 70% 76%, #1a1b1e 0 7%, transparent 8%),
+    radial-gradient(ellipse 36% 16% at 50% 66%, #f4f4f2 0 90%, transparent 92%),
+    linear-gradient(0deg, #3a3d43 0 24%, #5c6f85 24%);
+}
+.garage__item--2 .s-art {
+  background:
+    radial-gradient(ellipse 30% 18% at 50% 50%, var(--azul) 0 80%, transparent 82%),
+    #e8e6df;
+}
+
+/* ------------------------------------------------ passed */
+.passed {
+  width: var(--wrap);
+  margin: clamp(64px, 9vw, 120px) auto 0;
+}
+.passed__list {
+  margin-top: 24px;
+  display: grid;
+  gap: 24px;
+}
+.passed blockquote {
+  margin: 0;
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+.passed figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+}
+.passed figcaption span {
+  margin-left: 6px;
+  padding: 1px 8px;
+  border-radius: 4px;
+  background: var(--azul);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------ place */
+.place {
+  width: var(--wrap);
+  margin: clamp(64px, 9vw, 120px) auto 0;
+  display: grid;
+  gap: 24px;
+}
+.place__addr {
+  margin-top: 10px;
+  font-weight: 700;
+}
+.place dl {
+  margin-top: 16px;
+}
+.place dl > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.place dt {
+  color: var(--amarillo);
+  font-weight: 700;
+}
+.place__map {
+  min-height: 320px;
+  background: var(--azul);
+  color: #fff;
+}
+
+/* ------------------------------------------------ signup */
+.signup {
+  width: var(--wrap);
+  margin: clamp(64px, 9vw, 120px) auto 0;
+  padding: clamp(28px, 5vw, 56px);
+  background: #f4f4f2;
+  color: var(--asfalto);
+  border-radius: 10px;
+  --line: rgb(43 45 49 / 0.25);
+  --accent: var(--azul);
+  --accent-fg: #fff;
+  --focus: var(--azul);
+  --field-bg: #fff;
+}
+.signup > p {
+  margin: 8px 0 22px;
+}
+.foot {
+  margin-top: clamp(64px, 9vw, 110px);
+  padding: 34px var(--gutter) 90px;
+  display: grid;
+  gap: 10px;
+  background: var(--asfalto-2);
+  color: var(--muted);
+}
+.foot__name {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--amarillo);
+}
+.kit-demo-tag {
+  --tag-bg: var(--amarillo);
+  --tag-fg: var(--asfalto);
+}
+
+@media (min-width: 900px) {
+  .head__nav {
+    display: flex;
+  }
+  .hero {
+    grid-template-columns: 5fr 6fr;
+    align-items: center;
+    min-height: calc(100dvh - 70px);
+  }
+  .hero__scene {
+    height: min(72vh, 640px);
+  }
+  .route__rail {
+    display: block;
+    position: absolute;
+    left: 23px;
+    right: 30%;
+    top: 21px;
+    height: 4px;
+    background: rgb(43 45 49 / 0.2);
+  }
+  .route__bar {
+    display: block;
+    height: 100%;
+    background: var(--asfalto);
+    transform-origin: left;
+  }
+  .route ol {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .garage__grid {
+    grid-template-columns: 1fr 1.2fr 1fr;
+  }
+  .garage__item--1 {
+    grid-row: auto;
+    height: 300px;
+  }
+  .garage__item {
+    height: 300px;
+  }
+  .passed__list {
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+  .place {
+    grid-template-columns: 5fr 6fr;
+    gap: 56px;
+  }
+}

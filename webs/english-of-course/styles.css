@@ -1,0 +1,426 @@
+/* English Of Course!: academia británica con dos sedes. Rojo buzón, azul tinta, amarillo; señalética de metro. */
+:root {
+  --rojo: #da202a;
+  --rojo-deep: #b5161f;
+  --tinta: #13294b;
+  --amarillo: #ffd23f;
+  --verde: #1e4d3a;
+  --fg: var(--tinta);
+  --bg: #ffffff;
+  --accent: var(--tinta);
+  --accent-fg: #fff;
+  --muted: #3d4c66;
+  --line: rgb(19 41 75 / 0.15);
+  --focus: var(--rojo-deep);
+  --radius: 6px;
+  --font-body: 'Josefin Sans Variable', 'Josefin Sans', system-ui, sans-serif;
+  --font-display: 'Libre Baskerville', Baskerville, Georgia, serif;
+  --cursor-color: var(--rojo);
+  --wrap: min(1200px, 100% - 2 * var(--gutter));
+}
+body {
+  font-size: 1.1rem;
+  line-height: 1.55;
+}
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+h2 {
+  font-size: clamp(2rem, 4.4vw, 3.2rem);
+  line-height: 1.08;
+}
+h3 {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+.note {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--tinta);
+}
+.btn--red {
+  background: var(--rojo-deep);
+  border-color: var(--rojo-deep);
+  color: #fff;
+}
+.btn--line {
+  background: #fff;
+  color: var(--tinta);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px var(--gutter);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.brand__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--rojo);
+  box-shadow: 18px 0 0 -2px var(--amarillo);
+  margin-right: 14px;
+}
+.head__nav {
+  display: none;
+  gap: 24px;
+  font-weight: 600;
+}
+.head__nav a {
+  text-decoration: none;
+}
+
+/* ------------------------------------------------ hero */
+.hero {
+  width: var(--wrap);
+  margin-inline: auto;
+  display: grid;
+  padding-top: clamp(16px, 4vw, 48px);
+}
+.hero h1 {
+  font-size: clamp(2.3rem, 5.4vw, 4.2rem);
+  line-height: 1.06;
+  max-width: 16ch;
+}
+.hero__text > p {
+  margin-top: 18px;
+  max-width: 44ch;
+  color: var(--muted);
+}
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+.hero__scene {
+  height: clamp(320px, 50vh, 580px);
+}
+
+/* ------------------------------------------------ courses */
+.courses {
+  width: var(--wrap);
+  margin: clamp(56px, 8vw, 110px) auto 0;
+}
+.courses__list {
+  margin-top: 26px;
+  display: grid;
+  gap: 14px;
+}
+.course {
+  padding: 24px;
+  border-top: 8px solid var(--tinta);
+  background: #f4f6fa;
+}
+.course--0 {
+  border-color: var(--amarillo);
+}
+.course--1 {
+  border-color: var(--rojo);
+}
+.course--2 {
+  border-color: var(--verde);
+}
+.course h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+}
+.course__age {
+  font-weight: 700;
+  color: var(--rojo-deep);
+}
+.course p:last-child {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------ tube line between schools */
+.line {
+  margin-top: clamp(64px, 9vw, 120px);
+  padding: clamp(48px, 7vw, 90px) var(--gutter);
+  background: var(--tinta);
+  color: #fff;
+  display: grid;
+  gap: 18px;
+  --line: rgb(255 255 255 / 0.2);
+  --focus: var(--amarillo);
+}
+.line > * {
+  width: min(1200px, 100%);
+  margin-inline: auto;
+}
+.line__hint {
+  color: #c9d3e6;
+}
+.line__map {
+  position: relative;
+  margin-top: 20px;
+}
+.line__rail {
+  position: absolute;
+  left: 13px;
+  top: 14px;
+  bottom: 30px;
+  width: 8px;
+  background: rgb(255 255 255 / 0.15);
+}
+.line__track {
+  position: absolute;
+  inset: 0;
+  background: var(--rojo);
+  transform-origin: top;
+}
+.line ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 34px;
+}
+.stop {
+  position: relative;
+  padding-left: 52px;
+}
+.stop__dot {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #fff;
+  border: 7px solid var(--tinta);
+  box-shadow: 0 0 0 3px #fff;
+}
+.stop h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+}
+.stop p {
+  color: #dfe5f0;
+}
+.line__contact > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.line__contact dt {
+  color: var(--amarillo);
+  font-weight: 700;
+}
+.line__mapembed {
+  min-height: 300px;
+  background: #0d1d36;
+  color: #fff;
+}
+
+/* ------------------------------------------------ cambridge ladder (a real sequence of levels) */
+.cambridge {
+  width: var(--wrap);
+  margin: clamp(64px, 9vw, 120px) auto 0;
+  display: grid;
+  gap: 26px;
+}
+.cambridge p {
+  margin-top: 12px;
+  max-width: 44ch;
+  color: var(--muted);
+}
+.ladder {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.ladder li {
+  padding: 14px 18px;
+  margin-left: calc(var(--step) * 6%);
+  background: var(--verde);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* ------------------------------------------------ rooms */
+.rooms {
+  width: var(--wrap);
+  margin: clamp(64px, 9vw, 120px) auto 0;
+}
+.rooms__grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.rooms__item {
+  height: 210px;
+}
+.rooms__item--0 {
+  grid-column: 1 / -1;
+}
+.rooms__item figcaption {
+  margin: 10px;
+  justify-self: start;
+  background: #fff;
+  border-radius: 4px;
+}
+.e-art {
+  display: block;
+  height: 100%;
+  background:
+    repeating-linear-gradient(90deg, var(--amarillo) 0 60px, var(--rojo) 60px 120px, #8fd3f4 120px 180px) 0 70% / 100% 18% no-repeat,
+    #f4f6fa;
+}
+.rooms__item--1 .e-art {
+  background: repeating-linear-gradient(0deg, #fff 0 34px, #e7ecf5 34px 36px), #fff;
+}
+.rooms__item--2 .e-art {
+  background:
+    repeating-linear-gradient(90deg, #13294b 0 14px, #da202a 14px 22px, #1e4d3a 22px 34px, #ffd23f 34px 42px) 0 30% / 100% 40% no-repeat,
+    #e9e2d0;
+}
+
+/* ------------------------------------------------ say */
+.say {
+  width: var(--wrap);
+  margin: clamp(64px, 9vw, 120px) auto 0;
+}
+.say__list {
+  margin-top: 24px;
+  display: grid;
+  gap: 24px;
+}
+.say blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+  line-height: 1.35;
+}
+.say figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+}
+.say figcaption span {
+  margin-left: 6px;
+  padding: 1px 8px;
+  background: var(--amarillo);
+  color: var(--tinta);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------ enrol */
+.enrol {
+  width: var(--wrap);
+  margin: clamp(64px, 9vw, 120px) auto 0;
+  padding: clamp(28px, 5vw, 56px);
+  background: var(--amarillo);
+  --field-bg: #fff;
+}
+.enrol > p {
+  margin: 8px 0 22px;
+}
+.foot {
+  margin-top: clamp(64px, 9vw, 110px);
+  padding: 34px var(--gutter) 90px;
+  display: grid;
+  gap: 10px;
+  background: var(--tinta);
+  color: #d4dbe8;
+}
+.foot__name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: #fff;
+}
+.kit-demo-tag {
+  --tag-bg: var(--rojo-deep);
+  --tag-fg: #fff;
+}
+
+@media (min-width: 900px) {
+  .head__nav {
+    display: flex;
+  }
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    min-height: calc(100dvh - 100px);
+  }
+  .hero__scene {
+    height: min(70vh, 640px);
+  }
+  .courses__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .line__map {
+    margin-top: 40px;
+  }
+  .line__rail {
+    left: 17px;
+    right: 50%;
+    top: 13px;
+    bottom: auto;
+    width: auto;
+    height: 8px;
+  }
+  .line__track {
+    transform-origin: left;
+  }
+  .line ol {
+    grid-template-columns: 1fr 1fr;
+  }
+  .stop {
+    padding-left: 0;
+    padding-top: 52px;
+  }
+  .cambridge {
+    grid-template-columns: 5fr 6fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .rooms__grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+  .rooms__item--0 {
+    grid-column: auto;
+  }
+  .rooms__item {
+    height: 280px;
+  }
+  .say__list {
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+}

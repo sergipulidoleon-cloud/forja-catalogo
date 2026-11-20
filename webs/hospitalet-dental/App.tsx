@@ -4,6 +4,7 @@ import {
   BookingForm,
   Cursor,
   DemoNote,
+  ModelCredit,
   DemoTag,
   LangToggle,
   LazyScene,
@@ -20,7 +21,7 @@ import {
 } from '../_kit';
 import { useI18n } from './content';
 
-const poster = posterFrom(import.meta.glob('./poster.webp', { eager: true, query: '?url', import: 'default' }));
+const poster = posterFrom(import.meta.glob('./poster.{avif,webp}', { eager: true, query: '?url', import: 'default' }));
 const loadScene = () => import('./Scene');
 const slow = { duration: 0.3, ease: [0.77, 0, 0.175, 1] as const };
 
@@ -178,6 +179,7 @@ export default function App() {
         <footer className="foot">
           <p className="foot__name">{t.footer}</p>
           <DemoNote kit={kit} />
+          <ModelCredit kit={kit} title="Spiral Implant by MSDI" author="MSDI" url="https://sketchfab.com/3d-models/acfa14fecf1a4a13adb00f486a84bc65" />
         </footer>
         <DemoTag kit={kit} />
         <Toaster />

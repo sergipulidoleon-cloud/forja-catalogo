@@ -8,7 +8,7 @@ const es = {
     lead: 'Corte, barba y afeitado a navaja con toalla caliente. Entras, te sientas, sales nuevo.',
     cita: 'Coger cita',
     whatsapp: 'WhatsApp',
-    sceneAlt: 'Navaja de afeitar clásica que se abre al hacer scroll',
+    sceneAlt: 'Sillón de barbero clásico de cuero capitoné y metal; se puede girar arrastrando',
   },
   servicios: {
     title: 'La lista del espejo',
@@ -49,7 +49,7 @@ const ca: Dict = {
     lead: 'Tall, barba i afaitat a navalla amb tovallola calenta. Entres, seus, surts nou.',
     cita: 'Agafar cita',
     whatsapp: 'WhatsApp',
-    sceneAlt: "Navalla d'afaitar clàssica que s'obre en fer scroll",
+    sceneAlt: 'Cadira de barber clàssica de cuir capitonat i metall; es pot girar arrossegant',
   },
   servicios: {
     title: 'La llista del mirall',

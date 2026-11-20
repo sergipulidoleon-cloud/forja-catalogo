@@ -9,7 +9,7 @@ const es = {
     call: 'Llamar',
     inhale: 'Inspira',
     exhale: 'Espira',
-    sceneAlt: 'Esfera orgánica que se expande y se contrae al ritmo de una respiración lenta',
+    sceneAlt: 'Cuenco tibetano de latón grabado, escaneado en 3D; se puede girar arrastrando',
   },
   clases: {
     title: 'Clases',
@@ -61,7 +61,7 @@ const ca: Dict = {
     call: 'Trucar',
     inhale: 'Inspira',
     exhale: 'Expira',
-    sceneAlt: "Esfera orgànica que s'expandeix i es contrau al ritme d'una respiració lenta",
+    sceneAlt: 'Bol tibetà de llautó gravat, escanejat en 3D; es pot girar arrossegant',
   },
   clases: {
     title: 'Classes',

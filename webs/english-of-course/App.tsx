@@ -4,6 +4,7 @@ import {
   BookingForm,
   Cursor,
   DemoNote,
+  ModelCredit,
   DemoTag,
   LangToggle,
   LazyScene,
@@ -20,7 +21,7 @@ import {
 } from '../_kit';
 import { useI18n } from './content';
 
-const poster = posterFrom(import.meta.glob('./poster.webp', { eager: true, query: '?url', import: 'default' }));
+const poster = posterFrom(import.meta.glob('./poster.{avif,webp}', { eager: true, query: '?url', import: 'default' }));
 const loadScene = () => import('./Scene');
 
 export default function App() {
@@ -180,6 +181,7 @@ export default function App() {
         <footer className="foot">
           <p className="foot__name">{t.footer}</p>
           <DemoNote kit={kit} />
+          <ModelCredit kit={kit} title="Antique Globe" author="Matthew Collings" url="https://sketchfab.com/3d-models/78b47132c6be42bcb664545a69b380d9" />
         </footer>
         <DemoTag kit={kit} />
         <Toaster />

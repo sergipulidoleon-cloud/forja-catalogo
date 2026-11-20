@@ -7,6 +7,10 @@ for it in items:
     if kind=='sketchfab':
         m=json.load(urllib.request.urlopen(f"https://api.sketchfab.com/v3/models/{ident}"))
         lines += [f"## {m['name']}", f"- Fuente: Sketchfab, https://sketchfab.com/3d-models/{ident}", f"- Autor: {m['user']['displayName']} (@{m['user']['username']})", f"- Licencia: {m['license']['label']}", f"- Uso: hero 3D. Modelo simplificado y recomprimido (Meshopt + KTX2); sin cambios de forma.", ""]
+    elif kind=='polyhaven-model':
+        lines += [f"## Modelo {ident}", f"- Fuente: Poly Haven, https://polyhaven.com/a/{ident}", "- Licencia: CC0 (dominio público)", "- Uso: hero 3D. Modelo escaneado/PBR recomprimido (Meshopt + KTX2); sin cambios de forma.", ""]
+    elif kind=='ambientcg':
+        lines += [f"## Imperfecciones {ident}", f"- Fuente: ambientCG, https://ambientcg.com/a/{ident}", "- Licencia: CC0 (dominio público)", "- Uso: mapa de rugosidad sutil (huellas y microvariación) sobre el material.", ""]
     elif kind=='polyhaven':
         lines += [f"## HDRI {ident}", f"- Fuente: Poly Haven, https://polyhaven.com/a/{ident}", "- Licencia: CC0 (dominio público)", "- Uso: iluminación de la escena, reducido a 256 × 128 px.", ""]
 open(f"webs/{slug}/assets/CREDITOS.md","w").write("\n".join(lines))

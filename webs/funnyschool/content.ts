@@ -7,7 +7,7 @@ const es = {
     lead: 'Funnyschool: clases 100 % en inglés para niños y niñas. Aprenden hablando, cantando y moviéndose, sin darse cuenta.',
     cta: 'Pedir clase de prueba',
     whatsapp: 'Escribir por WhatsApp',
-    sceneAlt: 'Bloques de letras A, B y C que caen, rebotan y se pueden empujar con el cursor',
+    sceneAlt: 'Cubos de madera con las letras de FUNNY que caen, ruedan y se pueden empujar con el cursor',
     push: 'Empuja los bloques',
   },
   clases: {
@@ -57,7 +57,7 @@ const ca: Dict = {
     lead: 'Funnyschool: classes 100 % en anglès per a nens i nenes. Aprenen parlant, cantant i movent-se, sense adonar-se’n.',
     cta: 'Demanar classe de prova',
     whatsapp: 'Escriure per WhatsApp',
-    sceneAlt: 'Blocs de lletres A, B i C que cauen, reboten i es poden empènyer amb el cursor',
+    sceneAlt: 'Cubs de fusta amb les lletres de FUNNY que cauen, rodolen i es poden empènyer amb el cursor',
     push: 'Empeny els blocs',
   },
   clases: {

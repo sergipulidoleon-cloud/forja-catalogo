@@ -7,7 +7,7 @@ const es = {
     lead: 'Clínica Dental P&P, de la Dra. Mireia Pato. Más de diez años cuidando dientes de niños, padres y abuelos en la calle Enric Morera.',
     cita: 'Pedir cita',
     llamar: 'Llamar',
-    sceneAlt: 'Una sonrisa de dientes redondeados que sonríe y sigue el cursor',
+    sceneAlt: 'Dentadura completa escaneada en 3D, arcada superior e inferior; se puede girar arrastrando',
   },
   tratamientos: {
     title: 'Lo que hacemos',
@@ -57,7 +57,7 @@ const ca: Dict = {
     lead: 'Clínica Dental P&P, de la Dra. Mireia Pato. Més de deu anys cuidant dents de nens, pares i avis al carrer Enric Morera.',
     cita: 'Demanar cita',
     llamar: 'Trucar',
-    sceneAlt: 'Un somriure de dents arrodonides que somriu i segueix el cursor',
+    sceneAlt: 'Dentadura completa escanejada en 3D, arcada superior i inferior; es pot girar arrossegant',
   },
   tratamientos: {
     title: 'El que fem',

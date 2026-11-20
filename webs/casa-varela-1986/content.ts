@@ -7,7 +7,7 @@ const es = {
     lead: 'Arroces y marisco para compartir en L’Hospitalet. La paella llega a la mesa y la conversación se alarga.',
     reservar: 'Reservar mesa',
     llamar: 'Encargar arroz',
-    sceneAlt: 'Paella vista desde arriba con gambas, mejillones y limón, humeando',
+    sceneAlt: 'Arroz negro con marisco en su paella, escaneado en 3D; se puede girar arrastrando',
   },
   arroces: {
     title: 'Alrededor de la paella',
@@ -51,7 +51,7 @@ const ca: Dict = {
     lead: 'Arrossos i marisc per compartir a L’Hospitalet. La paella arriba a taula i la conversa s’allarga.',
     reservar: 'Reservar taula',
     llamar: 'Encarregar arròs',
-    sceneAlt: 'Paella vista des de dalt amb gambes, musclos i llimona, fumejant',
+    sceneAlt: 'Arròs negre amb marisc a la paella, escanejat en 3D; es pot girar arrossegant',
   },
   arroces: {
     title: 'Al voltant de la paella',

@@ -7,7 +7,7 @@ const es = {
     lead: 'Autoescuela Sunyé: aulas propias, coches propios y profesores que conocen cada calle del examen.',
     cta: 'Pedir información',
     call: 'Llamar al 933 334 958',
-    sceneAlt: 'Coche de autoescuela que avanza por una carretera al hacer scroll y gira con el ratón',
+    sceneAlt: 'Cono de tráfico real escaneado en 3D, gastado por el uso; se puede girar arrastrando',
   },
   permisos: {
     title: 'Permisos',
@@ -57,7 +57,7 @@ const ca: Dict = {
     lead: "Autoescola Sunyé: aules pròpies, cotxes propis i professors que coneixen cada carrer de l'examen.",
     cta: 'Demanar informació',
     call: 'Trucar al 933 334 958',
-    sceneAlt: "Cotxe d'autoescola que avança per una carretera en fer scroll i gira amb el ratolí",
+    sceneAlt: "Con de trànsit real escanejat en 3D, gastat per l'ús; es pot girar arrossegant",
   },
   permisos: {
     title: 'Permisos',

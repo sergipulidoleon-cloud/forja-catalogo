@@ -7,7 +7,7 @@ const es = {
     lead: 'Hospitalet Dental, en la calle Castillejos. Diagnóstico claro, presupuesto cerrado y el tiempo necesario para cada paciente.',
     cita: 'Pedir primera visita',
     whatsapp: 'WhatsApp',
-    sceneAlt: 'Implante dental de titanio con pilar y corona que se separan al hacer scroll',
+    sceneAlt: 'Implante dental de titanio con rosca en espiral; se puede girar arrastrando',
   },
   implante: {
     title: 'Un implante, pieza a pieza',
@@ -53,7 +53,7 @@ const ca: Dict = {
     lead: 'Hospitalet Dental, al carrer Castillejos. Diagnòstic clar, pressupost tancat i el temps necessari per a cada pacient.',
     cita: 'Demanar primera visita',
     whatsapp: 'WhatsApp',
-    sceneAlt: "Implant dental de titani amb pilar i corona que se separen en fer scroll",
+    sceneAlt: 'Implant dental de titani amb rosca en espiral; es pot girar arrossegant',
   },
   implante: {
     title: 'Un implant, peça a peça',

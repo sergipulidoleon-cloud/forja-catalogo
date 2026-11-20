@@ -4,6 +4,7 @@ import {
   BookingForm,
   Cursor,
   DemoNote,
+  ModelCredit,
   DemoTag,
   LangToggle,
   LazyScene,
@@ -20,7 +21,7 @@ import {
 } from '../_kit';
 import { useI18n } from './content';
 
-const poster = posterFrom(import.meta.glob('./poster.webp', { eager: true, query: '?url', import: 'default' }));
+const poster = posterFrom(import.meta.glob('./poster.{avif,webp}', { eager: true, query: '?url', import: 'default' }));
 const loadScene = () => import('./Scene');
 const soft = { type: 'spring' as const, duration: 0.4, bounce: 0.2 };
 
@@ -161,6 +162,7 @@ export default function App() {
         <footer className="foot">
           <p className="foot__name">{t.footer}</p>
           <DemoNote kit={kit} />
+          <ModelCredit kit={kit} title="Golden Retriever Dog" author="iRahulRajput" url="https://sketchfab.com/3d-models/4d32f856099c4baca05da2da485c24c1" />
         </footer>
         <DemoTag kit={kit} />
         <Toaster />

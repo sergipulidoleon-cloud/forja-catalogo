@@ -1,10 +1,10 @@
-// node scripts/model.mjs <source> <outDir> [--tris 60000] [--mobile-tris 25000]
+// node scripts/model.mjs <source> <outDir> [--tris 60000] [--mobile-tris 25000] [--tex 2048] [--mobile-tex 1024]
 //   source = polyhaven:<asset_name> | sketchfab:<uid> | file:<path/to/model.gltf|glb>
 // Produces <outDir>/model.glb (desktop: 2K KTX2 textures) and <outDir>/model-mobile.glb (1K),
 // both Meshopt-compressed, and prints their weight. Run with NODE_USE_ENV_PROXY=1.
 import { NodeIO } from '@gltf-transform/core';
 import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
-import { dedup, prune, weld, simplify, resample, textureCompress, meshopt, center } from '@gltf-transform/functions';
+import { dedup, prune, weld, simplify, resample, textureCompress, meshopt, center, metalRough } from '@gltf-transform/functions';
 import { MeshoptEncoder, MeshoptSimplifier } from 'meshoptimizer';
 import { mkdirSync, writeFileSync, statSync, readdirSync, existsSync } from 'node:fs';
 import { resolve, join, dirname, basename } from 'node:path';
@@ -21,7 +21,11 @@ const opt = (k, d) => {
 const TRIS = opt('--tris', 60000);
 const MOBILE_TRIS = opt('--mobile-tris', 25000);
 const TEX = opt('--tex', 2048);
-const TMP = resolve(process.env.TMPDIR ?? '/tmp', 'forja-models', basename(outDir));
+const MOBILE_TEX = opt('--mobile-tex', 1024);
+// Max simplification error (fraction of the mesh size). Raise it for noisy photogrammetry that won't reduce.
+const ERROR = opt('--error', 0.0008);
+// One scratch dir per source, so parallel runs never share (or pick up) each other's files.
+const TMP = resolve(process.env.TMPDIR ?? '/tmp', 'forja-models', source.replace(/[^a-z0-9_-]+/gi, '_'));
 mkdirSync(TMP, { recursive: true });
 mkdirSync(outDir, { recursive: true });
 
@@ -89,11 +93,13 @@ async function build(variant, tris, size) {
   const before = countTris(doc);
   const ratio = Math.min(1, tris / Math.max(1, before));
   await doc.transform(
+    // three.js dropped KHR_materials_pbrSpecularGlossiness: convert old scans to metal/rough.
+    metalRough(),
     dedup(),
     prune(),
     resample(),
     weld({}),
-    ...(ratio < 1 ? [simplify({ simplifier: MeshoptSimplifier, ratio, error: 0.0008, lockBorder: false })] : []),
+    ...(ratio < 1 ? [simplify({ simplifier: MeshoptSimplifier, ratio, error: ERROR, lockBorder: false })] : []),
     center({ pivot: 'center' }),
     // Resize first (lossless PNG), then GPU-compressed KTX2: UASTC for normal maps, ETC1S for the rest.
     textureCompress({ encoder: sharp, targetFormat: 'png', resize: [size, size] }),
@@ -108,5 +114,5 @@ async function build(variant, tris, size) {
 }
 
 const desk = await build('desktop', TRIS, TEX);
-const mob = await build('mobile', MOBILE_TRIS, 1024);
+const mob = await build('mobile', MOBILE_TRIS, MOBILE_TEX);
 console.log(JSON.stringify({ source, desktop: desk, mobile: mob }, null, 1));

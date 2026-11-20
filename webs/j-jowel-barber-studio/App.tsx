@@ -4,6 +4,7 @@ import {
   BookingForm,
   Cursor,
   DemoNote,
+  ModelCredit,
   DemoTag,
   LangToggle,
   LazyScene,
@@ -20,7 +21,7 @@ import {
 } from '../_kit';
 import { useI18n } from './content';
 
-const poster = posterFrom(import.meta.glob('./poster.webp', { eager: true, query: '?url', import: 'default' }));
+const poster = posterFrom(import.meta.glob('./poster.{avif,webp}', { eager: true, query: '?url', import: 'default' }));
 const loadScene = () => import('./Scene');
 const ROT = [-3, 2, -1.5, 3.5, -2.5];
 const snap = { type: 'spring' as const, duration: 0.3, bounce: 0.4 };
@@ -157,6 +158,7 @@ export default function App() {
         <footer className="foot">
           <p className="foot__name">{t.footer}</p>
           <DemoNote kit={kit} />
+          <ModelCredit kit={kit} title="Vintage Straight Razor" author="OVROO" url="https://sketchfab.com/3d-models/6810084303194949baa67eddf4c82301" />
         </footer>
         <DemoTag kit={kit} />
         <Toaster />

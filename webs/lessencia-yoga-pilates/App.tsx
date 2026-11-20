@@ -4,6 +4,7 @@ import {
   BookingForm,
   Cursor,
   DemoNote,
+  ModelCredit,
   DemoTag,
   LangToggle,
   LazyScene,
@@ -20,7 +21,7 @@ import {
 } from '../_kit';
 import { useI18n } from './content';
 
-const poster = posterFrom(import.meta.glob('./poster.webp', { eager: true, query: '?url', import: 'default' }));
+const poster = posterFrom(import.meta.glob('./poster.{avif,webp}', { eager: true, query: '?url', import: 'default' }));
 const loadScene = () => import('./Scene');
 
 /** Breathing guide in step with the sphere: same wall clock, 4 s in and 6 s out. */
@@ -198,6 +199,7 @@ export default function App() {
         <footer className="foot">
           <p className="foot__name">{t.footer}</p>
           <DemoNote kit={kit} />
+          <ModelCredit kit={kit} title="Tibetan Singing Bowl" author="JFN" url="https://sketchfab.com/3d-models/52228c0d0cb44e6cacdeb3851e0743fc" />
         </footer>
         <DemoTag kit={kit} />
         <Toaster />

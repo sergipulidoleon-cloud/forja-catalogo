@@ -7,7 +7,7 @@ const es = {
     lead: 'English Of Course! es centro preparador de exámenes Cambridge con clases para niños, adolescentes y adultos en La Florida y en Collblanc–La Torrassa.',
     cta: 'Reservar prueba de nivel',
     call: 'Llamar',
-    sceneAlt: 'Globo terráqueo de puntos con bocadillos EN, ES y CA girando a su alrededor',
+    sceneAlt: 'Globo terráqueo antiguo sobre peana de madera; se puede girar arrastrando',
   },
   cursos: {
     title: 'Cursos',
@@ -53,7 +53,7 @@ const ca: Dict = {
     lead: "English Of Course! és centre preparador d'exàmens Cambridge amb classes per a nens, adolescents i adults a la Florida i a Collblanc–la Torrassa.",
     cta: 'Reservar prova de nivell',
     call: 'Trucar',
-    sceneAlt: 'Globus terraqüi de punts amb bafarades EN, ES i CA girant al seu voltant',
+    sceneAlt: 'Globus terraqüi antic sobre peu de fusta; es pot girar arrossegant',
   },
   cursos: {
     title: 'Cursos',

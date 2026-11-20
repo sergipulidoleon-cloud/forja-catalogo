@@ -8,7 +8,7 @@ const es = {
     lead: 'Ceviche recién cortado, leche de tigre y sabores del Pacífico en la carretera de Collblanc.',
     reservar: 'Reservar mesa',
     pedir: 'Pedir para llevar',
-    sceneAlt: 'Bol de ceviche con pescado, cebolla morada, choclo y lima sobre un mar que se mueve con el ratón',
+    sceneAlt: 'Tres limas escaneadas en 3D sobre el azul del Pacífico; se pueden girar arrastrando',
   },
   carta: {
     title: 'La carta',
@@ -51,7 +51,7 @@ const ca: Dict = {
     lead: 'Ceviche acabat de tallar, llet de tigre i sabors del Pacífic a la carretera de Collblanc.',
     reservar: 'Reservar taula',
     pedir: 'Demanar per emportar',
-    sceneAlt: 'Bol de ceviche amb peix, ceba morada, blat de moro i llima sobre un mar que es mou amb el ratolí',
+    sceneAlt: 'Tres llimes escanejades en 3D sobre el blau del Pacífic; es poden girar arrossegant',
   },
   carta: {
     title: 'La carta',

@@ -8,7 +8,7 @@ const es = {
     lead: 'Producto, temporada y técnica. Guillem Salazar cocina lo que trae el mercado; al mediodía, menú de laborables.',
     reservar: 'Reservar mesa',
     llamar: 'Llamar',
-    sceneAlt: 'Plato de autor sobre pizarra: remolacha, hierbas y un trazo de salsa que se dibuja al hacer scroll',
+    sceneAlt: 'Porción de pastel de chocolate sobre un plato de loza antiguo, escaneada en 3D; se puede girar arrastrando',
   },
   menu: {
     title: 'El recorrido',
@@ -59,7 +59,7 @@ const ca: Dict = {
     lead: 'Producte, temporada i tècnica. En Guillem Salazar cuina el que porta el mercat; al migdia, menú de feiners.',
     reservar: 'Reservar taula',
     llamar: 'Trucar',
-    sceneAlt: "Plat d'autor sobre pissarra: remolatxa, herbes i un traç de salsa que es dibuixa en fer scroll",
+    sceneAlt: 'Porció de pastís de xocolata sobre un plat de pisa antic, escanejada en 3D; es pot girar arrossegant',
   },
   menu: {
     title: 'El recorregut',

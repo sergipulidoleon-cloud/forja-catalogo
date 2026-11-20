@@ -1,151 +1,144 @@
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { Environment, Lightformer, ContactShadows, RoundedBox } from '@react-three/drei';
+import { Physics, RigidBody, CuboidCollider, type RapierRigidBody } from '@react-three/rapier';
 import * as THREE from 'three';
-import { SceneCanvas, useFitScale, tilt } from '../_kit/three';
+import { PhotoStage, usePhotoModel, physicalFrom } from '../_kit/photo';
 import type { SceneProps } from '../_kit';
+import hdr from './assets/env.hdr?url';
+import desktop from './assets/model.glb?url';
+import mobile from './assets/model-mobile.glb?url';
 
-const BLOCKS = [
-  { l: 'A', c: '#d2232a', x: -1.4, y: 3.2 },
-  { l: 'B', c: '#3fb36e', x: 0, y: 4.4 },
-  { l: 'C', c: '#8fd3f4', x: 1.4, y: 3.8 },
-  { l: 'D', c: '#ffd23f', x: -0.7, y: 6.0 },
-  { l: 'E', c: '#1b2a57', x: 0.8, y: 6.8 },
-];
+/**
+ * Wooden alphabet blocks (CC-BY) with their painted-wood PBR maps and a varnish clearcoat.
+ * Five of them spell FUNNY: they drop onto the floor with Rapier physics, tumble and settle,
+ * and a quick swipe of the pointer nudges whichever block it passes over.
+ */
+const WORD = ['F', 'U', 'N', 'N', 'Y'];
+const SIZE = 0.62; // block edge in world units
+const FACE_TURN = -Math.PI / 2; // the source wall faces +X
 
-function letterTexture(letter: string, bg: string) {
-  const c = document.createElement('canvas');
-  c.width = c.height = 256;
-  const g = c.getContext('2d')!;
-  g.fillStyle = bg;
-  g.fillRect(0, 0, 256, 256);
-  g.strokeStyle = 'rgba(255,255,255,0.9)';
-  g.lineWidth = 14;
-  g.strokeRect(18, 18, 220, 220);
-  g.fillStyle = bg === '#ffd23f' || bg === '#8fd3f4' ? '#1b2a57' : '#ffffff';
-  g.font = '170px "Lilita One", "Arial Black", sans-serif';
-  g.textAlign = 'center';
-  g.textBaseline = 'middle';
-  g.fillText(letter, 128, 140);
-  const tex = new THREE.CanvasTexture(c);
-  tex.colorSpace = THREE.SRGBColorSpace;
-  tex.anisotropy = 4;
-  return tex;
+function useBlocks() {
+  const { scene } = usePhotoModel({ desktop, mobile });
+  return useMemo(() => {
+    scene.updateMatrixWorld(true);
+    const byLetter = new Map<string, THREE.Mesh>();
+    scene.traverse((o) => {
+      const m = o as THREE.Mesh;
+      const letter = /^([A-Z])_low/.exec(o.name)?.[1];
+      if (m.isMesh && letter && !byLetter.has(letter)) byLetter.set(letter, m);
+    });
+    return WORD.map((l) => {
+      const src = byLetter.get(l)!;
+      // Bake the node transform, then turn the block so its painted letter faces the camera (+Z).
+      const geo = src.geometry.clone().applyMatrix4(src.matrixWorld);
+      geo.rotateY(FACE_TURN);
+      geo.computeBoundingBox();
+      const box = geo.boundingBox!;
+      const dim = box.getSize(new THREE.Vector3());
+      const s = SIZE / Math.max(dim.x, dim.y, dim.z);
+      geo.translate(...box.getCenter(new THREE.Vector3()).negate().toArray());
+      geo.scale(s, s, s);
+      const mat = physicalFrom(src.material as THREE.MeshStandardMaterial, { clearcoat: 0.35, clearcoatRoughness: 0.35, sheen: 0.1, sheenColor: '#fff2d6' });
+      return { letter: l, geo, mat };
+    });
+  }, [scene]);
 }
 
-type Body = { p: THREE.Vector3; v: THREE.Vector3; r: THREE.Euler; w: number };
-
-/** Tiny hand-rolled physics: gravity, floor bounce, walls, and a pointer that shoves the blocks. */
 function Blocks({ reduced }: { reduced: boolean }) {
-  const refs = useRef<THREE.Group[]>([]);
-  const fit = useFitScale(4.6);
-  const { viewport } = useThree();
-  const textures = useMemo(() => BLOCKS.map((b) => letterTexture(b.l, b.c)), []);
-  const bodies = useRef<Body[]>(
-    BLOCKS.map((b, i) => ({
-      p: new THREE.Vector3(b.x, reduced ? -0.95 + (i > 2 ? 1 : 0) : b.y, (i % 2) * 0.4 - 0.2),
-      v: new THREE.Vector3(),
-      r: new THREE.Euler(0, (i - 2) * 0.3, 0),
-      w: (i % 2 ? 1 : -1) * 0.6,
-    })),
-  );
-  const pointer = useRef(new THREE.Vector3(99, 99, 0));
-  const prev = useRef(new THREE.Vector3(99, 99, 0));
-  const vel = useRef(new THREE.Vector3());
+  const blocks = useBlocks();
+  const bodies = useRef<(RapierRigidBody | null)[]>([]);
+  const { pointer, camera } = useThree();
+  const last = useRef(new THREE.Vector2());
+  const ray = useMemo(() => new THREE.Raycaster(), []);
+  const plane = useMemo(() => new THREE.Plane(new THREE.Vector3(0, 0, 1), 0), []);
+  const hit = useMemo(() => new THREE.Vector3(), []);
 
-  useFrame((state, dt) => {
-    const d = Math.min(dt, 1 / 30);
-    const half = viewport.width / 2 / fit - 0.6;
-    prev.current.copy(pointer.current);
-    pointer.current.set((state.pointer.x * viewport.width) / 2 / fit, (state.pointer.y * viewport.height) / 2 / fit, 0);
-    vel.current.subVectors(pointer.current, prev.current).divideScalar(Math.max(d, 1e-3)).clampLength(0, 12);
-    bodies.current.forEach((b, i) => {
-      if (!reduced) {
-        b.v.y -= 9.8 * d;
-        // Pointer shove: a soft radial push when the cursor is close.
-        const dx = b.p.x - pointer.current.x;
-        const dy = b.p.y - pointer.current.y;
-        const dist = Math.hypot(dx, dy);
-        // The pointer only shoves when it moves: a flick knocks a block, a resting cursor does nothing.
-        if (tilt.active && dist < 1.1 && vel.current.lengthSq() > 0.5) {
-          const k = (1.1 - dist) * 0.45;
-          b.v.x += vel.current.x * k;
-          b.v.y += Math.max(0, vel.current.y * k) + Math.abs(vel.current.x) * k * 0.4;
-          b.w += vel.current.x * k * 0.6;
-        }
-        b.p.addScaledVector(b.v, d);
-        // floor
-        const floor = -0.95 + (i > 2 ? 0 : 0);
-        if (b.p.y < floor) {
-          b.p.y = floor;
-          b.v.y = Math.abs(b.v.y) > 0.6 ? -b.v.y * 0.45 : 0;
-          b.v.x *= 0.82;
-          b.w *= 0.7;
-        }
-        if (Math.abs(b.p.x) > half) {
-          b.p.x = Math.sign(b.p.x) * half;
-          b.v.x *= -0.5;
-        }
-        b.r.y += b.w * d;
-        b.r.z = THREE.MathUtils.damp(b.r.z, b.p.y > floor + 0.05 ? b.w * 0.15 : 0, 6, d);
-      }
-      // simple separation so blocks stack instead of overlapping
-      bodies.current.forEach((o, j) => {
-        if (j <= i) return;
-        const dx = o.p.x - b.p.x;
-        const dy = o.p.y - b.p.y;
-        if (Math.abs(dx) < 0.82 && Math.abs(dy) < 0.82) {
-          if (Math.abs(dx) > Math.abs(dy)) {
-            const push = (0.82 - Math.abs(dx)) / 2;
-            b.p.x -= Math.sign(dx || 1) * push;
-            o.p.x += Math.sign(dx || 1) * push;
-          } else {
-            const top = dy > 0 ? o : b;
-            const bottom = dy > 0 ? b : o;
-            top.p.y = bottom.p.y + 0.82;
-            if (top.v.y < 0) top.v.y = 0;
-          }
-        }
-      });
-      const g = refs.current[i];
-      if (g) {
-        g.position.copy(b.p);
-        g.rotation.copy(b.r);
-      }
+  // Start positions: a loose arc above the floor, slightly rotated, so the fall reads as hand-dropped.
+  const starts = useMemo(
+    () =>
+      WORD.map((_, i) => ({
+        position: [(i - 2) * 0.72, reduced ? -0.85 : 2.4 + i * 0.7, (i % 2) * 0.2] as [number, number, number],
+        rotation: [reduced ? 0 : 0.4 * Math.sin(i * 1.7), reduced ? -0.25 + i * 0.1 : 0.8 * Math.cos(i * 2.3), reduced ? 0 : 0.3 * Math.sin(i)] as [number, number, number],
+      })),
+    [reduced],
+  );
+
+  useEffect(() => {
+    last.current.copy(pointer);
+  }, [pointer]);
+
+  // A fast pointer sweep pushes the block under it (velocity-based, like a flick of the hand).
+  useFrame((_, dt) => {
+    if (reduced) return;
+    const d = Math.max(dt, 1 / 120);
+    const vx = (pointer.x - last.current.x) / d;
+    const vy = (pointer.y - last.current.y) / d;
+    last.current.copy(pointer);
+    if (Math.hypot(vx, vy) < 1.2) return;
+    ray.setFromCamera(pointer, camera);
+    if (!ray.ray.intersectPlane(plane, hit)) return;
+    bodies.current.forEach((b) => {
+      if (!b) return;
+      const p = b.translation();
+      const dist = Math.hypot(p.x - hit.x, p.y - hit.y);
+      if (dist < 0.7) b.applyImpulse({ x: THREE.MathUtils.clamp(vx, -6, 6) * 0.35, y: Math.abs(vy) * 0.15 + 0.8, z: 0 }, true);
     });
   });
 
   return (
-    <group scale={fit}>
-      {BLOCKS.map((b, i) => (
-        <group
-          key={b.l}
-          ref={(el) => {
-            if (el) refs.current[i] = el;
+    <>
+      {blocks.map((b, i) => (
+        <RigidBody
+          key={i}
+          ref={(r) => {
+            bodies.current[i] = r;
           }}
+          colliders={false}
+          position={starts[i].position}
+          rotation={starts[i].rotation}
+          restitution={0.25}
+          friction={0.8}
+          linearDamping={0.15}
+          angularDamping={0.3}
+          type={reduced ? 'fixed' : 'dynamic'}
         >
-          <RoundedBox args={[0.8, 0.8, 0.8]} radius={0.08} smoothness={4}>
-            <meshStandardMaterial map={textures[i]} roughness={0.55} />
-          </RoundedBox>
-        </group>
+          <CuboidCollider args={[SIZE / 2, SIZE / 2, SIZE / 2]} mass={0.4} />
+          <mesh geometry={b.geo} material={b.mat} castShadow receiveShadow />
+        </RigidBody>
       ))}
-    </group>
+      {/* Floor and soft side walls keep the blocks inside the frame. */}
+      <RigidBody type="fixed" colliders={false}>
+        <CuboidCollider args={[8, 0.1, 4]} position={[0, -1.15, 0]} />
+        <CuboidCollider args={[0.1, 4, 4]} position={[-2.1, 2, 0]} />
+        <CuboidCollider args={[0.1, 4, 4]} position={[2.1, 2, 0]} />
+        <CuboidCollider args={[8, 4, 0.1]} position={[0, 2, -0.9]} />
+        <CuboidCollider args={[8, 4, 0.1]} position={[0, 2, 1.0]} />
+      </RigidBody>
+    </>
   );
 }
 
 export default function Scene({ active, reduced, onReady }: SceneProps) {
   return (
-    <SceneCanvas active={active} onReady={onReady} camera={{ position: [0, 0.9, 7], fov: 34 }} onCreated={({ gl, camera }) => {
-      gl.toneMappingExposure = 1.05;
-      camera.lookAt(0, 0.2, 0);
-    }}>
-      <ambientLight intensity={0.7} />
-      <directionalLight position={[3, 6, 5]} intensity={1.4} />
-      <Environment resolution={64}>
-        <Lightformer form="rect" intensity={1} color="#ffffff" scale={[8, 4, 1]} position={[0, 4, 4]} />
-      </Environment>
-      <Blocks reduced={reduced} />
-      <ContactShadows position={[0, -1.36, 0]} opacity={0.35} scale={9} blur={2.2} far={2.5} color="#1b2a57" />
-    </SceneCanvas>
+    <PhotoStage
+      active={active}
+      reduced={reduced}
+      onReady={onReady}
+      camera={{ position: [0, 1.1, 8.2], fov: 30, target: [0, -0.2, 0] }}
+      lighting={{
+        hdr,
+        envIntensity: 0.85,
+        exposure: 1.05,
+        key: { position: [3, 6, 4], intensity: 2.4, color: '#fff6e0' },
+        fill: { position: [-5, 1.2, 3], intensity: 0.5, color: '#8fd3f4' },
+        rim: { position: [-2, 3, -5], intensity: 2, color: '#ffffff' },
+        shadow: { y: -1.24, opacity: 0.38, blur: 2.2, scale: 9, color: '#1b2a57' },
+      }}
+      post={{ ao: 1.2, bloom: 0.1, dof: false, grain: 0.035, vignette: 0.16 }}
+    >
+      <Physics gravity={[0, -9.81, 0]} paused={!active}>
+        <Blocks reduced={reduced} />
+      </Physics>
+    </PhotoStage>
   );
 }

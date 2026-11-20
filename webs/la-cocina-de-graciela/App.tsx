@@ -4,6 +4,7 @@ import {
   BookingForm,
   Cursor,
   DemoNote,
+  ModelCredit,
   DemoTag,
   LangToggle,
   LazyScene,
@@ -20,7 +21,7 @@ import {
 } from '../_kit';
 import { useI18n } from './content';
 
-const poster = posterFrom(import.meta.glob('./poster.webp', { eager: true, query: '?url', import: 'default' }));
+const poster = posterFrom(import.meta.glob('./poster.{avif,webp}', { eager: true, query: '?url', import: 'default' }));
 const loadScene = () => import('./Scene');
 const FLAGS = ['#d6246e', '#f6a21e', '#0e9aa7', '#fff6e0', '#d6246e', '#0e9aa7', '#f6a21e', '#fff6e0', '#d6246e', '#f6a21e', '#0e9aa7', '#d6246e'];
 const TILT = [-2, 1.5, -1, 2.2, -1.6, 1];
@@ -189,6 +190,7 @@ export default function App() {
         <footer className="foot">
           <p className="foot__name">{t.footer}</p>
           <DemoNote kit={kit} />
+          <ModelCredit kit={kit} title="Avocado" author="Poly Haven" url="https://polyhaven.com/a/food_avocado_01" license="CC0" />
         </footer>
         <DemoTag kit={kit} />
         <Toaster />

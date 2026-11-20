@@ -7,7 +7,7 @@ const es = {
     lead: 'Comida mexicana casera en La Torrassa. Nachos, burritos, pozole los fines de semana y margaritas bien frías.',
     reservar: 'Reservar mesa',
     whatsapp: 'Pedir por WhatsApp',
-    sceneAlt: 'Molcajete de piedra con chiles rojos y verdes que gira con el ratón',
+    sceneAlt: 'Aguacate escaneado en 3D; se puede girar arrastrando',
   },
   carta: {
     title: 'Nuestra lotería',
@@ -51,7 +51,7 @@ const ca: Dict = {
     lead: 'Menjar mexicà casolà a la Torrassa. Nachos, burritos, pozole els caps de setmana i margarites ben fredes.',
     reservar: 'Reservar taula',
     whatsapp: 'Demanar per WhatsApp',
-    sceneAlt: 'Molcajete de pedra amb bitxos vermells i verds que gira amb el ratolí',
+    sceneAlt: 'Alvocat escanejat en 3D; es pot girar arrossegant',
   },
   carta: {
     title: 'La nostra loteria',

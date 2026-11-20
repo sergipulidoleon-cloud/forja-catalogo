@@ -7,7 +7,7 @@ const es = {
     lead: 'Estudio familiar de tatuaje en L’Hospitalet desde hace más de 25 años. Tatuaje, piercing y microblading, con calma y con higiene de hospital.',
     cita: 'Pedir presupuesto',
     trabajos: 'Ver trabajos',
-    sceneAlt: 'Máquina de tatuar de bobinas dorada que deja caer una gota de tinta',
+    sceneAlt: 'Máquina de tatuar de bobinas con bastidor de acero de Damasco; se puede girar arrastrando',
   },
   trabajos: {
     title: 'Trabajos',
@@ -64,7 +64,7 @@ const ca: Dict = {
     lead: "Estudi familiar de tatuatge a L'Hospitalet des de fa més de 25 anys. Tatuatge, pírcing i microblading, amb calma i amb higiene d'hospital.",
     cita: 'Demanar pressupost',
     trabajos: 'Veure treballs',
-    sceneAlt: 'Màquina de tatuar de bobines daurada que deixa caure una gota de tinta',
+    sceneAlt: "Màquina de tatuar de bobines amb bastidor d'acer de Damasc; es pot girar arrossegant",
   },
   trabajos: {
     title: 'Treballs',

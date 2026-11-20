@@ -7,7 +7,7 @@ const es = {
     lead: 'Tratamientos faciales, manicura y depilación en un centro pequeño, tranquilo y de confianza.',
     cita: 'Reservar tratamiento',
     whatsapp: 'Preguntar por WhatsApp',
-    sceneAlt: 'Frasco cuentagotas de vidrio que refracta la luz y deja caer una gota',
+    sceneAlt: 'Frasco de sérum de vidrio oscuro con cuentagotas; se puede girar arrastrando',
   },
   tratamientos: {
     title: 'Tratamientos',
@@ -54,7 +54,7 @@ const ca: Dict = {
     lead: 'Tractaments facials, manicura i depilació en un centre petit, tranquil i de confiança.',
     cita: 'Reservar tractament',
     whatsapp: 'Preguntar per WhatsApp',
-    sceneAlt: 'Flascó comptagotes de vidre que refracta la llum i deixa caure una gota',
+    sceneAlt: 'Flascó de sèrum de vidre fosc amb comptagotes; es pot girar arrossegant',
   },
   tratamientos: {
     title: 'Tractaments',

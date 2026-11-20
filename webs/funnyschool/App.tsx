@@ -4,6 +4,7 @@ import {
   BookingForm,
   Cursor,
   DemoNote,
+  ModelCredit,
   DemoTag,
   LangToggle,
   LazyScene,
@@ -20,7 +21,7 @@ import {
 } from '../_kit';
 import { useI18n } from './content';
 
-const poster = posterFrom(import.meta.glob('./poster.webp', { eager: true, query: '?url', import: 'default' }));
+const poster = posterFrom(import.meta.glob('./poster.{avif,webp}', { eager: true, query: '?url', import: 'default' }));
 const loadScene = () => import('./Scene');
 const bouncy = { type: 'spring' as const, duration: 0.4, bounce: 0.35 };
 
@@ -180,6 +181,7 @@ export default function App() {
         <footer className="foot">
           <p className="foot__name">{t.footer}</p>
           <DemoNote kit={kit} />
+          <ModelCredit kit={kit} title="Wooden Alphabet Blocks" author="Cherryvania" url="https://sketchfab.com/3d-models/5f8dfddbbc7d468784ca014378f7e5fe" />
         </footer>
         <DemoTag kit={kit} />
         <Toaster />

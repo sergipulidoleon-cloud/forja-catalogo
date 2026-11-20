@@ -7,7 +7,7 @@ const es = {
     lead: 'FISAL, centro de fisioterapia y salud en la Rambla Marina de Bellvitge desde 2004. Fisioterapia, osteopatía, psicología, nutrición y entrenamiento bajo un mismo techo.',
     cita: 'Pedir cita',
     escribir: 'Escribir un correo',
-    sceneAlt: 'Columna vertebral que se curva siguiendo el cursor',
+    sceneAlt: 'Vértebra lumbar en 3D; se puede girar arrastrando',
   },
   zonas: {
     title: '¿Dónde te duele?',
@@ -57,7 +57,7 @@ const ca: Dict = {
     lead: 'FISAL, centre de fisioteràpia i salut a la Rambla Marina de Bellvitge des del 2004. Fisioteràpia, osteopatia, psicologia, nutrició i entrenament sota un mateix sostre.',
     cita: 'Demanar cita',
     escribir: 'Escriure un correu',
-    sceneAlt: 'Columna vertebral que es corba seguint el cursor',
+    sceneAlt: 'Vèrtebra lumbar en 3D; es pot girar arrossegant',
   },
   zonas: {
     title: 'On et fa mal?',

@@ -4,6 +4,7 @@ import {
   BookingForm,
   Cursor,
   DemoNote,
+  ModelCredit,
   DemoTag,
   LangToggle,
   LazyScene,
@@ -20,7 +21,7 @@ import {
 } from '../_kit';
 import { useI18n } from './content';
 
-const poster = posterFrom(import.meta.glob('./poster.webp', { eager: true, query: '?url', import: 'default' }));
+const poster = posterFrom(import.meta.glob('./poster.{avif,webp}', { eager: true, query: '?url', import: 'default' }));
 const loadScene = () => import('./Scene');
 const spring = { type: 'spring' as const, duration: 0.45, bounce: 0.25 };
 
@@ -170,6 +171,7 @@ export default function App() {
         <footer className="foot">
           <p className="foot__name">{t.footer}</p>
           <DemoNote kit={kit} />
+          <ModelCredit kit={kit} title="Permanent Dentition" author="University of Dundee, School of Dentistry" url="https://sketchfab.com/3d-models/2f69d7b59c3e4a6a8bcae041bd8e591b" />
         </footer>
         <DemoTag kit={kit} />
         <Toaster />

@@ -7,7 +7,7 @@ const es = {
     lead: 'Taller mecánico de barrio en la Ronda de la Torrassa. Reparaciones, revisiones y recambios, con presupuesto antes de tocar nada.',
     cita: 'Pedir cita o presupuesto',
     call: 'Llamar al 934 228 018',
-    sceneAlt: 'Pistón y biela de un motor bombeando sobre un plano técnico',
+    sceneAlt: 'Llave inglesa de acero forjado; se puede girar arrastrando',
   },
   servicios: {
     title: 'Despiece de servicios',
@@ -49,7 +49,7 @@ const ca: Dict = {
     lead: 'Taller mecànic de barri a la Ronda de la Torrassa. Reparacions, revisions i recanvis, amb pressupost abans de tocar res.',
     cita: 'Demanar cita o pressupost',
     call: 'Trucar al 934 228 018',
-    sceneAlt: "Pistó i biela d'un motor bombant sobre un plànol tècnic",
+    sceneAlt: "Clau anglesa d'acer forjat; es pot girar arrossegant",
   },
   servicios: {
     title: 'Especejament de serveis',

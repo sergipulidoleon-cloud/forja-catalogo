@@ -8,7 +8,7 @@ const es = {
     lead: 'Cuidamos de perros, gatos y pequeños animales en la calle Àngel Guimerà. Cerca, con calma y explicándote todo.',
     cita: 'Pedir cita',
     whatsapp: 'Escribir por WhatsApp',
-    sceneAlt: 'Perro low-poly que sigue el cursor con la mirada y mueve las orejas',
+    sceneAlt: 'Golden retriever en 3D; se puede girar arrastrando',
   },
   servicios: {
     title: 'Qué hacemos',
@@ -52,7 +52,7 @@ const ca: Dict = {
     lead: "Cuidem gossos, gats i petits animals al carrer Àngel Guimerà. A prop, amb calma i explicant-t'ho tot.",
     cita: 'Demanar cita',
     whatsapp: 'Escriure per WhatsApp',
-    sceneAlt: 'Gos low-poly que segueix el cursor amb la mirada i mou les orelles',
+    sceneAlt: 'Golden retriever en 3D; es pot girar arrossegant',
   },
   servicios: {
     title: 'Què fem',

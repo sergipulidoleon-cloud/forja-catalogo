@@ -8,7 +8,7 @@ const es = {
     lead: 'Fades limpios, diseños a máquina y barba perfilada. Si buscas un corte con personalidad, siéntate.',
     cita: 'Reservar silla',
     ig: 'Ver trabajos',
-    sceneAlt: 'Máquina de cortar pelo que vibra al pasar el cursor',
+    sceneAlt: 'Navaja de barbero clásica de acero; se puede girar arrastrando',
   },
   cortes: {
     title: 'Cortes',
@@ -52,7 +52,7 @@ const ca: Dict = {
     lead: 'Fades nets, dissenys a màquina i barba perfilada. Si busques un tall amb personalitat, seu.',
     cita: 'Reservar cadira',
     ig: 'Veure treballs',
-    sceneAlt: 'Màquina de tallar cabells que vibra en passar el cursor',
+    sceneAlt: "Navalla de barber clàssica d'acer; es pot girar arrossegant",
   },
   cortes: {
     title: 'Talls',

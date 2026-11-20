@@ -16,6 +16,7 @@ import * as THREE from 'three';
 import { KTX2Loader } from 'three/examples/jsm/loaders/KTX2Loader.js';
 import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import { tilt } from './tilt';
+import imperfectionsUrl from './assets/imperfections.webp?url';
 
 export const isMobile = () => typeof window !== 'undefined' && window.matchMedia('(max-width: 820px), (pointer: coarse)').matches;
 
@@ -234,4 +235,176 @@ export function prepareScene(root: THREE.Object3D, tweak?: (m: THREE.MeshStandar
     });
   });
   return root;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* PhotoHero: the common case — one scanned model, fitted, with inertia and microvariation.   */
+/* ------------------------------------------------------------------------------------------ */
+
+
+let imperfections: THREE.Texture | null = null;
+/** Shared fingerprint/smudge roughness map (ambientCG Fingerprints002, CC0). */
+function getImperfections() {
+  if (!imperfections) {
+    imperfections = new THREE.TextureLoader().load(imperfectionsUrl);
+    imperfections.wrapS = imperfections.wrapT = THREE.RepeatWrapping;
+    imperfections.colorSpace = THREE.NoColorSpace;
+  }
+  return imperfections;
+}
+
+export type Finish = {
+  /** Lacquer / wet layer. */
+  clearcoat?: number;
+  clearcoatRoughness?: number;
+  sheen?: number;
+  sheenColor?: string;
+  sheenRoughness?: number;
+  /** Glass and liquids. */
+  transmission?: number;
+  ior?: number;
+  thickness?: number;
+  attenuationColor?: string;
+  attenuationDistance?: number;
+  iridescence?: number;
+  /** Multiplies the base colour (keeps the albedo map). */
+  tint?: string;
+  /** Replaces the albedo map with a colour (for scans whose texture is baked lighting or noise). */
+  color?: string;
+  /** Pulls chroma out of an over-saturated scan albedo (0 = none, 1 = grey). */
+  desaturate?: number;
+  /** Overrides when the scan has no maps for them. */
+  roughness?: number;
+  metalness?: number;
+  envMapIntensity?: number;
+  /** Scales the scan's emissive map (0 removes baked glints). */
+  emissive?: number;
+  /** Repeats of the fingerprint map on materials that have no roughness map of their own. */
+  micro?: number;
+};
+
+/** Converts a glTF standard material into a physical one with the given finish, keeping every map. */
+export function physicalFrom(m: THREE.MeshStandardMaterial, f: Finish = {}) {
+  const p = new THREE.MeshPhysicalMaterial();
+  THREE.MeshStandardMaterial.prototype.copy.call(p, m);
+  // Standard.copy() resets the shader defines to STANDARD only; physical features need PHYSICAL back.
+  p.defines = { STANDARD: '', PHYSICAL: '' };
+  p.name = m.name;
+  if (f.color) {
+    p.map = null;
+    p.color = new THREE.Color(f.color);
+  }
+  if (f.tint) p.color.multiply(new THREE.Color(f.tint));
+  if (f.roughness !== undefined && !m.roughnessMap) p.roughness = f.roughness;
+  if (f.metalness !== undefined && !m.metalnessMap) p.metalness = f.metalness;
+  if (!m.roughnessMap && (f.micro ?? 3) > 0) {
+    const t = getImperfections().clone();
+    t.repeat.set(f.micro ?? 3, f.micro ?? 3);
+    t.needsUpdate = true;
+    p.roughnessMap = t;
+  }
+  p.clearcoat = f.clearcoat ?? 0;
+  p.clearcoatRoughness = f.clearcoatRoughness ?? 0.25;
+  p.sheen = f.sheen ?? 0;
+  if (f.sheenColor) p.sheenColor = new THREE.Color(f.sheenColor);
+  p.sheenRoughness = f.sheenRoughness ?? 0.6;
+  if (f.transmission) {
+    p.transmission = f.transmission;
+    p.thickness = f.thickness ?? 0.5;
+    p.transparent = false;
+  }
+  if (f.ior) p.ior = f.ior;
+  if (f.attenuationColor) p.attenuationColor = new THREE.Color(f.attenuationColor);
+  if (f.attenuationDistance) p.attenuationDistance = f.attenuationDistance;
+  if (f.iridescence) p.iridescence = f.iridescence;
+  if (f.envMapIntensity !== undefined) p.envMapIntensity = f.envMapIntensity;
+  if (f.emissive !== undefined) p.emissiveIntensity = f.emissive;
+  if (f.desaturate) {
+    const k = (1 - f.desaturate).toFixed(3);
+    p.onBeforeCompile = (shader) => {
+      shader.fragmentShader = shader.fragmentShader.replace(
+        '#include <map_fragment>',
+        `#include <map_fragment>\n  diffuseColor.rgb = mix(vec3(dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114))), diffuseColor.rgb, ${k});`,
+      );
+    };
+    p.customProgramCacheKey = () => 'desat' + k;
+  }
+  return p;
+}
+
+/** One finish for every material, or a function that picks one per material (null keeps it as is). */
+export type FinishSpec = Finish | ((m: THREE.MeshStandardMaterial, mesh: THREE.Mesh) => Finish | null);
+
+type FitProps = {
+  urls: { desktop: string; mobile: string };
+  /** Largest dimension after fitting, in world units. */
+  size: number;
+  /** Orientation of the raw model before it is measured (fixes Z-up scans). */
+  orient?: [number, number, number];
+  /** Finish for every material, or per material name / per material. */
+  finish?: FinishSpec;
+  /** Hide meshes whose name or material name matches (props, plinths baked into a scan). */
+  hide?: RegExp;
+};
+
+/** Loads, re-materials and fits a model so its largest side is `size`, centred on the origin. */
+export function FittedModel({ urls, size, orient = [0, 0, 0], finish = {}, hide }: FitProps) {
+  const { scene } = usePhotoModel(urls);
+  const holder = useMemo(() => {
+    const root = scene.clone(true);
+    root.rotation.set(...orient);
+    if (hide) root.traverse((o) => ((o as THREE.Mesh).isMesh && (hide.test(o.name) || hide.test(((o as THREE.Mesh).material as THREE.Material).name)) ? (o.visible = false) : null));
+    root.traverse((o) => {
+      const mesh = o as THREE.Mesh;
+      if (!mesh.isMesh) return;
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      const swap = (m: THREE.Material) => {
+        const sm = m as THREE.MeshStandardMaterial;
+        if (!sm.isMeshStandardMaterial) return m;
+        if (sm.map) sm.map.anisotropy = 8;
+        const f = typeof finish === 'function' ? finish(sm, mesh) : finish;
+        return f ? physicalFrom(sm, f) : sm;
+      };
+      mesh.material = Array.isArray(mesh.material) ? mesh.material.map(swap) : swap(mesh.material);
+    });
+    const g = new THREE.Group();
+    g.add(root);
+    g.updateMatrixWorld(true);
+    const box = new THREE.Box3();
+    root.traverse((o) => (o as THREE.Mesh).isMesh && o.visible && box.expandByObject(o));
+    const dim = box.getSize(new THREE.Vector3());
+    const s = size / Math.max(dim.x, dim.y, dim.z);
+    root.scale.multiplyScalar(s);
+    root.position.copy(box.getCenter(new THREE.Vector3()).multiplyScalar(-s));
+    return g;
+    // Literal props (orient, hide) are new objects on every render: key the memo on their values.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scene, size, orient.join(','), finish, hide?.source]);
+  return <primitive object={holder} />;
+}
+
+/** Wrapper that gives its children drag-to-spin inertia, pointer tilt and idle drift. */
+export function Inertial({
+  children,
+  reduced,
+  base = [0.2, -0.5],
+  idle = 0.06,
+  tiltStrength,
+  position,
+}: {
+  children: ReactNode;
+  reduced: boolean;
+  base?: [number, number];
+  idle?: number;
+  tiltStrength?: [number, number];
+  position?: [number, number, number];
+}) {
+  const ref = useRef<THREE.Group>(null);
+  useInertialRotation(ref, { base, idle, reduced, tiltStrength });
+  return (
+    <group ref={ref} position={position}>
+      {children}
+    </group>
+  );
 }

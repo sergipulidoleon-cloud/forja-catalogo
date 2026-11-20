@@ -28,6 +28,7 @@ En esta carpeta, por web: `<slug>-antes-despues.webp` (antes · después escrito
 - **Licencias:** todo es CC0 o CC BY 4.0. Las CC BY llevan la atribución en el pie de cada web, y cada web tiene su `assets/CREDITOS.md` con modelo, HDRI (Poly Haven, CC0) y mapa de imperfecciones (ambientCG, CC0). No he usado ningún modelo sin licencia clara.
 - **Peso 3D:** incluye el modelo (Meshopt + KTX2), el HDRI, el mapa de imperfecciones y el transcodificador Basis (0,58 MB, compartido entre webs y en caché). Todas cumplen el límite de 5 MB en escritorio y 2,5 MB en móvil. El JavaScript de three.js se carga aparte y solo tras la primera interacción. Antes se ve un póster AVIF de 10–40 KB.
 - **Movimiento reducido y sin WebGL:** se queda el póster AVIF estático.
+- **Lighthouse (móvil, con el 3D nuevo):** rendimiento 92–97 y accesibilidad 100 en las 20 webs. LCP entre 2,4 y 3,3 s.
 - **FPS:** no se pueden medir aquí porque el contenedor no tiene GPU. En un equipo real, añade `?fps` a la URL y aparece un contador. Por debajo de 50 fps la web quita sola el postprocesado caro y baja la resolución.
 - **Por debajo de 8:**
   - **Veterinari (7):** el pelo del golden retriever es geometría, no pelo real, y de cerca se nota. Probé otro perro escaneado, más realista, pero estaba tumbado de lado y en una web de veterinario parecía un animal enfermo, así que lo descarté. La mejora real sería un escaneo de un paciente del propio centro, con permiso (guía en `docs/guia-gaussian-splatting.md`).

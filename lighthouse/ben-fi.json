@@ -1,18 +1,18 @@
 {
   "categories": {
-    "performance": 98,
+    "performance": 97,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 58,
     "lcp": "2.4 s",
-    "tbt": "60 ms",
+    "tbt": "70 ms",
     "cls": "0"
   },
   "failing": [
     "unused-javascript: Est savings of 75 KiB",
     "is-crawlable: 0",
     "robots-txt: 228 errors found",
-    "image-delivery-insight: Est savings of 9 KiB",
+    "image-delivery-insight: Est savings of 7 KiB",
     "lcp-discovery-insight: 0",
     "network-dependency-tree-insight: 0",
     "render-blocking-insight: Est savings of 300 ms"

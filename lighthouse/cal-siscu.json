@@ -5,7 +5,7 @@
     "best-practices": 100,
     "seo": 58,
     "lcp": "2.6 s",
-    "tbt": "100 ms",
+    "tbt": "130 ms",
     "cls": "0.003"
   },
   "failing": [

@@ -5,17 +5,17 @@
     "best-practices": 100,
     "seo": 58,
     "lcp": "2.4 s",
-    "tbt": "130 ms",
+    "tbt": "110 ms",
     "cls": "0.016"
   },
   "failing": [
-    "max-potential-fid: 170 ms",
+    "max-potential-fid: 150 ms",
     "unused-javascript: Est savings of 76 KiB",
     "is-crawlable: 0",
     "robots-txt: 228 errors found",
-    "image-delivery-insight: Est savings of 10 KiB",
+    "image-delivery-insight: Est savings of 16 KiB",
     "lcp-discovery-insight: 0",
     "network-dependency-tree-insight: 0",
-    "render-blocking-insight: Est savings of 280 ms"
+    "render-blocking-insight: Est savings of 290 ms"
   ]
 }

@@ -1,19 +1,21 @@
 {
   "categories": {
-    "performance": 96,
+    "performance": 92,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 58,
     "lcp": "2.7 s",
-    "tbt": "60 ms",
+    "tbt": "220 ms",
     "cls": "0.005"
   },
   "failing": [
     "largest-contentful-paint: 2.7 s",
+    "total-blocking-time: 220 ms",
+    "max-potential-fid: 170 ms",
     "unused-javascript: Est savings of 75 KiB",
     "is-crawlable: 0",
     "robots-txt: 228 errors found",
-    "image-delivery-insight: Est savings of 7 KiB",
+    "image-delivery-insight: Est savings of 5 KiB",
     "lcp-discovery-insight: 0",
     "network-dependency-tree-insight: 0",
     "render-blocking-insight: Est savings of 300 ms"

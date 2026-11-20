@@ -132,7 +132,7 @@ export default function Scene({ active, reduced, onReady }: SceneProps) {
         key: { position: [3, 6, 4], intensity: 2.4, color: '#fff6e0' },
         fill: { position: [-5, 1.2, 3], intensity: 0.5, color: '#8fd3f4' },
         rim: { position: [-2, 3, -5], intensity: 2, color: '#ffffff' },
-        shadow: { y: -1.24, opacity: 0.38, blur: 2.2, scale: 9, color: '#1b2a57' },
+        shadow: { y: -1.24, opacity: 0.32, blur: 2.6, scale: 5.5, color: '#1b2a57' },
       }}
       post={{ ao: 1.2, bloom: 0.1, dof: false, grain: 0.035, vignette: 0.16 }}
     >

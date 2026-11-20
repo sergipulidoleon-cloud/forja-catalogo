@@ -23,6 +23,9 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules/three/')) return 'three';
+          // Rapier (only Funnyschool) imports its WASM with import(): kept out of r3f so the bundler
+          // does not host Vite's __vitePreload helper there and pull the 3D stack into every first paint.
+          if (id.includes('@react-three/rapier') || id.includes('@dimforge')) return undefined;
           if (id.includes('@react-three')) return 'r3f';
           if (id.includes('node_modules/react') || id.includes('node_modules/scheduler')) return 'react';
           if (id.includes('node_modules/gsap') || id.includes('node_modules/lenis')) return 'scroll';

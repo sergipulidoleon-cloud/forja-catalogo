@@ -120,8 +120,8 @@ Gira la escena con el dedo, pellizca para hacer zoom y… ¡a disfrutar!`
       tipo: "foto",
       titulo: "Un recuerdo nuestro",
       fotos: [
-        { src: "fotos/foto1.jpg", pie: "Aquí ya sabía que eras tú ✨" },   // ✏️
-        { src: "fotos/foto2.jpg", pie: "Mi sitio favorito: a tu lado" }    // ✏️
+        { src: "fotos/cine.jpg", pie: "Mi plan favorito: cualquiera contigo 🍿" },   // ✏️
+        { src: "fotos/cena.jpg", pie: "Esa sonrisita que me vuelve loco ✨" }        // ✏️
       ]
     },
 
@@ -194,8 +194,8 @@ Gira la escena con el dedo, pellizca para hacer zoom y… ¡a disfrutar!`
       tipo: "foto",
       titulo: "Otro trocito de nosotros",
       fotos: [
-        { src: "fotos/foto3.jpg", pie: "Qué guapa estabas (y estás)" }, // ✏️
-        { src: "fotos/foto4.jpg", pie: "Repetimos, ¿vale?" }            // ✏️
+        { src: "fotos/piscina1.jpg", pie: "Verano, piscina y tú a mi espalda ☀️" }, // ✏️
+        { src: "fotos/piscina2.jpg", pie: "No me sueltes nunca, ¿vale? 💦" }       // ✏️
       ]
     },
 
@@ -302,9 +302,11 @@ Ojalá este diciembre sea solo el primero de muchos. Te quiero muchísimo.` // �
     // ---------- DÍA 23: fotos ----------
     23: {
       tipo: "foto",
-      titulo: "Casi, casi Navidad",
-      fotos: [
-        { src: "fotos/foto5.jpg", pie: "Mi persona favorita del mundo" } // ✏️
+      titulo: "Nuestro año en fotos",
+      fotos: [ // ✏️ un repaso antes de Nochebuena
+        { src: "fotos/cena.jpg", pie: "Mi persona favorita del mundo" },
+        { src: "fotos/piscina2.jpg", pie: "El mejor verano" },
+        { src: "fotos/cine.jpg", pie: "Y lo que nos queda 💕" }
       ]
     },
 
@@ -315,6 +317,8 @@ Ojalá este diciembre sea solo el primero de muchos. Te quiero muchísimo.` // �
     24: {
       tipo: "final",
       titulo: "¡Feliz Nochebuena, mi amor!",
+      foto: "fotos/piscina1.jpg",          // ✏️ foto que sale en la tarjeta final
+      pieFoto: "Tú y yo, siempre ❤️",
       cancion: {
         titulo: "Nuestra canción",   // ✏️
         artista: "One Direction",    // ✏️
@@ -1705,6 +1709,7 @@ const RENDER = {
       finalAudio.onerror = () => { if (bar.isConnected) bar.replaceWith(songFallback(s, yt)); };
       if (finalAudio.error) bar.replaceWith(songFallback(s, yt)); else sync();
     } else bar.replaceWith(songFallback(s, yt));
+    if (d.foto) { const pw = el('div', 'polaroid-wrap'); const pol = el('div', 'polaroid'); pol.appendChild(img(d.foto, '', `Pon aquí una foto (${d.foto})`)); pol.appendChild(el('div', 'cap', d.pieFoto || '')); pw.appendChild(pol); b.appendChild(pw); }
     const letter = el('div', 'letter'); paragraphs(letter, d.carta); letter.appendChild(el('div', 'firma', C.firma)); b.appendChild(letter);
     const row = el('div', 'row'); const see = el('button', 'btn', '🎆 Ver los fuegos artificiales');
     see.onclick = () => { closeCard(); fireworksUntil = Math.max(fireworksUntil, clock.elapsedTime + 20); }; row.appendChild(see); b.appendChild(row);

@@ -77,7 +77,7 @@ Como premio, aquí tienes un vale extra:`,
       titulo: "¡Bienvenida a tu calendario de Adviento!",
       texto: `Hola, mi amor 💕
 
-He preparado este calendario para que diciembre tenga un poquito de magia cada día. Hay 24 cajitas colgadas del árbol y cada una solo se abre en su día (hora de España, ¡no vale hacer trampas!).
+Desde aquella primera cita en 99 Cheesecake no he dejado de pensar en cómo hacerte sonreír, así que he preparado este calendario para que diciembre tenga un poquito de magia cada día. Hay 24 cajitas colgadas del árbol y cada una solo se abre en su día (hora de España, ¡no vale hacer trampas!).
 
 Dentro vas a encontrar canciones, vales canjeables, fotos nuestras, minijuegos y alguna sorpresa más. Y ojo: por la escena hay gatitos (tócalos, que maúllan) y unos cuantos animalitos escondidos… si los encuentras a todos, pasa algo especial.
 
@@ -186,7 +186,7 @@ Gira la escena con el dedo, pellizca para hacer zoom y… ¡a disfrutar!`
       tipo: "vale",
       emoji: "🎁",
       titulo: "Vale por una cita sorpresa",
-      detalle: "Tú solo dime el día. Yo me encargo de todo lo demás (y no pienso darte pistas)."
+      detalle: "Tú solo dime el día. Yo me encargo de todo lo demás (pista: puede que haya tarta de queso de por medio 🍰)."
     },
 
     // ---------- DÍA 13: fotos ----------
@@ -209,6 +209,8 @@ Gira la escena con el dedo, pellizca para hacer zoom y… ¡a disfrutar!`
 
 Hoy no hay juego ni vale, hoy toca algo más de verdad. Llevo días pensando cómo decirte todo lo que me haces sentir y he llegado a la conclusión de que no me caben las palabras, pero voy a intentarlo.
 
+¿Te acuerdas de nuestra primera cita en 99 Cheesecake? Yo sí: de lo nervioso que estaba y de lo rápido que se me pasó la tarde. Y luego llegó aquella noche en mi casa, viendo El gran showman… y nuestro primer beso. Desde entonces, cada vez que suena una de esas canciones vuelvo a ese momento.
+
 Gracias por hacer que los días normales se conviertan en días bonitos. Por tu risa, por cómo te emocionas con cualquier gatito que se cruza por la calle, por tu paciencia conmigo y por esa forma tan tuya de cuidar a todo el mundo.
 
 Contigo he aprendido que el hogar no es un sitio, es una persona. Y la mía eres tú.
@@ -221,11 +223,11 @@ Ojalá este diciembre sea solo el primero de muchos. Te quiero muchísimo.` // �
     15: {
       tipo: "mapa",
       titulo: "Nuestros paseos",
-      texto: "Algunos sitios donde hemos dejado huellita juntos 🐾 (toca cada uno)",
-      lugares: [ // ✏️ cambia por vuestros sitios
-        { nombre: "Parque del Retiro", lat: 40.4153, lng: -3.6844, emoji: "🌳", recuerdo: "Aquel paseo en el que no paramos de reír." },
-        { nombre: "Templo de Debod", lat: 40.4240, lng: -3.7178, emoji: "🌅", recuerdo: "El atardecer más bonito… y tú más." },
-        { nombre: "Plaza Mayor", lat: 40.4155, lng: -3.7074, emoji: "🎄", recuerdo: "Luces de Navidad y chocolate con churros." }
+      texto: "Los sitios donde empezó todo y donde hemos dejado huellita juntos 🐾",
+      // lat / lng son opcionales: si los pones, el sitio sale en el mapa; si no, solo en la lista.
+      lugares: [ // ✏️ añade lat y lng (y más sitios vuestros)
+        { nombre: "99 Cheesecake", emoji: "🍰", recuerdo: "Nuestra primera cita. Yo nervioso, tú preciosa, y una tarta que supo a poco porque quería que no se acabara la tarde.", lat: null, lng: null },
+        { nombre: "Mi casa", emoji: "🎬", recuerdo: "Viendo El gran showman… y nuestro primer beso 💋", lat: null, lng: null }
       ]
     },
 
@@ -238,9 +240,9 @@ Ojalá este diciembre sea solo el primero de muchos. Te quiero muchísimo.` // �
     // ---------- DÍA 17: canción ----------
     17: {
       tipo: "cancion",
-      titulo: "You & I",
-      artista: "One Direction",
-      nota: "Tú y yo. No hace falta decir más.", // ✏️
+      titulo: "Rewrite the Stars",
+      artista: "Zac Efron y Zendaya (El gran showman)",
+      nota: "La peli de aquella noche en mi casa… la de nuestro primer beso. Cada vez que la oigo vuelvo ahí.", // ✏️
       spotify: "",
       youtube: ""
     },
@@ -251,11 +253,12 @@ Ojalá este diciembre sea solo el primero de muchos. Te quiero muchísimo.` // �
       tipo: "juego",
       juego: "quiz",
       titulo: "¿Cuánto sabes de nosotros?",
-      intro: "Cinco preguntas. Sin mirar el móvil… ¡ah, no, que es el móvil! 😂",
+      intro: "Seis preguntas. Sin mirar el móvil… ¡ah, no, que es el móvil! 😂",
       preguntas: [ // ✏️ cambia las preguntas y respuestas
+        { pregunta: "¿Dónde fue nuestra primera cita?", opciones: ["En un McDonald's", "En 99 Cheesecake", "En el zoo"], correcta: 1 },
+        { pregunta: "¿Qué peli estábamos viendo cuando nos dimos el primer beso?", opciones: ["Titanic", "Shrek 2", "El gran showman"], correcta: 2 },
         { pregunta: "¿Qué grupo cantamos siempre a gritos?", opciones: ["One Direction", "Los Chunguitos", "Metallica"], correcta: 0 },
         { pregunta: "¿Qué animal te derrite el corazón en 0,5 segundos?", opciones: ["Un pez", "Un gatito", "Una lagartija"], correcta: 1 },
-        { pregunta: "¿Cuál es nuestro plan favorito?", opciones: ["Hacer la declaración de la renta", "Pelis con mantita", "Madrugar"], correcta: 1 },
         { pregunta: "¿Quién dice antes 'te quiero' al despedirse?", opciones: ["Tú", "Yo", "Empate eterno"], correcta: 2 },
         { pregunta: "¿Cuánto te quiero?", opciones: ["Mucho", "Muchísimo", "Más que a nada"], correcta: 2 }
       ],
@@ -267,7 +270,7 @@ Ojalá este diciembre sea solo el primero de muchos. Te quiero muchísimo.` // �
       tipo: "vale",
       emoji: "🍿",
       titulo: "Vale por un maratón de pelis con mantita",
-      detalle: "Incluye palomitas, chocolate y derecho a dormirte en la segunda peli sin que me queje."
+      detalle: "Empezamos por El gran showman, por los viejos tiempos 🎪. Incluye palomitas, chocolate y derecho a dormirte en la segunda peli sin que me queje."
     },
 
     // ---------- DÍA 20: dato curioso ----------
@@ -318,7 +321,7 @@ Ojalá este diciembre sea solo el primero de muchos. Te quiero muchísimo.` // �
         audio: "musica/nuestra-cancion.mp3", // ✏️ ruta al mp3 (opcional)
         youtube: ""                  // ✏️ enlace de YouTube (opcional)
       },
-      carta: `Hemos llegado al final del calendario, pero no al final de nada.
+      carta: `Hemos llegado al final del calendario, pero no al final de nada. Empezó con una tarta de queso en 99 Cheesecake, siguió con un beso a mitad de El gran showman… y lo mejor está por venir.
 
 Gracias por abrir cada cajita, por cada sonrisa que espero haberte sacado y por dejarme quererte cada día un poquito más.
 
@@ -691,6 +694,7 @@ a.btn{display:inline-block;text-decoration:none}
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 /* =====================================================================
    UTILIDADES
@@ -929,10 +933,14 @@ function hideHint() { if (hintHidden) return; hintHidden = true; $('#hint').clas
    ===================================================================== */
 const canvas = $('#scene');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
-renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
 renderer.setSize(innerWidth, innerHeight);
 renderer.setClearColor(0x000000, 0);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 0.95;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 const scene = new THREE.Scene();
+scene.fog = new THREE.Fog(0xe4d3ea, 26, 52);
+{ const pm = new THREE.PMREMGenerator(renderer); scene.environment = pm.fromScene(new RoomEnvironment(renderer), 0.04).texture; pm.dispose(); }
 const camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, 0.1, 120);
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true; controls.dampingFactor = 0.08; controls.enablePan = false;
@@ -946,8 +954,10 @@ controls.addEventListener('start', () => { controls.autoRotate = false; lastInte
 controls.addEventListener('end', () => { lastInteract = performance.now(); });
 
 // Luces
-scene.add(new THREE.HemisphereLight(0xe8eeff, 0xffe2ea, 1.55));
-const sun = new THREE.DirectionalLight(0xfff0dc, 1.5); sun.position.set(5, 10, 8); scene.add(sun);
+scene.add(new THREE.HemisphereLight(0xe8eeff, 0xffe2ea, 0.7));
+const sun = new THREE.DirectionalLight(0xfff0dc, 2.6); sun.position.set(-7, 11, 6); scene.add(sun);
+sun.castShadow = true; sun.shadow.mapSize.set(innerWidth < 700 ? 1024 : 2048, innerWidth < 700 ? 1024 : 2048);
+Object.assign(sun.shadow.camera, { left: -9, right: 9, top: 9, bottom: -9, near: 2, far: 32 }); sun.shadow.bias = -0.0006; sun.shadow.normalBias = 0.03;
 const fill = new THREE.DirectionalLight(0xc9d8ff, 0.45); fill.position.set(-6, 4, -6); scene.add(fill);
 const treeLight = new THREE.PointLight(0xffc27a, 9, 9, 1.6); treeLight.position.set(0, 2.6, 2.2); scene.add(treeLight);
 
@@ -955,7 +965,14 @@ const treeLight = new THREE.PointLight(0xffc27a, 9, 9, 1.6); treeLight.position.
 const matCache = {};
 function M(color, extra = {}) {
   const k = color + JSON.stringify(extra);
-  return matCache[k] || (matCache[k] = new THREE.MeshStandardMaterial({ color, roughness: 0.92, metalness: 0, flatShading: true, ...extra }));
+  return matCache[k] || (matCache[k] = new THREE.MeshStandardMaterial({ envMapIntensity: 0.25, color, roughness: 0.92, metalness: 0, flatShading: true, ...extra }));
+}
+function S(color, extra = {}) { return M(color, { flatShading: false, roughness: 0.8, ...extra }); } // suave (pelo)
+const GLOSS = { metalness: 0.65, roughness: 0.16, envMapIntensity: 1.1 };       // bolas brillantes
+const GOLD = { metalness: 0.85, roughness: 0.3, envMapIntensity: 1.1 };          // dorado
+function furTex(base, stripe) { // rayitas de gato atigrado
+  return canvasTex(256, 128, (x, w, h) => { x.fillStyle = base; x.fillRect(0, 0, w, h); x.strokeStyle = stripe; x.lineCap = 'round';
+    for (let i = 0; i < 14; i++) { const cx = i * w / 14 + rand(-4, 4); x.lineWidth = rand(5, 9); x.beginPath(); x.moveTo(cx, 6); x.quadraticCurveTo(cx + rand(-14, 14), h * 0.35, cx + rand(-6, 6), h * 0.55); x.stroke(); } });
 }
 function mesh(geo, mat, x = 0, y = 0, z = 0, parent) { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); if (parent) parent.add(m); return m; }
 const HIT_MAT = new THREE.MeshBasicMaterial({ visible: false });
@@ -964,7 +981,7 @@ const HIT_MAT = new THREE.MeshBasicMaterial({ visible: false });
 function canvasTex(w, h, draw) { const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; }
 const glowTex = canvasTex(128, 128, (x, w) => { const g = x.createRadialGradient(64, 64, 0, 64, 64, 64); g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(0.25, 'rgba(255,255,255,.6)'); g.addColorStop(1, 'rgba(255,255,255,0)'); x.fillStyle = g; x.fillRect(0, 0, w, w); });
 const shadowTex = canvasTex(128, 128, (x, w) => { const g = x.createRadialGradient(64, 64, 0, 64, 64, 64); g.addColorStop(0, 'rgba(110,90,150,.38)'); g.addColorStop(1, 'rgba(110,90,150,0)'); x.fillStyle = g; x.fillRect(0, 0, w, w); });
-const shadowMat = new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false });
+const shadowMat = new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false, opacity: 0.55 });
 function blobShadow(parent, r, y = 0.02, x = 0, z = 0) { const m = new THREE.Mesh(new THREE.PlaneGeometry(r * 2, r * 2), shadowMat); m.rotation.x = -Math.PI / 2; m.position.set(x, y, z); m.renderOrder = 1; parent.add(m); return m; }
 function glowSprite(color, size, opacity = 0.9) { const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color, transparent: true, opacity, blending: THREE.AdditiveBlending, depthWrite: false })); s.scale.set(size, size, 1); return s; }
 const emojiCache = {};
@@ -998,12 +1015,28 @@ const island = new THREE.Group(); scene.add(island);
   }
 }
 
+{ // destellos en la nieve
+  const N = 140, p = new Float32Array(N * 3), ph = [];
+  for (let i = 0; i < N; i++) { const a = rand(0, 6.28), r = Math.sqrt(Math.random()) * 7.6; p.set([Math.sin(a) * r, 0.03, Math.cos(a) * r], i * 3); ph.push(rand(0, 6.28)); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(p, 3));
+  const m = new THREE.PointsMaterial({ size: 0.12, map: glowTex, color: 0xffffff, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending });
+  scene.add(new THREE.Points(g, m)); updaters.push(t => { m.opacity = 0.55 + Math.sin(t * 1.7) * 0.3; m.size = 0.1 + Math.sin(t * 2.3) * 0.03; });
+}
 /* ---------- Árbol de Navidad ---------- */
 const TIERS = [{ r: 2.45, h: 2.3, y: 1.65 }, { r: 1.95, h: 1.95, y: 2.95 }, { r: 1.45, h: 1.6, y: 4.0 }, { r: 0.95, h: 1.3, y: 4.95 }];
 const tree = new THREE.Group(); scene.add(tree);
 mesh(new THREE.CylinderGeometry(0.32, 0.42, 0.9, 7), M('#b98a6b'), 0, 0.45, 0, tree);
+const hash = (x, y, z) => { const v = Math.sin(x * 127.1 + y * 311.7 + z * 74.7) * 43758.5453; return v - Math.floor(v); };
+function organicCone(r, h, seg) {
+  const g = new THREE.ConeGeometry(r, h, seg, 3, false); const p = g.attributes.position;
+  for (let i = 0; i < p.count; i++) { const x = p.getX(i), y = p.getY(i), z = p.getZ(i); if (y > h / 2 - 0.01) continue;
+    const k = hash(+x.toFixed(3), +y.toFixed(3), +z.toFixed(3)); const isRim = y < -h / 2 + 0.01; const f = 1 + (k - 0.35) * (isRim ? 0.22 : 0.12);
+    p.setXYZ(i, x * f, y + (isRim ? (k - 0.5) * 0.18 : 0), z * f); }
+  g.computeVertexNormals(); return g;
+}
 TIERS.forEach((t, i) => {
-  const cone = mesh(new THREE.ConeGeometry(t.r, t.h, 9, 1), M(i % 2 ? '#7fc0aa' : '#8ccdb6'), 0, t.y, 0, tree); cone.rotation.y = i * 0.35;
+  mesh(organicCone(t.r * 0.82, t.h * 0.9, 10), M('#3f7a66'), 0, t.y - 0.05, 0, tree);
+  const cone = mesh(organicCone(t.r, t.h, 16), M(i % 2 ? '#5f9f88' : '#6dae96', { roughness: 0.85 }), 0, t.y, 0, tree); cone.rotation.y = i * 0.35;
   const snow = mesh(new THREE.ConeGeometry(t.r * 0.42, t.h * 0.3, 9, 1), M('#ffffff'), 0, t.y + t.h * 0.36, 0, tree); snow.rotation.y = i * 0.35;
 });
 blobShadow(scene, 3.4, 0.03);
@@ -1011,16 +1044,16 @@ blobShadow(scene, 3.4, 0.03);
 const starShape = new THREE.Shape();
 for (let i = 0; i < 10; i++) { const r = i % 2 ? 0.17 : 0.4, a = i / 10 * Math.PI * 2 + Math.PI / 2; i ? starShape.lineTo(Math.cos(a) * r, Math.sin(a) * r) : starShape.moveTo(Math.cos(a) * r, Math.sin(a) * r); }
 const starGeo = new THREE.ExtrudeGeometry(starShape, { depth: 0.1, bevelEnabled: true, bevelThickness: 0.04, bevelSize: 0.03, bevelSegments: 1 }); starGeo.center();
-const topStar = mesh(starGeo, M('#f0c86a', { emissive: '#c89530', emissiveIntensity: 0.55, metalness: 0.2, roughness: 0.5 }), 0, 5.9, 0, tree);
+const topStar = mesh(starGeo, M('#f0c86a', { emissive: '#c89530', emissiveIntensity: 0.7, ...GOLD }), 0, 5.9, 0, tree);
 const starGlow = glowSprite(0xffd98a, 2.2, 0.8); starGlow.position.set(0, 5.9, 0); tree.add(starGlow);
 updaters.push((t) => { topStar.rotation.y = t * 0.8; starGlow.material.opacity = 0.6 + Math.sin(t * 2.2) * 0.2; });
 function coneR(y) { let r = 0; for (const t of TIERS) { const yb = t.y - t.h / 2, yt = t.y + t.h / 2; if (y >= yb && y <= yt) r = Math.max(r, t.r * (yt - y) / t.h); } return r; }
 // Bolas del árbol
 {
-  const ballGeo = new THREE.IcosahedronGeometry(0.12, 1); const cols = ['#f4a9c0', '#a8cdf3', '#f0c86a', '#d9c8f0', '#ffffff'];
-  for (let i = 0; i < 22; i++) {
-    const y = rand(1.0, 5.2), a = rand(0, Math.PI * 2), r = coneR(y) + 0.06;
-    mesh(ballGeo, M(pick(cols), { metalness: 0.25, roughness: 0.45 }), Math.sin(a) * r, y, Math.cos(a) * r, tree);
+  const ballGeo = new THREE.SphereGeometry(0.12, 18, 12); const cols = ['#f4a9c0', '#a8cdf3', '#f0c86a', '#d9c8f0', '#ffffff', '#e98aa8'];
+  for (let i = 0; i < 26; i++) {
+    const y = rand(1.0, 5.2), a = rand(0, Math.PI * 2), r = coneR(y) + 0.08;
+    mesh(ballGeo, M(pick(cols), { ...GLOSS, flatShading: false }), Math.sin(a) * r, y, Math.cos(a) * r, tree).scale.setScalar(rand(0.8, 1.25));
   }
 }
 
@@ -1030,7 +1063,7 @@ function helix(u) { const y = 1.0 + u * 3.75, a = u * Math.PI * 2 * TURNS, env =
 { // guirnalda
   const pts = []; for (let i = 0; i <= 260; i++) { const u = -0.03 + i / 260 * 1.06; const h = helix(clamp(u, 0, 1)); const a = u * Math.PI * 2 * TURNS; const r = h.r - 0.16; pts.push(new THREE.Vector3(Math.sin(a) * r, h.y - 0.08, Math.cos(a) * r)); }
   const curve = new THREE.CatmullRomCurve3(pts);
-  mesh(new THREE.TubeGeometry(curve, 400, 0.035, 5), M('#f3d9a0', { metalness: 0.3, roughness: 0.5 }), 0, 0, 0, tree);
+  mesh(new THREE.TubeGeometry(curve, 400, 0.035, 6), M('#f3d9a0', { ...GOLD, flatShading: false }), 0, 0, 0, tree);
   // bombillitas que parpadean
   const N = 96, pos = new Float32Array(N * 3), col = new Float32Array(N * 3), base = [], phase = [];
   const bulbCols = [new THREE.Color('#ffd27a'), new THREE.Color('#ffb3c9'), new THREE.Color('#bfe0ff'), new THREE.Color('#fff1c9')];
@@ -1081,12 +1114,12 @@ function buildGifts() {
     const day = i + 1, u = i / 23, h = helix(u), s = 0.68 - u * 0.2, c = GIFT_COLS[i % GIFT_COLS.length];
     const group = new THREE.Group(); group.position.set(Math.sin(h.a) * h.r, h.y, Math.cos(h.a) * h.r); group.rotation.y = h.a; tree.add(group);
     const inner = new THREE.Group(); group.add(inner);
-    const st = sideTex(day, c); st.anisotropy = 4; const sideM = new THREE.MeshStandardMaterial({ map: st, roughness: 0.85 });
+    const st = sideTex(day, c); st.anisotropy = 4; const sideM = new THREE.MeshStandardMaterial({ envMapIntensity: 0.25, map: st, roughness: 0.55 });
     const body = mesh(new THREE.BoxGeometry(s, s * 0.86, s), [sideM, sideM, M('#a7869c'), M(c.base), sideM, sideM], 0, 0, 0, inner);
-    const lidMat = new THREE.MeshStandardMaterial({ map: lidTex(c), roughness: 0.85, transparent: true });
-    const lidSideMat = new THREE.MeshStandardMaterial({ color: c.base, roughness: 0.85, transparent: true });
+    const lidMat = new THREE.MeshStandardMaterial({ envMapIntensity: 0.25, map: lidTex(c), roughness: 0.55, transparent: true });
+    const lidSideMat = new THREE.MeshStandardMaterial({ envMapIntensity: 0.25, color: c.base, roughness: 0.55, transparent: true });
     const lid = mesh(new THREE.BoxGeometry(s * 1.1, s * 0.2, s * 1.1), [lidSideMat, lidSideMat, lidMat, lidSideMat, lidSideMat, lidSideMat], 0, s * 0.43 + s * 0.08, 0, inner);
-    const bowMat = new THREE.MeshStandardMaterial({ color: '#efc35f', roughness: 0.5, metalness: 0.25, flatShading: true, transparent: true });
+    const bowMat = new THREE.MeshStandardMaterial({ envMapIntensity: 0.25, color: '#efc35f', ...GOLD, transparent: true });
     const bow = mesh(bowGeo, bowMat, 0, s * 0.1, 0, lid); bow.scale.setScalar(s / 0.6);
     const spark = new THREE.Sprite(new THREE.SpriteMaterial({ map: sparkTex, color: 0xffe08a, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
     spark.scale.setScalar(s * 0.9); spark.position.y = s * 0.7; spark.visible = false; inner.add(spark);
@@ -1187,7 +1220,8 @@ const house = new THREE.Group(); house.position.set(0, 0, -6.0); scene.add(house
   mesh(new THREE.SphereGeometry(0.04, 6, 5), M('#f0c86a'), 0.17, 0.45, 0.95, house);
   const wreath = mesh(new THREE.TorusGeometry(0.15, 0.05, 5, 12), M('#7fc0aa'), 0, 0.72, 0.96, house);
   mesh(new THREE.SphereGeometry(0.04, 6, 5), M('#e2849f'), 0, 0.58, 0.99, house);
-  const winM = M('#ffe3a0', { emissive: '#ffcf70', emissiveIntensity: 0.9 });
+  const doorLight = new THREE.PointLight(0xffc27a, 3, 4, 2); doorLight.position.set(0, 1.2, 1.6); house.add(doorLight);
+  const winM = M('#ffe3a0', { emissive: '#ffcf70', emissiveIntensity: 1.5 });
   [[-0.75, 0.95, 0.91], [0.75, 0.95, 0.91]].forEach(([x, y, z]) => {
     mesh(new THREE.BoxGeometry(0.46, 0.46, 0.05), winM, x, y, z, house);
     mesh(new THREE.BoxGeometry(0.5, 0.05, 0.08), M('#ffffff'), x, y - 0.25, z + 0.02, house);
@@ -1220,14 +1254,14 @@ function pine(x, z, s) {
   mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.05, 10), M('#4b5d86'), 0, 2.1, 0, sm); mesh(new THREE.CylinderGeometry(0.15, 0.15, 0.26, 10), M('#4b5d86'), 0, 2.25, 0, sm);
   blobShadow(sm, 0.8);
 }
-const pond = mesh(new THREE.CircleGeometry(1.2, 14), M('#cfe6f5', { metalness: 0.2, roughness: 0.25 }), 4.4, 0.03, -2.4, scene); pond.rotation.x = -Math.PI / 2;
+const pond = mesh(new THREE.CircleGeometry(1.2, 32), M('#bcd9ef', { metalness: 0.4, roughness: 0.05, flatShading: false }), 4.4, 0.03, -2.4, scene); pond.rotation.x = -Math.PI / 2;
 function groundGift(x, z, sx, sy, sz, base, rot = 0) {
   const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = rot; scene.add(g);
   const tex = canvasTex(128, 128, (c) => { c.fillStyle = base; c.fillRect(0, 0, 128, 128); c.fillStyle = 'rgba(255,255,255,.35)'; for (let i = 0; i < 5; i++) for (let j = 0; j < 5; j++) { c.beginPath(); c.arc(12 + i * 26, 12 + j * 26, 4, 0, 7); c.fill(); } c.fillStyle = RIBBON; c.fillRect(54, 0, 20, 128); });
   const topTex = canvasTex(128, 128, (c) => { c.fillStyle = base; c.fillRect(0, 0, 128, 128); c.fillStyle = RIBBON; c.fillRect(54, 0, 20, 128); c.fillRect(0, 54, 128, 20); });
-  const sm = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.85 }), tm = new THREE.MeshStandardMaterial({ map: topTex, roughness: 0.85 });
+  const sm = new THREE.MeshStandardMaterial({ envMapIntensity: 0.25, map: tex, roughness: 0.55 }), tm = new THREE.MeshStandardMaterial({ envMapIntensity: 0.25, map: topTex, roughness: 0.55 });
   mesh(new THREE.BoxGeometry(sx, sy, sz), [sm, sm, tm, sm, sm, sm], 0, sy / 2, 0, g);
-  const bw = mesh(bowGeo, M('#efc35f', { metalness: 0.25, roughness: 0.5 }), 0, sy + 0.05, 0, g); bw.scale.setScalar(Math.min(sx, sz) * 1.3);
+  const bw = mesh(bowGeo, M('#efc35f', GOLD), 0, sy + 0.05, 0, g); bw.scale.setScalar(Math.min(sx, sz) * 1.3);
   blobShadow(g, Math.max(sx, sz) * 0.9);
   return g;
 }
@@ -1240,11 +1274,11 @@ groundGift(-1.2, -2.9, 0.75, 0.6, 0.75, '#c4e6d6', 0.6);
 /* =====================================================================
    GATITOS Y ANIMALITOS LOW-POLY
    ===================================================================== */
-const ICO = new THREE.IcosahedronGeometry(1, 1);
-const EYE = new THREE.SphereGeometry(1, 7, 6);
+const ICO = new THREE.SphereGeometry(1, 22, 16);
+const EYE = new THREE.SphereGeometry(1, 12, 10);
 function makeCat(color, opts = {}) {
   const c = { root: new THREE.Group(), legs: [], tail: [] };
-  const fur = M(color), belly = M(opts.belly || '#fffaf4'), pink = M('#f4a9c0'), dark = M('#3d3550');
+  const fur = opts.stripes ? new THREE.MeshStandardMaterial({ envMapIntensity: 0.25, map: furTex(color, opts.stripes), roughness: 0.85 }) : S(color), plain = S(color), belly = S(opts.belly || '#fffaf4'), pink = S('#f4a9c0'), dark = S('#2a2338', { roughness: 0.12 });
   c.body = mesh(ICO, fur, 0, 0.36, 0, c.root);
   const chest = mesh(ICO, belly, 0, -0.25, 0.55, c.body); chest.scale.set(0.65, 0.6, 0.5);
   c.head = new THREE.Group(); c.root.add(c.head);
@@ -1258,15 +1292,15 @@ function makeCat(color, opts = {}) {
   c.eyes = []; c.closed = [];
   [-1, 1].forEach(s => {
     const e = mesh(EYE, dark, s * 0.095, 0.03, 0.2, c.head); e.scale.set(0.042, 0.05, 0.03); c.eyes.push(e);
-    const hl = mesh(EYE, M('#ffffff'), 0.25, 0.35, 0.8, e); hl.scale.setScalar(0.35);
+    const hl = mesh(EYE, S('#ffffff'), 0.25, 0.35, 0.8, e); hl.scale.setScalar(0.35);
     const cl = mesh(new THREE.BoxGeometry(0.085, 0.016, 0.02), dark, s * 0.095, 0.02, 0.215, c.head); cl.visible = false; c.closed.push(cl);
   });
-  [-1, 1].forEach(s => { const ch = mesh(EYE, pink, s * 0.16, -0.06, 0.16, c.head); ch.scale.set(0.04, 0.025, 0.02); ch.material = M('#f7c0cf'); });
-  const legGeo = new THREE.CylinderGeometry(0.06, 0.055, 0.3, 6); legGeo.translate(0, -0.15, 0);
-  [[-1, 1], [1, 1], [-1, -1], [1, -1]].forEach(([sx, sz]) => { const p = new THREE.Group(); p.position.set(sx * 0.14, 0.3, sz * 0.24); c.root.add(p); mesh(legGeo, fur, 0, 0, 0, p); const paw = mesh(EYE, belly, 0, -0.29, 0.02, p); paw.scale.set(0.065, 0.04, 0.075); c.legs.push(p); });
+  [-1, 1].forEach(s => { const ch = mesh(EYE, pink, s * 0.16, -0.06, 0.16, c.head); ch.scale.set(0.04, 0.025, 0.02); ch.material = S('#f7c0cf'); });
+  const legGeo = new THREE.CylinderGeometry(0.06, 0.055, 0.3, 12); legGeo.translate(0, -0.15, 0);
+  [[-1, 1], [1, 1], [-1, -1], [1, -1]].forEach(([sx, sz]) => { const p = new THREE.Group(); p.position.set(sx * 0.14, 0.3, sz * 0.24); c.root.add(p); mesh(legGeo, plain, 0, 0, 0, p); const paw = mesh(EYE, belly, 0, -0.29, 0.02, p); paw.scale.set(0.065, 0.04, 0.075); c.legs.push(p); });
   c.tailRoot = new THREE.Group(); c.root.add(c.tailRoot);
-  let parent = c.tailRoot; const segGeo = new THREE.CylinderGeometry(0.04, 0.048, 0.11, 6); segGeo.translate(0, 0.055, 0);
-  for (let i = 0; i < 6; i++) { const sg = new THREE.Group(); sg.position.y = i ? 0.1 : 0; parent.add(sg); mesh(segGeo, i === 5 && opts.tailTip ? M(opts.tailTip) : fur, 0, 0, 0, sg); c.tail.push(sg); parent = sg; }
+  let parent = c.tailRoot; const segGeo = new THREE.CylinderGeometry(0.04, 0.048, 0.11, 10); segGeo.translate(0, 0.055, 0);
+  for (let i = 0; i < 6; i++) { const sg = new THREE.Group(); sg.position.y = i ? 0.1 : 0; parent.add(sg); mesh(segGeo, i === 5 && opts.tailTip ? S(opts.tailTip) : plain, 0, 0, 0, sg); c.tail.push(sg); parent = sg; }
   c.shadow = blobShadow(c.root, 0.55, 0.015);
   const hit = mesh(new THREE.SphereGeometry(0.6, 8, 6), HIT_MAT, 0, 0.45, 0, c.root);
   return c;
@@ -1325,10 +1359,10 @@ function buildCats() {
   // 2) Juguetón con la bola del árbol
   const a = -0.85, br = 2.15;
   const hang = new THREE.Group(); hang.position.set(Math.sin(a) * br, 0.86, Math.cos(a) * br); tree.add(hang);
-  const strG = new THREE.CylinderGeometry(0.008, 0.008, 0.36, 4); strG.translate(0, -0.18, 0); mesh(strG, M('#f3d9a0'), 0, 0, 0, hang);
-  const ball = mesh(new THREE.IcosahedronGeometry(0.15, 1), M('#e98aa8', { metalness: 0.3, roughness: 0.4 }), 0, -0.48, 0, hang);
-  mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.05, 6), M('#f0c86a'), 0, 0.15, 0, ball);
-  const play = makeCat('#f2b58c', { belly: '#fff4e8', tailTip: '#e7965f' }); play.pitch = 1.2;
+  const strG = new THREE.CylinderGeometry(0.008, 0.008, 0.36, 4); strG.translate(0, -0.18, 0); mesh(strG, S('#f3d9a0'), 0, 0, 0, hang);
+  const ball = mesh(new THREE.IcosahedronGeometry(0.15, 1), S('#e98aa8', { metalness: 0.3, roughness: 0.4 }), 0, -0.48, 0, hang);
+  mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.05, 6), S('#f0c86a'), 0, 0.15, 0, ball);
+  const play = makeCat('#f2b58c', { belly: '#fff4e8', tailTip: '#e7965f', stripes: '#dc8f5a' }); play.pitch = 1.2;
   setPose(play, 'sit'); const pr = 2.95; play.root.position.set(Math.sin(a) * pr, 0, Math.cos(a) * pr); play.root.rotation.y = a + Math.PI; play.root.userData.baseY = 0;
   scene.add(play.root); play.home = { pos: play.root.position.clone(), rotY: a + Math.PI, pose: 'sit' };
   play.root.userData.tap = () => catTap(play, C.gatitos.jugueton);
@@ -1343,7 +1377,7 @@ function buildCats() {
   cats.play = play;
 
   // 3) Paseante alrededor del árbol
-  const walker = makeCat('#aab6cc', { belly: '#f4f6fb', tailTip: '#8a96ad' }); walker.pitch = 0.95;
+  const walker = makeCat('#aab6cc', { belly: '#f4f6fb', tailTip: '#8a96ad', stripes: '#8692aa' }); walker.pitch = 0.95;
   setPose(walker, 'walk'); scene.add(walker.root); walker.root.userData.baseY = 0;
   walker.home = { pose: 'walk' }; walker.ang = 0.4; walker.pause = 0;
   walker.root.userData.tap = () => { walker.pause = performance.now() + 2200; catTap(walker, C.gatitos.paseante); };
@@ -1365,7 +1399,7 @@ function buildCats() {
 const animals = {};
 const ANIMAL_INFO = { perrito: { emoji: '🐶', nombre: 'el perrito' }, conejo: { emoji: '🐰', nombre: 'el conejito' }, pinguino: { emoji: '🐧', nombre: 'el pingüino' } };
 function makeDog() {
-  const d = { root: new THREE.Group() }; const fur = M('#e3c29b'), ear = M('#b88a63'), dark = M('#3d3550'), white = M('#fff8ef');
+  const d = { root: new THREE.Group() }; const fur = S('#e3c29b'), ear = S('#b88a63'), dark = S('#2a2338', { roughness: 0.12 }), white = S('#fff8ef');
   const body = mesh(ICO, fur, 0, 0.36, 0, d.root); body.scale.set(0.28, 0.26, 0.42);
   d.head = new THREE.Group(); d.head.position.set(0, 0.64, 0.38); d.root.add(d.head);
   mesh(ICO, fur, 0, 0, 0, d.head).scale.set(0.25, 0.23, 0.24);
@@ -1374,35 +1408,35 @@ function makeDog() {
   [-1, 1].forEach(s => { mesh(EYE, dark, s * 0.09, 0.05, 0.2, d.head).scale.set(0.04, 0.045, 0.03); const e = mesh(ICO, ear, s * 0.22, -0.02, 0, d.head); e.scale.set(0.06, 0.16, 0.11); e.rotation.z = s * 0.25; });
   const legGeo = new THREE.CylinderGeometry(0.065, 0.06, 0.3, 6); [[-1, 1], [1, 1], [-1, -1], [1, -1]].forEach(([x, z]) => mesh(legGeo, fur, x * 0.14, 0.15, z * 0.24, d.root));
   d.tail = new THREE.Group(); d.tail.position.set(0, 0.48, -0.38); d.root.add(d.tail); const tg = new THREE.CylinderGeometry(0.04, 0.05, 0.28, 6); tg.translate(0, 0.14, 0); mesh(tg, fur, 0, 0, 0, d.tail); d.tail.rotation.x = -0.6;
-  const collar = mesh(new THREE.TorusGeometry(0.17, 0.03, 5, 12), M('#6f9fd1'), 0, 0.5, 0.33, d.root); collar.rotation.x = 1.2;
+  const collar = mesh(new THREE.TorusGeometry(0.17, 0.03, 5, 12), S('#6f9fd1'), 0, 0.5, 0.33, d.root); collar.rotation.x = 1.2;
   d.update = (t) => { d.tail.rotation.z = Math.sin(t * 12) * 0.5; d.head.rotation.z = Math.sin(t * 1.5) * 0.12; };
   return d;
 }
 function makeRabbit() {
-  const r = { root: new THREE.Group() }; const fur = M('#f5efe6'), pink = M('#f4a9c0'), dark = M('#3d3550');
+  const r = { root: new THREE.Group() }; const fur = S('#f5efe6'), pink = S('#f4a9c0'), dark = S('#2a2338', { roughness: 0.12 });
   mesh(ICO, fur, 0, 0.27, -0.02, r.root).scale.set(0.26, 0.26, 0.3);
   r.head = new THREE.Group(); r.head.position.set(0, 0.52, 0.18); r.root.add(r.head);
   mesh(ICO, fur, 0, 0, 0, r.head).scale.set(0.2, 0.19, 0.19);
   [-1, 1].forEach(s => mesh(EYE, dark, s * 0.08, 0.03, 0.16, r.head).scale.set(0.035, 0.04, 0.025));
   mesh(EYE, pink, 0, -0.03, 0.19, r.head).scale.set(0.025, 0.02, 0.02);
   r.ears = [-1, 1].map(s => { const p = new THREE.Group(); p.position.set(s * 0.07, 0.14, -0.02); r.head.add(p); const g = new THREE.CylinderGeometry(0.045, 0.06, 0.38, 6); g.translate(0, 0.19, 0); mesh(g, fur, 0, 0, 0, p).scale.z = 0.6; const gi = new THREE.CylinderGeometry(0.025, 0.035, 0.3, 6); gi.translate(0, 0.17, 0.025); mesh(gi, pink, 0, 0, 0, p).scale.z = 0.5; p.rotation.z = -s * 0.15; return p; });
-  mesh(ICO, M('#ffffff'), 0, 0.25, -0.32, r.root).scale.setScalar(0.09);
+  mesh(ICO, S('#ffffff'), 0, 0.25, -0.32, r.root).scale.setScalar(0.09);
   [-1, 1].forEach(s => mesh(ICO, fur, s * 0.12, 0.05, 0.1, r.root).scale.set(0.07, 0.05, 0.12));
   r.update = (t) => { r.ears[0].rotation.x = Math.sin(t * 3) * 0.1; r.ears[1].rotation.x = (Math.sin(t * 7) > 0.9 ? -0.4 : 0); r.head.rotation.x = Math.sin(t * 9) > 0.95 ? 0.08 : 0; };
   return r;
 }
 function makePenguin() {
-  const p = { root: new THREE.Group() }; const navy = M('#56688f'), white = M('#fffdf8'), orange = M('#f7a46a'), dark = M('#2a2338');
+  const p = { root: new THREE.Group() }; const navy = S('#56688f'), white = S('#fffdf8'), orange = S('#f7a46a'), dark = S('#2a2338', { roughness: 0.12 });
   p.body = new THREE.Group(); p.root.add(p.body);
   mesh(ICO, navy, 0, 0.42, 0, p.body).scale.set(0.28, 0.4, 0.26);
   mesh(ICO, white, 0, 0.38, 0.09, p.body).scale.set(0.22, 0.31, 0.2);
   mesh(ICO, navy, 0, 0.84, 0, p.body).scale.set(0.2, 0.19, 0.19);
   mesh(ICO, white, 0, 0.82, 0.07, p.body).scale.set(0.14, 0.12, 0.13);
-  [-1, 1].forEach(s => { mesh(EYE, dark, s * 0.065, 0.87, 0.17, p.body).scale.set(0.028, 0.035, 0.02); mesh(EYE, M('#f7c0cf'), s * 0.11, 0.8, 0.15, p.body).scale.set(0.03, 0.02, 0.02); });
+  [-1, 1].forEach(s => { mesh(EYE, dark, s * 0.065, 0.87, 0.17, p.body).scale.set(0.028, 0.035, 0.02); mesh(EYE, S('#f7c0cf'), s * 0.11, 0.8, 0.15, p.body).scale.set(0.03, 0.02, 0.02); });
   const beak = mesh(new THREE.ConeGeometry(0.045, 0.12, 5), orange, 0, 0.8, 0.22, p.body); beak.rotation.x = Math.PI / 2;
   [-1, 1].forEach(s => mesh(ICO, orange, s * 0.1, 0.03, 0.08, p.root).scale.set(0.07, 0.03, 0.11));
   p.flips = [-1, 1].map(s => { const f = new THREE.Group(); f.position.set(s * 0.27, 0.55, 0); p.body.add(f); const m = mesh(ICO, navy, 0, -0.14, 0, f); m.scale.set(0.04, 0.17, 0.09); f.rotation.z = s * 0.25; return f; });
-  const scarf = mesh(new THREE.TorusGeometry(0.17, 0.045, 5, 12), M('#f4a9c0'), 0, 0.68, 0, p.body); scarf.rotation.x = Math.PI / 2;
+  const scarf = mesh(new THREE.TorusGeometry(0.17, 0.045, 5, 12), S('#f4a9c0'), 0, 0.68, 0, p.body); scarf.rotation.x = Math.PI / 2;
   p.update = (t) => { p.body.rotation.z = Math.sin(t * 3) * 0.08; p.flips.forEach((f, i) => f.rotation.z = (i ? 1 : -1) * (0.25 + Math.max(0, Math.sin(t * 2.5)) * 0.4)); };
   return p;
 }
@@ -1413,8 +1447,8 @@ function buildAnimals() {
     pinguino: { make: makePenguin, pos: [5.7, 0, -3.7], rotY: -0.8, snd: 'honk' }                     // junto al estanque, tras un pino
   };
   // escondites
-  const bushG = new THREE.IcosahedronGeometry(1, 1);
-  [[-5.55, 1.3, 0.55], [-5.6, 0.55, 0.45], [-5.75, 1.85, 0.4], [-6.0, 0.1, 0.35]].forEach(([x, z, s]) => { const b = mesh(bushG, M('#9fd6c2'), x, s * 0.5, z, scene); b.scale.set(s, s * 0.85, s); mesh(bushG, M('#ffffff'), x, s * 0.95, z, scene).scale.set(s * 0.7, s * 0.25, s * 0.7); });
+  const bushG = new THREE.IcosahedronGeometry(1, 1); const Mb = M;
+  [[-5.55, 1.3, 0.55], [-5.6, 0.55, 0.45], [-5.75, 1.85, 0.4], [-6.0, 0.1, 0.35]].forEach(([x, z, s]) => { const b = mesh(bushG, M('#7fbfa6'), x, s * 0.5, z, scene); b.scale.set(s, s * 0.85, s); mesh(bushG, M('#ffffff'), x, s * 0.95, z, scene).scale.set(s * 0.7, s * 0.25, s * 0.7); });
   pine(5.15, -3.15, 0.85);
   Object.entries(defs).forEach(([k, d]) => {
     const a = d.make(); a.key = k; a.root.position.set(...d.pos); a.root.rotation.y = d.rotY; a.root.userData.baseY = 0; scene.add(a.root);
@@ -1623,16 +1657,18 @@ const RENDER = {
       const li = el('li'); li.appendChild(el('span', 'e', l.emoji || '📍')); const tx = el('div'); tx.appendChild(el('b', null, l.nombre)); tx.appendChild(el('small', null, l.recuerdo || '')); li.appendChild(tx); ul.appendChild(li);
       li.onclick = () => { const mk = markers[i]; if (mk && mapRef) { mapRef.flyTo(mk.getLatLng(), 16, { duration: 1 }); mk.openPopup(); m.scrollIntoView({ behavior: 'smooth', block: 'center' }); } };
     });
+    const geo = (d.lugares || []).filter(l => typeof l.lat === 'number' && typeof l.lng === 'number');
+    if (!geo.length) { m.remove(); return; }
     loadLeaflet().then(L => {
-      if (!document.body.contains(m) || !(d.lugares || []).length) return;
+      if (!document.body.contains(m)) return;
       const map = mapRef = L.map(m, { zoomControl: true, attributionControl: true, scrollWheelZoom: false });
       L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { attribution: '© OpenStreetMap · © CARTO', maxZoom: 19, subdomains: 'abcd' }).addTo(map);
-      const pts = d.lugares.map(l => [l.lat, l.lng]);
-      d.lugares.forEach(l => { const icon = L.divIcon({ className: '', html: `<div class="pin">${l.emoji || '💗'}</div>`, iconSize: [34, 34], iconAnchor: [17, 30] });
+      const pts = geo.map(l => [l.lat, l.lng]);
+      d.lugares.forEach((l, i) => { if (!geo.includes(l)) { markers[i] = null; return; } const icon = L.divIcon({ className: '', html: `<div class="pin">${l.emoji || '💗'}</div>`, iconSize: [34, 34], iconAnchor: [17, 30] });
         const p = el('div'); p.appendChild(el('b', null, l.nombre)); p.appendChild(document.createElement('br')); p.appendChild(document.createTextNode(l.recuerdo || ''));
-        markers.push(L.marker([l.lat, l.lng], { icon }).addTo(map).bindPopup(p)); });
-      L.polyline(pts, { color: '#e2849f', weight: 3, dashArray: '6 8', opacity: 0.8 }).addTo(map);
-      map.fitBounds(L.latLngBounds(pts).pad(0.3), { maxZoom: 15 });
+        markers[i] = L.marker([l.lat, l.lng], { icon }).addTo(map).bindPopup(p); });
+      if (pts.length > 1) L.polyline(pts, { color: '#e2849f', weight: 3, dashArray: '6 8', opacity: 0.8 }).addTo(map);
+      pts.length > 1 ? map.fitBounds(L.latLngBounds(pts).pad(0.3), { maxZoom: 15 }) : map.setView(pts[0], 15);
       setTimeout(() => map.invalidateSize(), 400);
       cleanup.push(() => map.remove());
     }).catch(() => { m.textContent = '🗺️ No se ha podido cargar el mapa (¿sin conexión?). ¡Pero los recuerdos siguen aquí abajo!'; m.style.cssText += ';display:grid;place-items:center;padding:20px;text-align:center;height:auto'; });
@@ -1821,7 +1857,11 @@ function frame() {
    ===================================================================== */
 async function boot() {
   try { await Promise.race([document.fonts.load('700 80px Fredoka'), new Promise(r => setTimeout(r, 1500))]); } catch (e) {}
-  buildGifts(); buildCats(); buildAnimals(); refreshGifts(); updatePaw(); updateCountdown(); setInterval(updateCountdown, 60000);
+  buildGifts(); buildCats(); buildAnimals();
+  scene.traverse(o => { if (!o.isMesh || o.isInstancedMesh) return; const m = Array.isArray(o.material) ? o.material[0] : o.material;
+    if (m === HIT_MAT || m === shadowMat || m.isMeshBasicMaterial) return; o.castShadow = true; o.receiveShadow = true; });
+  island.children.forEach(o => { o.castShadow = false; });
+  refreshGifts(); updatePaw(); updateCountdown(); setInterval(updateCountdown, 60000);
   if (isOpened(24)) gatherAll(true);
   window.__openDay = d => onGiftTap(gifts[d - 1]); // atajo de depuración para la consola
   $('#loading').remove();
